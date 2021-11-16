@@ -1,7 +1,7 @@
 <?php 
     require_once("connection.php");
 
-    $stmt = $pdo-> prepare("SELECT * FROM user");
+    $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
     $stmt -> execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,7 +19,7 @@
         if($usnm != "" && $pass != ""){
             
             try{
-                $stmt = $pdo-> prepare("SELECT * FROM USER WHERE username = :username AND password = :pass");
+                $stmt = $pdo-> prepare("SELECT * FROM PENYEWA WHERE username = :username AND password = :pass");
                 $stmt->bindParam(':username', $usnm);
                 $stmt->bindParam(':pass', $pass);
                 $stmt->execute();

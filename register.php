@@ -24,6 +24,11 @@
                     <input type="hidden" name="action" value="addUser">
                         <table>
                             <tr>
+                                <td style="padding-top: 20px; "> 
+                                    <input style="margin-left: 15px;" type="number" name="nik" id="nik" placeholder="Masukan NIK" required>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td style="padding-top: 20px; ">
                                     <input style="margin-left: 15px;"  type="text" id="username" name="username" placeholder="Masukan Username" required><br>
                                 </td>
@@ -34,11 +39,18 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-top: 20px; padding-bottom: 20px;">
+                                <td style="padding-top: 20px;">
                                 <input 
                                 style="margin-left: 15px;" type="password" id="repwd" name="repwd" placeholder="Masukan Ulang Password" required>
                                 </td>
                             </tr>
+
+                            <tr>
+                                <td style="padding-top: 15px; padding-bottom: 20px;">
+                                    <input style="margin-left: 15px;" type="text" id="nama" name="nama" placeholder="Masukan Nama lengkap" required>
+                                </td>
+                            </tr>
+
                             <tr>
                                 <td> 
                                     <input style="margin-left: 15px;"  type="tel" id="phone" name="phone" placeholder="Phone Number" required>
@@ -49,23 +61,11 @@
                                     <input style="margin-left: 15px;" type="text" id="alamat" name="alamat" placeholder="Alamat" required>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="padding-top: 20px; text-align: left; padding-bottom: 15px;">
-                                    <input style="margin-left:15px;" type="radio" id="pria"
-                                    name="gender" 
-                                    value="Pria" required> <label for="pria"> Pria</label>
-                                    <input 
-                                    style="margin-left: 100px;"
-                                    type="radio" id="wanita"
-                                    name="gender" 
-                                    value="Wanita" required> <label for="wanita"> Wanita</label>
-                                </td>
-                            </tr>
                         </table>
                         <input type="submit" value="Register" id = "button" name="action">
                     </form>
                     
-                    <p style="text-align: center; padding-top: 15px;">Back to Login <a href="index.php" >Here!</a> </p>
+                    <p style="text-align: center; padding-top: 15px;">Back to Login <a href="login.php" >Here!</a> </p>
                 </div>
             </div>
 

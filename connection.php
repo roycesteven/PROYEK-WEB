@@ -3,7 +3,7 @@ session_start();
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$database = 'project';
+$database = 'db_proyek';
 $port = '3306';
 $dsn = "mysql:host=$host;dbname=$database";
 $options = [

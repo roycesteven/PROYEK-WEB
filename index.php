@@ -20,7 +20,7 @@ require_once("connection.php");
                 <div class="kiri">
                     <a href="index.php" class="logo">LOGO</a>
                     <a href="produk-list.php">Products</a>
-                    <a href="index.php#container2">About Us</a>
+                    <a href="#container2">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php
@@ -45,8 +45,11 @@ require_once("connection.php");
                 <h2>IndoSuroboyo Untuk penuhi kebutuhan mobilitas anda</h2><br>
                 <p>Butuh sewa mobil pribadi ataupun kantor? IndoSuroboyo Solusinya</p> <br>
                 <div class="btn">
-                    <button>Daftar Gratis untuk memulai</button>
-                    <p style = "font-size : 18px; padding-top : 20px">Sudah daftar?  <a href ="#"> masuk sini!</a> </p>
+                    <button>
+                        <a href ="register.php" style = "text-decoration: none;
+                        color: white;"> Daftar Gratis untuk memulai</a>                        
+                    </button>
+                    <p style = "font-size : 18px; padding-top : 20px">Sudah daftar?  <a href ="login.php"> masuk sini!</a> </p>
                 </div> 
                 <br><br>
                 <hr>
