@@ -1,3 +1,9 @@
+<?php
+
+require_once("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +23,22 @@
                         <a href="index.php#container2">About Us</a>
                     </div>
                     <div class="kanan">
-                        <a href="login.php">Login</a>
-                        <a href="register.php">Register</a>
+                    <?php
+                        if(!isset( $_SESSION['userLogin'])){
+                            ?>
+                            <a href="login.php">Login</a>
+                            <a href="register.php">Register</a>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <a href="user.php">
+                                <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
+                            <?= $_SESSION['userLogin'] ?></a>
+                            <a href="user.php?action=logout">Logout</a>
+                            <?php
+                        }
+                            ?>
                     </div>
         </div>
         <div class="container1">

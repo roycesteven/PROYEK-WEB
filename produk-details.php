@@ -1,3 +1,21 @@
+<?php
+    require_once("connection.php");
+    if(isset($_REQUEST['action'])){
+        if($_REQUEST['action']=='proceed' && isset($_SESSION['userLogin'])){
+            unset($_SESSION['active']);
+            header('location:order-form.php');
+               
+        }
+        else{
+            $_SESSION['active']='location:produk-details.php';
+            header('location:login.php');
+        }
+        
+    }
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +34,22 @@
                     <a href="index.php#container2">About Us</a>
                 </div>
                 <div class="kanan">
-                    <a href="login.php">Login</a>
-                    <a href="register.php">Register</a>
+                <?php
+                        if(!isset( $_SESSION['userLogin'])){
+                            ?>
+                            <a href="login.php">Login</a>
+                            <a href="register.php">Register</a>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <a href="user.php">
+                                <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
+                            <?= $_SESSION['userLogin'] ?></a>
+                            <a href="user.php?action=logout">Logout</a>
+                            <?php
+                        }
+                            ?>
                 </div>
         </div>
             <div class="details">
@@ -47,8 +79,13 @@
                     </table>
                 </div>
                 <div class="bawah">
-                    <a href="order-form.php"><button>Proceed</button></a>
+                    
+                    <form action="produk-details.php" method="POST">
+                        <input type="hidden" name="action" value="proceed">
+                        <button type="submit" name="submit_proceed">Proceed</button>
+                    </form>
                     <a href="produk-list.php"><button>Back</button></a>
+                    
                 </div>
             </div>
         </div>

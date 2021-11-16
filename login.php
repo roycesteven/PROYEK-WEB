@@ -1,7 +1,7 @@
 <?php 
     require_once("connection.php");
 
-    $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
+    $stmt = $pdo-> prepare("SELECT * FROM user");
     $stmt -> execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,7 +27,12 @@
                 $count = $stmt->rowCount();
                 if($count == 1) {
                     $_SESSION['userLogin'] = $usnm;
-                    header("Location: user.php");
+                    if(isset($_SESSION['active'])){
+                        header($_SESSION['active']);
+                    }else{
+                        header("Location: index.php");
+                    }
+                    
                     return;
                 }else{
                     echo "Anda tidak dapat login";
@@ -51,7 +56,7 @@
     <body>
         <div class="container">
           <h1>Login</h1>
-            <form action="index.php" name="form1" method= "post">
+            <form action="login.php" name="form1" method= "post">
                 <label>Username</label><br>
                 <input type="text" id="username" name="username"><br>
                 <label>Password</label><br>
