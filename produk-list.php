@@ -8,94 +8,98 @@
     <link rel="stylesheet" href="produk-list.css">
 </head>
 <body>
-    <header>
-        <a href="index.php" class="logo">IndoSuroboyo</a>
-            <div class="container"></div>
-            <nav>
-                <ul>
-                    <li><a href="produk-list.php" >Products</a></li>
-                    <li><a href="#container2">About Us</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="login.php">Login</a></li> &nbsp;&nbsp;&nbsp;
-                    <li><a href="register.php" class="active">Register</a></li>
-                </ul>
-            </nav>
-    </header>
-    
-    <div class="products">
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
+    <div class="container">
+        <div class="navigation">
+            <div class="navigation">
+                    <div class="kiri">
+                        <a href="index.php" class="logo">LOGO</a>
+                        <a href="produk-list.php">Products</a>
+                        <a href="index.php#container2">About Us</a>
+                    </div>
+                    <div class="kanan">
+                        <a href="login.php">Login</a>
+                        <a href="register.php">Register</a>
+                    </div>
             </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        <a href="produk-details.php" class="product">
-            <img src="Asset/yaris.jpg" alt="">
-            <div class="text">
-                <p style="font-weight: bold;">All New Yaris</p>
-                <p>Rp. 200,000,-</p>
-            </div>
-        </a>
-        
+        </div>
+        <div class="products">
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            <a href="produk-details.php" class="product">
+                <img src="Asset/yaris.jpg" alt="">
+                <div class="text">
+                    <p style="font-weight: bold;">All New Yaris</p>
+                    <p>Rp. 200,000,-</p>
+                </div>
+            </a>
+            
 
-       
+        
+        </div>
     </div>
+    
+    
     
         
 </body>
