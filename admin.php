@@ -1,8 +1,14 @@
 <?php 
     require_once("connection.php");
     $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
-        $stmt -> execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt -> execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if(isset($_SESSION["message"])){
+        echo "<script>alert('$_SESSION[message]')</script>";
+        unset($_SESSION["message"]);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +28,12 @@
     </style>
 </head>
 <body>
-
-    
-
     <div class="container2">
         <a id= "login" href="user.php?action=logout">Log-Out</a>
             <div id="why">
                 <h1 style="font-size: 50px;">SELAMAT DATANG ADMIN!!!</h1>
                 <p style="font-size: 25px; padding: 8px;">Kerja yang bener yaaa, harus semangat. Inget Shoppe-Pay gabisa lunas sendiri</p>
+                <p style="font-size: 25px; padding: 8px;"> Ke Menu Admin Mobil <a href="admin-mobil.php"> Here! </a> </p>
             </div>
             <hr> <br><br>
             <div class="tabus">
@@ -40,8 +44,11 @@
                     <option value="">Filter Attribut</option>
                     <option value="id">Id</option>
                     <option value="username">Username</option>
+                    <option value="nama">Nama</option>
+                    <option value="email">Email</option>
                     <option value="nomor_telp">Nomor Telpon</option>
                     <option value="alamat">Alamat</option>
+                    <option value="kota">Kota</option>
                 </select>
                 <select name="s_sort" id="s_sort">
                     <option value="">Sort By</option>
@@ -58,11 +65,12 @@
                 <thead>
                     <th>Id</th>           
                     <th>Username</th>
-                    <th>Password</th>
+                    <th>Nama</th>
+                    <th>Email</th>
                     <th>Phone</th>
                     <th>Alamat</th>
+                    <th>Kota</th>
                     <th>Action</th>
-
                 </thead>
 
                 <tbody>
@@ -79,9 +87,15 @@
                                 }else if($attr == "id"){
                                     $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id ASC");
                                 }else if($attr == "nomor_telp"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY nomor_telp ASC");
+                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp ASC");
                                 }else if($attr == "alamat"){
                                     $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat ASC");
+                                }else if($attr == "email"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email ASC");
+                                }else if($attr == "kota"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota ASC");
+                                }else if($attr == "nama"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama ASC");
                                 }
                             }else if($sort == "descending"){
                                 if($attr == "username"){
@@ -89,9 +103,15 @@
                                 }else if($attr == "id"){
                                     $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id DESC");
                                 }else if($attr == "nomor_telp"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY nomor_telp DESC");
+                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp DESC");
                                 }else if($attr == "alamat"){
                                     $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat DESC");
+                                }else if($attr == "email"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email DESC");
+                                }else if($attr == "kota"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota DESC");
+                                }else if($attr == "nama"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama DESC");
                                 }
                             }else{
                                 if($attr == "username"){
@@ -102,6 +122,12 @@
                                     $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama");
                                 }else if($attr == "alamat"){
                                     $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama");
+                                }else if($attr == "email"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama");
+                                }else if($attr == "kota"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama");
+                                }else if($attr == "nama"){
+                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama");
                                 }
                             }
                             $stmt->BindParam(":nama",$pencarian);
@@ -115,9 +141,11 @@
                                 <tr>
                                         <td><?= $t['id']?></td>
                                         <td><?= $t['username']?></td>
-                                        <td><?= $t['password']?></td>
-                                        <td><?= $t['nomor_telp']?></td>
+                                        <td><?= $t['nama']?></td>
+                                        <td><?= $t['email']?></td>
+                                        <td><?= $t['no_telp']?></td>
                                         <td><?= $t['alamat']?></td>
+                                        <td><?= $t['kota']?></td>
                                         <td>
                                             <a href="editUser.php?id=<?=$value['id']?>">
                                                 <button>Edit</button>
@@ -141,9 +169,11 @@
                             <tr>
                             <td><?= $value['id']?></td>
                             <td><?= $value['username']?></td>
-                            <td><?= $value['password']?></td>
+                            <td><?= $value['nama']?></td>
+                            <td><?= $value['email']?></td>
                             <td><?= $value['no_telp']?></td>
                             <td><?= $value['alamat']?></td>
+                            <td><?= $value['kota']?></td>
                             <td>
                                 <a href="editUser.php?id=<?=$value['id']?>">
                                     <button>Edit</button>

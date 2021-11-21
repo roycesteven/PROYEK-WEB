@@ -44,7 +44,11 @@
                                 style="margin-left: 15px;" type="password" id="repwd" name="repwd" placeholder="Masukan Ulang Password" required>
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td style="padding-top: 20px; ">
+                                    <input style="margin-left: 15px;" type="email" id="email" name="email" placeholder="Masukan email" required><br>
+                                </td>
+                            </tr>
                             <tr>
                                 <td style="padding-top: 15px; padding-bottom: 20px;">
                                     <input style="margin-left: 15px;" type="text" id="nama" name="nama" placeholder="Masukan Nama lengkap" required>
@@ -59,6 +63,11 @@
                             <tr>
                                 <td style="padding-top: 20px;">
                                     <input style="margin-left: 15px;" type="text" id="alamat" name="alamat" placeholder="Alamat" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 20px;">
+                                    <input style="margin-left: 15px;" type="text" id="kota" name="kota" placeholder="Kota" required>
                                 </td>
                             </tr>
                         </table>

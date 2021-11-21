@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    background-color: #464646;
+    height: 100vh;
+    width: 100%;
+}
+
+.addcar{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    height: 600px;
+    background-color: #464646;
+}
+
+.card{
+    display: flex;
+    margin:auto ;
+    background-color: saddlebrown;
+    width: 750px;
+    height: 600px;
+}
+
+
+
+.kiri{
+    background-color: black;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url(Asset/addcar.jpg);
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.kanan{
+    background-color: white;
+    width: 450px;
+    padding-top: 50px ;
+}
+
+input[type=text] ,input[type=number]{
+    width: 420px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select{
+    width: 420px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 14px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#button {
+    width: 420px;
+    background-color: #464646;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 15px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+#button:hover{
+    background-color: #2D2424;
+}
+
+.footer{
+    width: 100%;
+    height: 50px;
+    background-color:#e3e0cc;
+    position: absolute;
+}
+
+p a:hover {
+    color: #002366;
+}
+
+.membersList {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: #ACD8F0;
+    width: 150px;
+    border: 1px solid #000000;
+    overflow: auto;
+    float: right;
+}
+
+
+.card2{
+    display: flex;
+    margin:auto ;
+    background-color: #e3e0cc;
+    width: 750px;
+
+}
+
+.card2 table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+ .card2 th, .card2 td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
+  
+  .card2 tr:hover {background-color: #D6EEEE;}
