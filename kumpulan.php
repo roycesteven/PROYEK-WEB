@@ -47,7 +47,7 @@ if($action == "Register"){
     $tarif = $_POST['tarif'];
     $status = "Available";
 
-    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != ""){
+    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif!=""){
         $result = false;
         $stmt = $pdo -> prepare("INSERT INTO MOBIL (nama_mobil, tahun, bahan_bakar,jenis, tarif, status) VALUES (?,?,?,?,?,?)");
         $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif,$status]);
@@ -100,6 +100,39 @@ if($action == "Register"){
         }
     
          header("Location:admin.php");
+      
+    }else{
+        echo "<script> alert('Ada field yang belum diisi'); </script>";
+    }
+}else if($action=="editMobilku"){
+    $id_mobil = $_POST['id_mobil'];
+    $nama = $_POST['nama_mobil'];
+    $tahun = $_POST['tahun'];
+    $bahan_bakar = $_POST['bahan_bakar'];
+    $jenis = $_POST['jenis'];
+    $tarif = $_POST['tarif'];
+    $status = $_POST["status"];
+    
+    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif !=""){
+        $result = false;
+        $stmt = $pdo->prepare("UPDATE MOBIL SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif=:tarif, status=:status WHERE id = :id");
+        $stmt->bindParam(":nama_mobil", $nama);
+        $stmt->bindParam(":tahun", $tahun);
+        $stmt->bindParam(":bahan_bakar", $bahan_bakar);
+        $stmt->bindParam(":jenis", $jenis);
+        $stmt->bindParam(":tarif", $tarif);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":id", $id_mobil);
+        $result = $stmt->execute();
+
+        if($result == true){
+            $_SESSION["message"] = "Berhasil edit nih";
+        }
+        else{
+            $_SESSION["message"] = "Gagal edit nih";
+        }
+    
+        header("Location:admin-mobil.php");
       
     }else{
         echo "<script> alert('Ada field yang belum diisi'); </script>";

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2021 at 10:13 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Generation Time: Nov 23, 2021 at 02:33 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -71,7 +70,11 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`id`, `nama_mobil`, `tahun`, `bahan_bakar`, `jenis`, `tarif`, `status`) VALUES
-(1, 'Honda Mobilio', 2019, 'Bensin', 'MPV', 65000, 'Available');
+(1, 'Yaris', 2014, 'Solar', 'Hatchback', 100000, 'Available'),
+(2, 'Kijang Innova', 2018, 'Bensin', 'SUV', 56000, 'Available'),
+(3, 'Suzuki Baleno', 2021, 'Bensin', 'Hatchback', 75000, 'Available'),
+(4, 'Honda Odyssey', 2021, 'Bensin', 'MPV', 95000, 'Available'),
+(5, 'Mini Cooper', 2020, 'Listrik', 'Sedan', 90000, 'Available');
 
 -- --------------------------------------------------------
 
@@ -96,8 +99,10 @@ CREATE TABLE `penyewa` (
 --
 
 INSERT INTO `penyewa` (`id`, `nik`, `username`, `password`, `nama`, `no_telp`, `alamat`, `kota`, `email`) VALUES
-(1, 220310647, 'donit', 'a', 'Wahyu Donitya Adi Sasono', '0818100224', 'Perumahan Delta Mandala 1 No 131 Semambung, Gedangan, Sidoarjo.', 'sidoarjo', 'wahyu@gmail.com\r\n'),
-(2, 220310649, 'donit2', 'as', 'Wahyu Donitya Adi Sasono 2', '0818100224', 'Mandala', 'surabaya', 'wahyuuu@stts.edu');
+(1, 220310647, 'donit', 'a', 'Wahyu Donitya Adi Sasono', '0818100224', 'Perumahan Delta Mandala 1 No 131 Semambung, Gedangan, Sidoarjo.', 'Sidoarjo', 'wahyu@gmail.com'),
+(2, 220310649, 'donit2', 'as', 'Wahyu Donitya Adi Sasono 2', '0818100224', 'Mandala', 'Jayapura', 'wahyuuu@gmail.com'),
+(3, 2147483647, 'kevinnandrew', 'qwerty123', 'Kevin Andrew Wijaya', '087854782227', 'Kebraonnn Selatan', 'Surabaya', 'kevinandrew1402@gmail.com'),
+(4, 1, 'kyril02', 'awaskenavirus', 'andrewww', '087854782227', 'kebraon', 'surabaya', 'kevinandrew0000@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -138,16 +143,19 @@ ALTER TABLE `penyewa`
 --
 ALTER TABLE `header_pesanan`
   MODIFY `order_id` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `penyewa`
 --
 ALTER TABLE `penyewa`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- Constraints for dumped tables
 --

@@ -9,11 +9,6 @@
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($users as $key => $value){
-        // echo $value['id'];
-        // echo "<br>";
-        // echo $value['nik'];
-        // echo "<br>";
-        // echo $value['username'];
         $nik = $value['nik'];
         $username = $value['username'];
         $password = $value['password'];
@@ -34,7 +29,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit User</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="edit-user.css">
 </head>
 <body>
 <div class="container">
