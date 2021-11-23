@@ -61,6 +61,49 @@ if($action == "Register"){
     }else{
         echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
+}else if($action=="editUser"){
+    $id_user = $_POST['id_user'];
+    $nik = $_POST["nik"];
+    $username = $_POST["username"];
+    $password = $_POST["pwd"];
+    $confirmpass = $_POST["repwd"];
+    $namalengkap = $_POST["nama"];
+    $phone = $_POST["phone"];
+    $alamat = $_POST["alamat"];
+    $kota = $_POST['kota'];
+    $email = $_POST['email'];
+  
+    
+    if($username != "" && $password != "" && $confirmpass != "" && $phone != "" && $alamat != "" && $nik != "" &&$kota != "" && $email != "" && $namalengkap!=""){
+      $result = false;
+      if($password == $confirmpass){
+        $stmt = $pdo->prepare("UPDATE PENYEWA SET nik=:nik, username=:username,password=:password, nama=:nama , no_telp=:no_telp, alamat=:alamat, kota=:kota, email=:email WHERE id = :id");
+        $stmt->bindParam(":nik", $nik);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":nama", $namalengkap);
+        $stmt->bindParam(":no_telp", $phone);
+        $stmt->bindParam(":alamat", $alamat);
+        $stmt->bindParam(":kota", $kota);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":id", $id_user);
+        $result = $stmt->execute();
+      }else{
+          echo "<script> alert('Password dan Confirm password Tidak sama'); </script>";
+      }
+      
+      if($result == true){
+          $_SESSION["message"] = "Berhasil edit nih";
+        }
+        else{
+          $_SESSION["message"] = "Gagal edit nih";
+        }
+    
+         header("Location:admin.php");
+      
+    }else{
+        echo "<script> alert('Ada field yang belum diisi'); </script>";
+    }
 }
 
 ?>
