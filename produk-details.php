@@ -3,7 +3,7 @@
     if(isset($_REQUEST['action'])){
         if($_REQUEST['action']=='proceed' && isset($_SESSION['userLogin'])){
             unset($_SESSION['active']);
-            header('location:order-form.php');
+            header('location:produk-list.php');
                
         }
         else{
@@ -83,7 +83,7 @@
                     
                     <form action="produk-details.php" method="POST">
                         <input type="hidden" name="action" value="proceed">
-                        <button type="submit" name="submit_proceed">Proceed</button>
+                        <button type="submit" name="submit_proceed">Add to Cart</button>
                     </form>
                     <a href="produk-list.php"><button>Back</button></a>
                     
