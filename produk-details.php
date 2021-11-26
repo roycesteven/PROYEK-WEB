@@ -62,10 +62,6 @@
                             <td>: All New Yaris</td>
                         </tr>
                         <tr>
-                            <td>Tahun Pembuatan</td>
-                            <td>: 2017</td>
-                        </tr>
-                        <tr>
                             <td>Bahan Bakar</td>
                             <td>: Bensin</td>
                         </tr>
