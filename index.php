@@ -25,13 +25,14 @@ require_once("connection.php");
                 <div class="kanan">
                 <?php
                         if(!isset( $_SESSION['userLogin'])){
-                            ?>
+                            ?>                           
                             <a href="login.php">Login</a>
                             <a href="register.php">Register</a>
                             <?php
                         }
                         else {
                             ?>
+                            <a href="#">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>

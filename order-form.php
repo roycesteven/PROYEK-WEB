@@ -60,7 +60,7 @@
                             <td>: <input type="time"></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="text-align: center;"><input type="submit" name="" id="submit_order" value="Order"></td>
+                            <td colspan="2" style="text-align: center;"><input type="submit" name="" id="submit_order" value="Add to Cart"></td>
                         </tr>
                     </table>
                 </form>
