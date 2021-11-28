@@ -17,28 +17,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin2.css">
     <title>Document</title>
-    <style>
+    <!-- <style>
         th, td {
             text-align: left;
             padding: 8px;
         }
         tr:nth-child(even) {background-color: #f2f2f2;}
-    </style>
+    </style> -->
 </head>
 <body>
-    <div class="container2">
-        <a id= "login" href="user.php?action=logout">Log-Out</a>
-            <div id="why">
-                <h1 style="font-size: 50px;">SELAMAT DATANG ADMIN!!!</h1>
-                <p style="font-size: 25px; padding: 8px;">Kerja yang bener yaaa, harus semangat. Inget Shoppe-Pay gabisa lunas sendiri</p>
-                <p style="font-size: 25px; padding: 8px;"> Ke Menu Admin Mobil <a href="admin-mobil.php"> Here! </a> </p>
+    <div class="container">
+        <div class="navigation">
+            <div class="kiri">
+                <a href="index.php" class="logo">LOGO</a>
+                <a href="admin-mobil.php">Admin Mobil</a>
             </div>
-            <hr> <br><br>
-            <div class="tabus">
-
+            <div class="kanan">
+                <a id= "login" href="user.php?action=logout">Log-Out</a>
+            </div>
+        </div>
+        <div id="why">
+            <center>
+            <h1 style="font-size: 50px;">WELCOME ADMIN</h1>
+            </center>
+        </div>
+        <hr>
+        <div class="tabus">
             <form action="#" method = "POST">
+                <h1>Master User</h1>
+                <br>
                 <h2>Cari</h2> <br>
                 <select name="s_attr" id="s_attr">
                     <option value="">Filter Attribut</option>
@@ -55,13 +64,11 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>  
-                <input type="text" name="s_key" id="s_key" placeholder = "Masukan Key">
-                <button id="search" name="search">Cari</button>
+                <input type="text" name="s_key" id="s_key" class="inputKey" placeholder = "Masukan Key">
+                <button id="search" name="search" class="cari-button">Cari</button>
             </form>
-            
-            <br><br>
-            <table id="tabel" style="border-collapse: collapse;width: 100%;" method = "POST">
-
+            <br>
+            <table id="tabel" class="styleTable" method = "POST">
                 <thead>
                     <th>Id</th>           
                     <th>Username</th>
@@ -70,97 +77,108 @@
                     <th>Phone</th>
                     <th>Alamat</th>
                     <th>Kota</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </thead>
-
                 <tbody>
                 <?php
 
                     if(isset($_POST['search'])){
-                        $pencarian="%".$_POST['s_key']."%";
-                        $attr = $_POST['s_attr'];
-                        $sort = $_POST['s_sort'];
-                        try{
-                            if($sort == "ascending"){
-                                if($attr == "username"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where username like :nama ORDER BY username ASC");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id ASC");
-                                }else if($attr == "nomor_telp"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp ASC");
-                                }else if($attr == "alamat"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat ASC");
-                                }else if($attr == "email"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email ASC");
-                                }else if($attr == "kota"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota ASC");
-                                }else if($attr == "nama"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama ASC");
+                        if(isset($_POST['s_key']) && $_POST['s_key']!= "" && $_POST['s_attr']!=""){
+                            $pencarian="%".$_POST['s_key']."%";
+                            $attr = $_POST['s_attr'];
+                            $sort = $_POST['s_sort'];
+                            try{
+                                if($sort == "ascending"){
+                                    if($attr == "username"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where username like :nama ORDER BY username ASC");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id ASC");
+                                    }else if($attr == "nomor_telp"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp ASC");
+                                    }else if($attr == "alamat"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat ASC");
+                                    }else if($attr == "email"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email ASC");
+                                    }else if($attr == "kota"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota ASC");
+                                    }else if($attr == "nama"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama ASC");
+                                    }
+                                }else if($sort == "descending"){
+                                    if($attr == "username"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where username like :nama ORDER BY username DESC");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id DESC");
+                                    }else if($attr == "nomor_telp"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp DESC");
+                                    }else if($attr == "alamat"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat DESC");
+                                    }else if($attr == "email"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email DESC");
+                                    }else if($attr == "kota"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota DESC");
+                                    }else if($attr == "nama"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama DESC");
+                                    }
+                                }else{
+                                    if($attr == "username"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where username like :nama");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where id like :nama");
+                                    }else if($attr == "nomor_telp"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama");
+                                    }else if($attr == "alamat"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama");
+                                    }else if($attr == "email"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where email like :nama");
+                                    }else if($attr == "kota"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama");
+                                    }else if($attr == "nama"){
+                                        $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama");
+                                    }
                                 }
-                            }else if($sort == "descending"){
-                                if($attr == "username"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where username like :nama ORDER BY username DESC");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where id like :nama ORDER BY id DESC");
-                                }else if($attr == "nomor_telp"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama ORDER BY no_telp DESC");
-                                }else if($attr == "alamat"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama ORDER BY alamat DESC");
-                                }else if($attr == "email"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama ORDER BY email DESC");
-                                }else if($attr == "kota"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama ORDER BY kota DESC");
-                                }else if($attr == "nama"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama ORDER BY nama DESC");
-                                }
-                            }else{
-                                if($attr == "username"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where username like :nama");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where id like :nama");
-                                }else if($attr == "nomor_telp"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where no_telp like :nama");
-                                }else if($attr == "alamat"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where alamat like :nama");
-                                }else if($attr == "email"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where email like :nama");
-                                }else if($attr == "kota"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where kota like :nama");
-                                }else if($attr == "nama"){
-                                    $stmt=$pdo->prepare("select * from PENYEWA where nama like :nama");
-                                }
-                            }
-                            $stmt->BindParam(":nama",$pencarian);
-                            $stmt->execute();
-                            if($stmt->rowCount()<1){
-                                echo "<i> Tidak ada hasil untuk pencarian kata </i>";
-                            }else{
+                                $stmt->BindParam(":nama",$pencarian);
+                                $stmt->execute();
+                                if($stmt->rowCount()<1){
+                                    echo "<i> Tidak ada hasil untuk pencarian kata </i>";
+                                }else{
 
-                                while($t=$stmt->fetch()){
-                                ?>
-                                <tr>
-                                        <td><?= $t['id']?></td>
-                                        <td><?= $t['username']?></td>
-                                        <td><?= $t['nama']?></td>
-                                        <td><?= $t['email']?></td>
-                                        <td><?= $t['no_telp']?></td>
-                                        <td><?= $t['alamat']?></td>
-                                        <td><?= $t['kota']?></td>
-                                        <td>
-                                            <a href="editUser.php?id=<?=$value['id']?>">
-                                                <button>Edit</button>
-                                            </a>
-                                            <form method="post" action="kumpulan.php">
-                                                <input type="hidden" name="action" value="deleteUser">
-                                                <button name='id' value="<?= $value['id']?>">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr> 
-                                <?php
-                                }
-                            }   
-                        }catch(PDOException $e){
-                            echo $e->getMessage();
+                                    while($t=$stmt->fetch()){
+                                    ?>
+                                    <tr>
+                                            <td><?= $t['id']?></td>
+                                            <td><?= $t['username']?></td>
+                                            <td><?= $t['nama']?></td>
+                                            <td><?= $t['email']?></td>
+                                            <td><?= $t['no_telp']?></td>
+                                            <td><?= $t['alamat']?></td>
+                                            <td><?= $t['kota']?></td>
+                                            <td>
+                                                <a href="editUser.php?id=<?=$value['id']?>">
+                                                    <button class="editUser-button"><span>Edit </span></button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form method="post" action="kumpulan.php">
+                                                    <input type="hidden" name="action" value="deleteUser">
+                                                    <button name='id' value="<?= $value['id']?>" class="delUser-button"><span>Delete </span></button>
+                                                </form>
+                                            </td>
+                                        </tr> 
+                                    <?php
+                                    }
+                                }   
+                            }catch(PDOException $e){
+                                echo $e->getMessage();
+                            }
+                        }else if($_POST['s_attr']=="" && $_POST['s_key']!=""){
+                            echo "<script>alert('Isi filter dengan benar')</script>";
+                            $_SESSION["message"] = "Isi Filter Attribut dengan Benar";
+                            header("Location:admin.php");
+                        }else{
+                            echo "<script>alert('Isi filter dengan benar')</script>";
+                            header("Location:admin.php");
                         }
                     }else{
                         if ($users !== null) {
@@ -176,11 +194,13 @@
                             <td><?= $value['kota']?></td>
                             <td>
                                 <a href="editUser.php?id=<?=$value['id']?>">
-                                    <button>Edit</button>
+                                    <button class="editUser-button"><span>Edit </span></button>
                                 </a>
+                            </td>
+                            <td>
                                 <form method="post" action="kumpulan.php">
                                     <input type="hidden" name="action" value="deleteUser">
-                                    <button name='id' value="<?= $value['id']?>">Delete</button>
+                                    <button name='id' value="<?= $value['id']?>" class="delUser-button"><span>Delete </span></button>
                                 </form>
                             </td>
                         </tr>
@@ -188,17 +208,11 @@
                             }
                         }
                     }
-                
-                
                 ?>
             </tbody>
-                
-                </table> <br><br><br><br>
-                <a href="register.php"><input type="button" class="button" value="Add User" style = "background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;"> </a>
+                </table> <br>
+                <a href="register.php"><input type="button" class="addUser-button" value="Add New User"> </a>
                 <br><br>
-    </div>
-
-
-
+        </div>
 </body>
 </html>

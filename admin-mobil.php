@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="admin-mobil.css">
     <title>Document</title>
     <style>
         th, td {
@@ -28,16 +28,26 @@
     </style>
 </head>
 <body>
-    <div class="container2">
-        <a id= "login" href="user.php?action=logout">Log-Out</a>
-            <div id="why">
-                <h1 style="font-size: 50px;">SELAMAT DATANG ADMIN!!!</h1>
-                <p style="font-size: 25px; padding: 8px;">Kerja yang bener yaaa, harus semangat. Inget Shoppe-Pay gabisa lunas sendiri</p>
-                <p style="font-size: 25px; padding: 8px;"> Ke Menu Admin<a href="admin.php"> Here! </a> </p>
+    <div class="container">
+        <div class="navigation">
+            <div class="kiri">
+                <a href="index.php" class="logo">LOGO</a>
+                <a href="admin.php">Admin User</a>
             </div>
-            <hr> <br><br>
+            <div class="kanan">
+                <a id= "login" href="user.php?action=logout">Log-Out</a>
+            </div>
+        </div>
+        <div id="why">
+            <center>
+            <h1 style="font-size: 50px;">WELCOME ADMIN</h1>
+            </center>
+        </div>
+        <hr>
             <div class="tabus">
             <form action="#" method = "POST">
+                <h1>Master Mobil</h1>
+                <br>
                 <h2>Cari</h2> <br>
                 <select name="s_attr" id="s_attr">
                     <option value="">Filter Attribut</option>
@@ -52,96 +62,105 @@
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>  
-                <input type="text" name="s_key" id="s_key" placeholder = "Masukan Key">
-                <button id="search" name="search">Cari</button>
+                <input type="text" name="s_key" id="s_key" class="inputKey" placeholder = "Masukan Key">
+                <button id="search" name="search" class="cari-button">Cari</button>
             </form>
-
-            <br><br>
-            <table id="tabel" style="border-collapse: collapse;width: 100%;" method = "POST">
-
+            <br>
+            <table id="tabel" class="styleTable" method = "POST">
                 <thead>
                     <th>Id</th>           
                     <th>Nama Mobil</th>
                     <th>Bahan Bakar</th>
                     <th>Jenis</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </thead>
-
                 <tbody>
                 <?php
 
                     if(isset($_POST['search'])){
-                        $pencarian="%".$_POST['s_key']."%";
-                        $attr = $_POST['s_attr'];
-                        $sort = $_POST['s_sort'];
-                        try{
-                            if($sort == "ascending"){
-                                if($attr == "nama_mobil"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama ORDER BY nama_mobil ASC");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where id like :nama ORDER BY id ASC");
-                                }else if($attr == "bahan_bakar"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama ORDER BY bahan_bakar ASC");
-                                }else if($attr == "jenis"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama ORDER BY jenis ASC");
-                                }else if($attr == "status"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where status like :nama ORDER BY status ASC");
+                        if(isset($_POST['s_key']) && $_POST['s_key']!= "" && $_POST['s_attr']!=""){
+                            $pencarian="%".$_POST['s_key']."%";
+                            $attr = $_POST['s_attr'];
+                            $sort = $_POST['s_sort'];
+                            try{
+                                if($sort == "ascending"){
+                                    if($attr == "nama_mobil"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama ORDER BY nama_mobil ASC");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where id like :nama ORDER BY id ASC");
+                                    }else if($attr == "bahan_bakar"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama ORDER BY bahan_bakar ASC");
+                                    }else if($attr == "jenis"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama ORDER BY jenis ASC");
+                                    }else if($attr == "status"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where status like :nama ORDER BY status ASC");
+                                    }
+                                }else if($sort == "descending"){
+                                    if($attr == "nama_mobil"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama ORDER BY nama_mobil DESC");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where id like :nama ORDER BY id DESC");
+                                    }else if($attr == "bahan_bakar"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama ORDER BY bahan_bakar DESC");
+                                    }else if($attr == "jenis"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama ORDER BY jenis DESC");
+                                    }else if($attr == "status"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where status like :nama ORDER BY status DESC");
+                                    }
+                                }else{
+                                    if($attr == "nama_mobil"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama");
+                                    }else if($attr == "id"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where id like :nama");
+                                    }else if($attr == "bahan_bakar"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama");
+                                    }else if($attr == "jenis"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama");
+                                    }else if($attr == "status"){
+                                        $stmt=$pdo->prepare("select * from MOBIL where status like :nama");
+                                    }
                                 }
-                            }else if($sort == "descending"){
-                                if($attr == "nama_mobil"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama ORDER BY nama_mobil DESC");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where id like :nama ORDER BY id DESC");
-                                }else if($attr == "bahan_bakar"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama ORDER BY bahan_bakar DESC");
-                                }else if($attr == "jenis"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama ORDER BY jenis DESC");
-                                }else if($attr == "status"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where status like :nama ORDER BY status DESC");
-                                }
-                            }else{
-                                if($attr == "nama_mobil"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where nama_mobil like :nama");
-                                }else if($attr == "id"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where id like :nama");
-                                }else if($attr == "bahan_bakar"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where bahan_bakar like :nama");
-                                }else if($attr == "jenis"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where jenis like :nama");
-                                }else if($attr == "status"){
-                                    $stmt=$pdo->prepare("select * from MOBIL where status like :nama");
-                                }
-                            }
-                            $stmt->BindParam(":nama",$pencarian);
-                            $stmt->execute();
-                            if($stmt->rowCount()<1){
-                                echo "<i> Tidak ada hasil untuk pencarian kata </i>";
-                            }else{
+                                $stmt->BindParam(":nama",$pencarian);
+                                $stmt->execute();
+                                if($stmt->rowCount()<1){
+                                    echo "<i> Tidak ada hasil untuk pencarian kata </i>";
+                                }else{
 
-                                while($t=$stmt->fetch()){
-                                ?>
-                                <tr>
-                                        <td><?= $t['id']?></td>
-                                        <td><?= $t['nama_mobil']?></td>
-                                        <td><?= $t['bahan_bakar']?></td>
-                                        <td><?= $t['jenis']?></td>
-                                        <td><?= $t['status']?></td>
-                                        <td>
-                                            <a href="editMobil.php?id=<?=$value['id']?>">
-                                                <button>Edit</button>
-                                            </a>
-                                            <form method="post" action="kumpulan.php">
-                                                <input type="hidden" name="action" value="deleteMobil">
-                                                <button name='id' value="<?= $value['id']?>">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr> 
-                                <?php
-                                }
-                            }   
-                        }catch(PDOException $e){
-                            echo $e->getMessage();
+                                    while($t=$stmt->fetch()){
+                                    ?>
+                                    <tr>
+                                            <td><?= $t['id']?></td>
+                                            <td><?= $t['nama_mobil']?></td>
+                                            <td><?= $t['bahan_bakar']?></td>
+                                            <td><?= $t['jenis']?></td>
+                                            <td><?= $t['status']?></td>
+                                            <td>
+                                                <a href="editMobil.php?id=<?=$value['id']?>">
+                                                    <button class="editMobil-button"><span>Edit </span></button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <form method="post" action="kumpulan.php">
+                                                    <input type="hidden" name="action" value="deleteMobil">
+                                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button"><span>Delete </span></button>
+                                                </form>
+                                            </td>
+                                        </tr> 
+                                    <?php
+                                    }
+                                }   
+                            }catch(PDOException $e){
+                                echo $e->getMessage();
+                            }
+                        }else if($_POST['s_attr']=="" && $_POST['s_key']!=""){
+                            echo "<script>alert('Isi filter dengan benar')</script>";
+                            $_SESSION["message"] = "Isi Filter Attribut dengan Benar";
+                            header("Location:admin-mobil.php");
+                        }else{
+                            echo "<script>alert('Isi filter dengan benar')</script>";
+                            header("Location:admin-mobil.php");
                         }
                     }else{
                         if ($users !== null) {
@@ -155,11 +174,13 @@
                             <td><?= $value['status']?></td>
                             <td>
                                 <a href="editMobil.php?id=<?=$value['id']?>">
-                                    <button>Edit</button>
+                                    <button class="editMobil-button"><span>Edit </span></button>
                                 </a>
+                            </td>
+                            <td>
                                 <form method="post" action="kumpulan.php">
                                     <input type="hidden" name="action" value="deleteMobil">
-                                    <button name='id' value="<?= $value['id']?>">Delete</button>
+                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button"><span>Delete </span></button>
                                 </form>
                             </td>
                         </tr>
@@ -167,12 +188,10 @@
                             }
                         }
                     }
-                
-                
                 ?>
             </tbody>
-            </table> <br><br><br><br>
-                <a href="tambah-mobil.php"><input type="button" class="button" value="Add Mobil" style = "background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;"> </a>
+            </table> <br>
+                <a href="tambah-mobil.php"><input type="button" value="Add Mobil" class="addMobil-button"> </a>
                 <br><br>
             </div>
     </div>
