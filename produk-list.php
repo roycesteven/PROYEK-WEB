@@ -1,6 +1,10 @@
 <?php
 
 require_once("connection.php");
+$stmt = $pdo->query("SELECT * FROM mobil");
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 ?>
 
@@ -44,79 +48,23 @@ require_once("connection.php");
             </div>
         </div>
         <div class="products">
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
+        <?php
+                        if($products!=NULL)
+                        {
+                            foreach( $products as $key => $value)
+                            {
+                        ?>
+            <a href="produk-details.php?id=<?=$value['id']?>" class="product">
+                <img src="Asset/images.png" alt="">
                 <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
+                    <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
+                    <p> Rp. <?= $value['tarif']?>,- per hari</p>
                 </div>
             </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            <a href="produk-details.php" class="product">
-                <img src="Asset/yaris.jpg" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;">All New Yaris</p>
-                    <p>Rp. 200,000,-</p>
-                </div>
-            </a>
-            
-
-        
+            <?php
+                            }
+                        }
+			?>
         </div>
     </div>
     

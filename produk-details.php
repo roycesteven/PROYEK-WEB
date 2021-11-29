@@ -6,13 +6,13 @@
             header('location:produk-list.php');
                
         }
-        else{
+        else if($_REQUEST['action']=='proceed' && !isset($_SESSION['userLogin'])){
             $_SESSION['active']='location:produk-details.php';
             header('location:login.php');
         }
-        
     }
-    
+    $stmt = $pdo->query("SELECT * FROM mobil");
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -54,27 +54,36 @@
                 </div>
         </div>
             <div class="details">
+                <?php
+                    foreach($products as $key => $value){
+                        if($value['id']==$_REQUEST['id'])
+                        {
+                ?>
                 <div class="atas">
-                    <img src="Asset/yaris.jpg" alt="">
+                    <img src="Asset/images.png" alt="">
                     <table>
                         <tr>
                             <td>Nama Mobil</td>
-                            <td>: All New Yaris</td>
+                            <td>: <?=$value['nama_mobil']?></td>
                         </tr>
                         <tr>
                             <td>Bahan Bakar</td>
-                            <td>: Bensin</td>
+                            <td>: <?=$value['bahan_bakar']?></td>
                         </tr>
                         <tr>
                             <td>Jenis Mobil</td>
-                            <td>: Hatchback</td>
+                            <td>: <?=$value['jenis']?></td>
                         </tr>
                         <tr>
                             <td>Tarif Sewa</td>
-                            <td>: Rp. 200,000 per hari</td>
+                            <td>: Rp. <?=$value['tarif']?>,- per hari</td>
                         </tr>
                     </table>
                 </div>
+                <?php
+                        }
+                    }
+                ?>
                 <div class="bawah">
                     
                     <form action="produk-details.php" method="POST">
