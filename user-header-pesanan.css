@@ -1,0 +1,112 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+#why{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.styleTable{
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.styleTable thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styleTable th,
+.styleTable td {
+    padding: 12px 15px;
+}
+
+.styleTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styleTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styleTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styleTable tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
+.detail-button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: teal;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+  
+.detail-button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+}
+    
+.detail-button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+}
+   
+.detail-button:hover span {
+      padding-right: 25px;
+}
+    
+.detail-button:hover span:after {
+      opacity: 1;
+      right: 0;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #009879;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+  
+.button:hover {background-color: #009879}
+  
+.button:active {
+    background-color: #009879;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}

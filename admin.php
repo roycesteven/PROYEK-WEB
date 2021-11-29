@@ -33,6 +33,7 @@
             <div class="kiri">
                 <a href="index.php" class="logo">LOGO</a>
                 <a href="admin-mobil.php">Admin Mobil</a>
+                <a href="user-header-pesanan.php">Riwayat Transaksi</a>
             </div>
             <div class="kanan">
                 <a id= "login" href="user.php?action=logout">Log-Out</a>
