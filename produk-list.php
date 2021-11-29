@@ -19,24 +19,23 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="container">
-        <div class="navigation">
             <div class="navigation">
-                    <div class="kiri">
-                        <a href="index.php" class="logo">LOGO</a>
-                        <a href="produk-list.php">Products</a>
-                        <a href="index.php#container2">About Us</a>
-                    </div>
-                    <div class="kanan">
+                <div class="kiri">
+                    <a href="index.php" class="logo">LOGO</a>
+                    <a href="produk-list.php">Products</a>
+                    <a href="#container2">About Us</a>
+                </div>
+                <div class="kanan">
                     <?php
                         if(!isset( $_SESSION['userLogin'])){
-                            ?>
+                            ?>                           
                             <a href="login.php">Login</a>
                             <a href="register.php">Register</a>
                             <?php
                         }
                         else {
                             ?>
-                            <a href="#">My Cart</a>
+                            <a href="carts.php">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>
@@ -44,9 +43,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php
                         }
                             ?>
-                    </div>
+                </div>
             </div>
-        </div>
         <div class="products">
         <?php
                         if($products!=NULL)

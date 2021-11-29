@@ -1,18 +1,33 @@
 <?php
     require_once("connection.php");
+    $stmt = $pdo->query("SELECT * FROM mobil");
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    
     if(isset($_REQUEST['action'])){
-        if($_REQUEST['action']=='proceed' && isset($_SESSION['userLogin'])){
+        if($_REQUEST['action']=='add' && isset($_SESSION['userLogin'])){
             unset($_SESSION['active']);
+            unset($_SESSION['id']);
+            if($products!=null){
+                foreach($products as $key => $value){
+                    if($value['id']==$_REQUEST['id']){
+                        $_SESSION['carts'][]=$value;
+                        break;
+                    }
+                 }
+            }
             header('location:produk-list.php');
                
         }
-        else if($_REQUEST['action']=='proceed' && !isset($_SESSION['userLogin'])){
-            $_SESSION['active']='location:produk-details.php';
+        else if($_REQUEST['action']=='add' && !isset($_SESSION['userLogin'])){
+            if(!isset($_SESSION['id'])){
+                $_SESSION['id']=$value['id'] ;
+            }
+            $_SESSION['active']='location:produk-details.php?id='. $_SESSION['id'] ;
             header('location:login.php');
         }
     }
-    $stmt = $pdo->query("SELECT * FROM mobil");
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
 
 
 ?>
@@ -43,7 +58,7 @@
                         }
                         else {
                             ?>
-                            <a href="#">My Cart</a>
+                            <a href="carts.php">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>
@@ -80,19 +95,20 @@
                         </tr>
                     </table>
                 </div>
-                <?php
-                        }
-                    }
-                ?>
+                
                 <div class="bawah">
-                    
                     <form action="produk-details.php" method="POST">
-                        <input type="hidden" name="action" value="proceed">
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="id" value="<?= $value['id']; ?>">
                         <button type="submit" name="submit_proceed">Add to Cart</button>
                     </form>
                     <a href="produk-list.php"><button>Back</button></a>
                     
                 </div>
+                <?php
+                        }
+                    }
+                ?>
             </div>
         </div>
 </html>

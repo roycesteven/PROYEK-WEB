@@ -1,0 +1,140 @@
+/* start navigation */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  .navigation {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+  
+  
+  
+  .navigation a{
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
+  }
+  
+  .navigation a:visited{
+    text-decoration: none;
+    color: #8614f8;
+  }
+  
+  
+  .navigation .kiri{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+  
+  .navigation .kanan{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+  
+  
+  /* end n  avigation */
+  
+  /* bawah e header */
+  
+  .banner {
+      height: 600px;
+      padding: 180px;
+      padding-top: 120px;
+      padding-right: 100px;
+      padding-left: 100px;
+      padding-bottom: 10px;
+      text-align: center;
+      background: white;
+      color: black;
+      font-size: 30px;
+      box-sizing: border-box;
+  }
+  
+  
+  /* CSS */
+  button {
+    background-color: initial;
+    background-image: linear-gradient(#8614f8 0, #760be0 100%);
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Inter, sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    height: 70px;
+    line-height: 60px;
+    margin-left: -4px;
+    outline: 0;
+    text-align: center;
+    transition: all .3s cubic-bezier(.05, .03, .35, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: bottom;
+    width: 400px;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    opacity: 0.7;
+  }
+  
+  
+  
+  .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+      height: 400px; 
+      box-sizing: border-box;
+    }
+  
+  #col-gambar{
+      background-image: url(Asset/section1.jpg);
+      background-repeat: no-repeat;
+      background-size: 674px 700px;
+      box-sizing: border-box;
+  }  
+    
+  .row:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  
+  #col2-gambar{
+      background-image: url(Asset/section3.png);
+      background-repeat: no-repeat;
+      background-size: 674px 700px;
+      box-sizing: border-box;
+  }
+    
+  

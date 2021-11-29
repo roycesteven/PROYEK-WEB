@@ -32,7 +32,7 @@ require_once("connection.php");
                         }
                         else {
                             ?>
-                            <a href="#">My Cart</a>
+                            <a href="carts.php">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>

@@ -1,9 +1,12 @@
 <?php
-    require_once("connection.php");
-    $_SESSION['date_mulai']= new DateTime($_POST['date_mulai']);
-    $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
-    $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+require_once("connection.php");
+
+
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +18,14 @@
 </head>
 <body>  
         <div class="container">
-        <div class="navigation">
+            <div class="navigation">
                 <div class="kiri">
                     <a href="index.php" class="logo">LOGO</a>
                     <a href="produk-list.php">Products</a>
                     <a href="#container2">About Us</a>
                 </div>
                 <div class="kanan">
-                    <?php
+                <?php
                         if(!isset( $_SESSION['userLogin'])){
                             ?>                           
                             <a href="login.php">Login</a>
@@ -42,20 +45,18 @@
                 </div>
             </div>
         <div class="container1">
-            <h1>Order Summary</h1>
             <div class="carts">
-            <table border='1'>
+           
+                        <table border='1'>
                         <tr>
                         <th>Nomor</th>
                         <th>Nama Mobil</th>
                         <th>Bahan Bakar</th>
                         <th>Kategori</th>
                         <th>Tarif per hari</th>
-                        <th>Subtotal</th>
                         </tr>
                         <?php
                             $id=1;
-                            $total=0;
                             if(isset($_SESSION['carts'])){
                             foreach( $_SESSION['carts'] as $key => $value)
                             {
@@ -65,24 +66,52 @@
                             <td><?= $value['nama_mobil']; ?></td>
                             <td><?= $value['bahan_bakar']; ?></td>
                             <td><?= $value['jenis']; ?></td> 
-                            <td>Rp. <?= $value['tarif']; ?>,-</td> 
-                            <td>Rp. <?= (int)( $diff->d )*$value['tarif'];?>,-  </td>                    
+                            <td>Rp. <?= $value['tarif']; ?></td> 
+                                                
                         </tr>
                         <?php
                         $id++;
-                        $total+=(int)( $diff->d )*$value['tarif'];
                              }
                         }
                         ?>
-                        <tr>
-                            <td colspan='5'>Total : </td>
-                            <td>Rp. <?= $total; ?>,-</td>
-                        </tr>
                         </table>
+                        
+                        
             </div>
-            
-        </div>
-    
-    
-   
+            <div id="form">
+                <br>
+                <form action="order-form.php" method="POST">
+                    <table>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><h2>Order Form</h2></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Tanggal Mulai</label></td>
+                            <td>: <input type="date" name="date_mulai" id="date_mulai"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Tanggal Akhir</label></td>
+                            <td>: <input type="date" name="date_akhir" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Jam Pick-up</label></td>
+                            <td>: <input type="time"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><input type="submit" name="" id="submit_order" value="Order"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>    
+</body>
+<script>
+            let date_mulai = document.querySelector("#date_mulai");
+            date_mulai.addEventListener("click",function(event){	
+                
+                
+	})
+	
+</script>
 </html>
+

@@ -4,6 +4,7 @@
   if(isset($_REQUEST["action"])){
     if($_REQUEST["action"]=="logout"){
         unset($_SESSION['userLogin']);
+        unset($_SESSION['carts']);
         header("location:index.php");
         }
     } 
