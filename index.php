@@ -56,7 +56,6 @@ require_once("connection.php");
                 <hr>
             </div>
              <br>
-    
             <div id="container2">
                 <div class="row">
                     <div class="column" id="col-gambar">

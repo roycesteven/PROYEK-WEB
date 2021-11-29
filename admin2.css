@@ -1,0 +1,257 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body{
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+  }
+
+.container{
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+.navigation {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+  
+.navigation a{
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
+}
+  
+.navigation a:visited{
+    text-decoration: none;
+    color: #8614f8;
+}
+
+
+.navigation .kiri{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+  
+  .navigation .kanan{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    box-sizing: border-box;
+  }
+
+#why{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.tabus{
+    margin: 10px;
+}
+
+.styleTable{
+    border-collapse: collapse;
+    /* margin: 25px 0; */
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.styleTable thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styleTable th,
+.styleTable td {
+    padding: 12px 15px;
+}
+
+.styleTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styleTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styleTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styleTable tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.editUser-button{
+  display: inline-block;
+  border-radius: 4px;
+  background-color:teal;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.editUser-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.editUser-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+ 
+.editUser-button:hover span {
+    padding-right: 25px;
+}
+  
+.editUser-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+.delUser-button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: red;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+  
+.delUser-button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+}
+    
+.delUser-button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+}
+   
+.delUser-button:hover span {
+      padding-right: 25px;
+}
+    
+.delUser-button:hover span:after {
+      opacity: 1;
+      right: 0;
+}
+
+.addUser-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #009879;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+  
+.addUser-button:hover {background-color: #009879}
+  
+.addUser-button:active {
+    background-color: #009879;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+select{
+    padding: 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.inputKey{
+    padding: 5px;
+    border-radius: 10px;
+    margin: 4px 10px;
+}
+
+.cari-button{
+    background-color: #008CBA; /* Green */
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 5px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.cari-button {
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+}
+  
+.cari-button:hover {
+    background-color: white; 
+    color: black;
+}
+  
