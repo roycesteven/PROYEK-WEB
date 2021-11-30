@@ -3,6 +3,7 @@
     $stmt = $pdo->query("SELECT * FROM mobil");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
+    
     if(isset($_SESSION['active'])){
         unset($_SESSION['active']);
     }

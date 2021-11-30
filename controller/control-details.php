@@ -1,5 +1,8 @@
 <?php
    require_once("../connection.php");
+
+   $stmt = $pdo->query("SELECT * FROM mobil");
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if(isset($_POST['id'])){
     $_SESSION['active_id']= $_POST['id'];
 }
@@ -15,7 +18,7 @@ if(isset($_REQUEST['action'])){
                     }
                  }
             }
-            header('location:produk-list.php');
+            header('location:../produk-list.php');
                
         }
         else if($_REQUEST['action']=='add' && !isset($_SESSION['userLogin'])){
