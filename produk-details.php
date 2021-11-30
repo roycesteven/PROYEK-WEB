@@ -3,31 +3,9 @@
     $stmt = $pdo->query("SELECT * FROM mobil");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-    
-    if(isset($_REQUEST['action'])){
-        if($_REQUEST['action']=='add' && isset($_SESSION['userLogin'])){
-            unset($_SESSION['active']);
-            unset($_SESSION['id']);
-            if($products!=null){
-                foreach($products as $key => $value){
-                    if($value['id']==$_REQUEST['id']){
-                        $_SESSION['carts'][]=$value;
-                        break;
-                    }
-                 }
-            }
-            header('location:produk-list.php');
-               
-        }
-        else if($_REQUEST['action']=='add' && !isset($_SESSION['userLogin'])){
-            if(!isset($_SESSION['id'])){
-                $_SESSION['id']=$value['id'] ;
-            }
-            $_SESSION['active']='location:produk-details.php?id='. $_SESSION['id'] ;
-            header('location:login.php');
-        }
+    if(isset($_SESSION['active'])){
+        unset($_SESSION['active']);
     }
-    
 
 
 ?>
@@ -73,6 +51,7 @@
                     foreach($products as $key => $value){
                         if($value['id']==$_REQUEST['id'])
                         {
+                           
                 ?>
                 <div class="atas">
                     <img src="Asset/images.png" alt="">
@@ -97,13 +76,12 @@
                 </div>
                 
                 <div class="bawah">
-                    <form action="produk-details.php" method="POST">
+                    <form action="./controller/control-details.php" method="POST">
                         <input type="hidden" name="action" value="add">
-                        <input type="hidden" name="id" value="<?= $value['id']; ?>">
+                        <input type="hidden" name="id" value="<?=  $value['id']?>">
                         <button type="submit" name="submit_proceed">Add to Cart</button>
                     </form>
-                    <a href="produk-list.php"><button>Back</button></a>
-                    
+                    <a href="produk-list.php"><button>Back</button></a>                    
                 </div>
                 <?php
                         }
