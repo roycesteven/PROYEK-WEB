@@ -56,7 +56,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <img src="Asset/images.png" alt="">
                 <div class="text">
                     <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
-                    <p> Rp. <?= $value['tarif']?>,- per hari</p>
+                    <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
                 </div>
             </a>
             <?php

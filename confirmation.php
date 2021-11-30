@@ -2,6 +2,11 @@
 
 require_once("connection.php");
 
+if(isset($_SESSION["message"])){
+    echo "<script>alert('$_SESSION[message]')</script>";
+    unset($_SESSION["message"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +37,7 @@ require_once("connection.php");
                         }
                         else {
                             ?>
-                            <a href="#">My Cart</a>
+                            <a href="carts.php">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>
@@ -47,24 +52,19 @@ require_once("connection.php");
             <div class="confirmation">
                 <h1>PEMESANAN BERHASIL DILAKUKAN</h1>
                 <br>
-                <h2>ORDER NUMBER : 001</h2>
+                <h2>ORDER NUMBER : <?= $_SESSION['order_id']?></h2>
                 <br>
                 <p>MOHON SEGERA MELAKUKAN PEMBAYARAN KE REKENING BANK ABC NO. 12345678 A/N PT. INDOSUROBOYO</p>
                 <br>
                 <p>Senilai Rp.
                 <?php 
-                    $date1= new DateTime($_POST['date_mulai']);
-                    $date2=new DateTime($_POST['date_akhir']);
-                    $diff=$date2->diff($date1);
-                    echo (int)( $diff->d )*200000 ;
+                    
+                    echo  $_SESSION['total'] ;
                 ?>
                 
                 </p>
                 <br>
-                <p>BATAS WAKTU PEMBAYARAN 
-                    <?php  
-                    echo date("d-m-Y h:i a");
-                    ?>
+                <p>BATAS WAKTU PEMBAYARAN <?= $_SESSION['batas_waktu']?>
                 </p>
             </div>
         </div>

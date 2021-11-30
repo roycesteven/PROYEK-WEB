@@ -66,7 +66,7 @@ require_once("connection.php");
                             <td><?= $value['nama_mobil']; ?></td>
                             <td><?= $value['bahan_bakar']; ?></td>
                             <td><?= $value['jenis']; ?></td> 
-                            <td>Rp. <?= $value['tarif']; ?></td> 
+                            <td>Rp. <?= $value['tarif_hari']; ?></td> 
                                                 
                         </tr>
                         <?php
@@ -87,7 +87,7 @@ require_once("connection.php");
                         </tr>
                         <tr>
                             <td><label for="">Tanggal Mulai</label></td>
-                            <td>: <input type="date" name="date_mulai" id="date_mulai"></td>
+                            <td>: <input type="date" name="date_mulai"></td>
                         </tr>
                         <tr>
                             <td><label for="">Tanggal Akhir</label></td>
@@ -95,7 +95,7 @@ require_once("connection.php");
                         </tr>
                         <tr>
                             <td><label for="">Jam Pick-up</label></td>
-                            <td>: <input type="time"></td>
+                            <td>: <input type="time" name="jam_ambil"></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center;"><input type="submit" name="" id="submit_order" value="Order"></td>

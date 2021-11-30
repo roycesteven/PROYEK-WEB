@@ -91,7 +91,7 @@
                         </tr>
                         <tr>
                             <td>Tarif Sewa</td>
-                            <td>: Rp. <?=$value['tarif']?>,- per hari</td>
+                            <td>: Rp. <?=$value['tarif_hari']?>,- per hari</td>
                         </tr>
                     </table>
                 </div>

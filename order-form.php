@@ -1,8 +1,25 @@
 <?php
     require_once("connection.php");
-    $_SESSION['date_mulai']= new DateTime($_POST['date_mulai']);
-    $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
-    $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+
+    
+
+
+    
+
+    $stmt = $pdo->query("SELECT * FROM penyewa");
+    $penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+   
+        $_SESSION['date_mulai']= new DateTime($_POST['date_mulai']);
+        $_SESSION['tanggal_mulai'] = $_POST['date_mulai'];
+        $_SESSION['tanggal_akhir'] = $_POST['date_akhir'];
+        $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
+        $_SESSION['jam_ambil'] = $_POST['jam_ambil'];
+        $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+    
+    
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +72,7 @@
                         </tr>
                         <?php
                             $id=1;
-                            $total=0;
+                            $_SESSION['total']=0;
                             if(isset($_SESSION['carts'])){
                             foreach( $_SESSION['carts'] as $key => $value)
                             {
@@ -65,22 +82,25 @@
                             <td><?= $value['nama_mobil']; ?></td>
                             <td><?= $value['bahan_bakar']; ?></td>
                             <td><?= $value['jenis']; ?></td> 
-                            <td>Rp. <?= $value['tarif']; ?>,-</td> 
-                            <td>Rp. <?= (int)( $diff->d )*$value['tarif'];?>,-  </td>                    
+                            <td>Rp. <?= $value['tarif_hari']; ?>,-</td> 
+                            <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>,-  </td>                    
                         </tr>
                         <?php
                         $id++;
-                        $total+=(int)( $diff->d )*$value['tarif'];
+                        $_SESSION['total']+=(int)( $diff->d )*$value['tarif_hari'];
                              }
                         }
                         ?>
                         <tr>
                             <td colspan='5'>Total : </td>
-                            <td>Rp. <?= $total; ?>,-</td>
+                            <td>Rp. <?= $_SESSION['total']; ?>,-</td>
                         </tr>
                         </table>
             </div>
-            
+            <form action="./controller/control-order.php">
+                <input type="hidden" name="action" value="checkout">
+                <input type="submit" value="Checkout">
+            </form>
         </div>
     
     
