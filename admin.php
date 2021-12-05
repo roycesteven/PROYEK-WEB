@@ -212,7 +212,7 @@
                 ?>
             </tbody>
                 </table> <br>
-                <a href="register.php"><input type="button" class="addUser-button" value="Add New User"> </a>
+                <a href="register-admin.php"><input type="button" class="addUser-button" value="Add New User"> </a>
                 <br><br>
         </div>
 </body>

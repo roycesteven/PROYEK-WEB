@@ -32,6 +32,10 @@
                 }
             }      
         }
+
+        $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
+        $stmt -> execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +59,7 @@
 
                 <thead>
                     <th>Order Id</th>           
-                    <th>Id Penyewa</th>
+                    <th>Nama Penyewa</th>
                     <th>Total Tagihan</th>
                     <th>Status</th>
                     <th>Tanggal Mulai</th>
@@ -77,7 +81,14 @@
                                     <input type='hidden' name='id' value='<?= $value['order_id']?>'/>
                                 </td>
                             </form>                             
-                            <td><?= $value['penyewa_id']?></td>
+                            
+                            <?php
+                                foreach($users as $keys => $nilai){
+                                    if($nilai['id'] == $value['penyewa_id']){
+                                        ?><td><?= $nilai['nama']?></td><?php
+                                    }
+                                }
+                            ?>
                             <td><?= $value['total_tagihan']?></td>
                             <td><?= $value['status']?></td>
                             <td><?= $value['tanggal_mulai']?></td>

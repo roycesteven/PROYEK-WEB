@@ -13,6 +13,10 @@
         }      
     }
 
+    $stmt = $pdo-> prepare("SELECT * FROM MOBIL");
+    $stmt -> execute();
+    $mobils = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +40,7 @@
 
                 <thead>
                     <th>Order Id</th>           
-                    <th>Id Mobil</th>
+                    <th>Nama Mobil</th>
                     <th>Tarif / Hari</th>
 
                 </thead>
@@ -54,7 +58,14 @@
                         ?>  
                             <tr>
                                 <td><?= $t['order_id']?></td>
-                                <td><?= $t['mobil_id']?></td>
+                                <?php
+                                    foreach($mobils as $key => $nilai){
+                                        if($nilai['id'] == $t['mobil_id']){
+                                            ?><td><?= $nilai['nama_mobil']?></td><?php
+                                        }
+                                    }
+
+                                ?>
                                 <td><?= $t['tarif_hari']?></td>
                             </tr>
                         <?php
