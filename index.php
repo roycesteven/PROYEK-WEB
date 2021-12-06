@@ -12,6 +12,7 @@ require_once("connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     
@@ -42,7 +43,7 @@ require_once("connection.php");
                             ?>
                 </div>
             </div>
-            <div class="banner">
+            <div class="banner" >
                 <h2>IndoSuroboyo Untuk penuhi kebutuhan mobilitas anda</h2><br>
                 <p>Butuh sewa mobil pribadi ataupun kantor? IndoSuroboyo Solusinya</p> <br>
                 <div class="btn">
@@ -58,20 +59,20 @@ require_once("connection.php");
              <br>
             <div id="container2">
                 <div class="row">
-                    <div class="column" id="col-gambar">
+                    <div class="column" id="col-gambar" data-aos="fade-right" data-aos-delay = "100" data-aos-duration="1000">
                         
                     </div>
-                    <div class="column" style="background-color:white;">
+                    <div class="column" style="background-color:white;" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000">
                         <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px;">Kenapa Harus IndoSuroboyo?</h1>
                         <p style="font-size: 25px; padding: 25px;">IndoSuroboyo adalah rental mobil paling canggih yang saat ini berada di Surabaya. Kita telah menggunakan sistem yang dapat diakses oleh semua orang. IndoSuroboyo juga menyediakan banyak sekali opsi mobil. Baik mobil untuk perusahaan, Pernikahan, atau harian. Kita juga memiliki pelayanan yang ekstra, seperti Customer Service 24/7.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="column" style="background-color:white;" >
+                    <div class="column" style="background-color:white;" data-aos="fade-right" data-aos-delay = "100" data-aos-duration="1000">
                         <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px;">Bisa diakses dimana saja</h1>
                         <p style="font-size: 25px; padding: 25px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At odit consectetur ea quisquam quidem ad fuga quasi aspernatur voluptates eligendi atque, pariatur quod, soluta deleniti, quis sunt explicabo officiis modi!</p>
                     </div>
-                    <div class="column" id="col2-gambar" >
+                    <div class="column" id="col2-gambar" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000" >
                         
                     </div>
                 </div>
@@ -83,11 +84,9 @@ require_once("connection.php");
         
         </div>
         
-    
-        
-   
-        
-        
-        
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>       
 </body>
 </html>
