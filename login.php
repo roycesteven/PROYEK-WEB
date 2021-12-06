@@ -13,6 +13,7 @@
 
         if($usnm == 'admin' && $pass == 'admin'){
             echo "<script> alert ('Masuk sebagai admin');</script>";
+            $_SESSION['userLogin'] = $usnm;
             header("location:admin.php");    
         }
 
