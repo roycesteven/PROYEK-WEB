@@ -64,15 +64,31 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         {
                             foreach( $products as $key => $value)
                             {
-                        ?>
-            <a href="produk-details.php?id=<?=$value['id']?>" class="product">
+                                if($value['status']!='Available')
+                                {
+                                    ?>
+                                     <a href="produk-details.php?id=<?=$value['id']?>" class="product" id="link" style="cursor: not-allowed;">
                 <img src="Asset/images.png" alt="">
                 <div class="text">
                     <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                     <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                    <p>Status : <?= $value['status']?></p>
                 </div>
             </a>
             <?php
+                                }
+                                else{
+                                    ?>
+                                    <a href="produk-details.php?id=<?=$value['id']?>" class="product">
+                                        <img src="Asset/images.png" alt="">
+                                        <div class="text">
+                                            <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
+                                            <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                                            <p>Status : <?= $value['status']?></p>
+                                        </div>
+                                    </a>
+                                    <?php
+                                }
                             }
                         }
 			?>
@@ -83,4 +99,11 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
         
 </body>
+<script>
+    document.querySelector('#link').addEventListener('click', function (event) {
+  
+    event.preventDefault();
+  
+});
+</script>
 </html>
