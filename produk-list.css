@@ -73,3 +73,8 @@
 .product img{
     width: 200px;
 }
+
+.link{
+  cursor: not-allowed;
+  
+}

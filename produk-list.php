@@ -7,7 +7,13 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
-
+<script>
+    document.querySelector('.link').addEventListener('click', function (event) {
+  
+    event.preventDefault();
+  
+});
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,14 +73,14 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 if($value['status']!='Available')
                                 {
                                     ?>
-                                     <a href="produk-details.php?id=<?=$value['id']?>" class="product" id="link" style="cursor: not-allowed;">
-                <img src="Asset/images.png" alt="">
-                <div class="text">
-                    <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
-                    <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                    <p>Status : <?= $value['status']?></p>
-                </div>
-            </a>
+                                     <a href="#" class="product link">
+                                        <img src="Asset/images.png" alt="">
+                                        <div class="text">
+                                            <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
+                                            <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                                            <p>Status : <?= $value['status']?></p>
+                                        </div>
+                                    </a>
             <?php
                                 }
                                 else{
@@ -99,11 +105,5 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
         
 </body>
-<script>
-    document.querySelector('#link').addEventListener('click', function (event) {
-  
-    event.preventDefault();
-  
-});
-</script>
+
 </html>
