@@ -164,10 +164,12 @@
                                                 }else{
                                                     ?>
                                                     <td><?= $t['status']?></td>
+                                                    <td>
                                                     <form name="form1" method="post" action="kumpulan.php">
                                                         <input type="hidden" name="action" value="editStatusMobil">
                                                         <button type="submit" name="id_mobil" value="<?= $value['id']?>" class="editStatus-button" onclick="editStatusFunction()"><span>Ubah Status </span></button>
                                                     </form>
+                                                    </td>
                                                     <?php
                                                 }
                                             ?>
