@@ -19,6 +19,7 @@ if(isset($_REQUEST['action'])){
 
       $total_tagihan = $_SESSION['total'];
       $status='Sudah dibayar';
+      $status_mobil = 'Rented';
       $tanggal_mulai = date("Y-m-d", strtotime($_SESSION['tanggal_mulai']));
       $tangal_akhir = date("Y-m-d", strtotime($_SESSION['tanggal_akhir']));
       
@@ -41,6 +42,13 @@ if(isset($_REQUEST['action'])){
           foreach ($carts as $key => $value) {
             $stmt = $pdo->prepare("INSERT INTO detail_pesanan(order_id, mobil_id, tarif_hari) values(?,?,?)");
             $result2 = $stmt->execute([$order_id, $value['id'], $value['tarif_hari']]);
+
+            $stmt = $pdo->prepare("UPDATE mobil SET status=:status WHERE id = :id");
+
+            $stmt->bindParam(":status", $status_mobil);
+            $stmt->bindParam(":id", $value['id']);
+
+            $result = $stmt->execute();
           }
     
           $pdo->commit();
