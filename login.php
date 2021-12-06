@@ -28,6 +28,9 @@
                 $count = $stmt->rowCount();
                 if($count == 1) {
                     $_SESSION['userLogin'] = $usnm;
+                    $id = $pdo-> query("SELECT id FROM `penyewa` WHERE USERNAME = '$usnm'");
+                    $id2 = $id->fetch();
+                    $_SESSION['id'] = $id2['id'];
                     if(isset($_SESSION['active'])){
                         header($_SESSION['active']);
                     }else{

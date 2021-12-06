@@ -18,9 +18,9 @@ require_once("connection.php");
         <div class="container">
             <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">LOGO</a>
-                    <a href="produk-list.php">Products</a>
-                    <a href="#container2">About Us</a>
+                    <a href="index.php" class="logo">IndoSuroboyo</a>
+                    <a href="produk-list.php" style="padding-top: 20px">Products</a>
+                    <a href="#container2" style="padding-top:20px">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php

@@ -16,12 +16,25 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="produk-list.css">
+    <style>
+        .logo{
+            margin-top:8px;
+            outline: 3px solid #8614f8;
+            outline-offset: 2px;
+            height: 3.6rem;
+            font-size: 1.5rem;
+            line-height: 1.7rem;
+            text-decoration: none;
+            text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
             <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">LOGO</a>
+                    <a href="index.php" class="logo">IndoSuroboyo</a>
                     <a href="produk-list.php">Products</a>
                     <a href="#container2">About Us</a>
                 </div>
