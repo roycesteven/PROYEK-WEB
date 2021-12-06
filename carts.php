@@ -1,6 +1,22 @@
 <?php
 require_once("connection.php");
 
+if(isset($_REQUEST['action'])){
+    if($_REQUEST['action']=='delete'){
+        $i=0;
+        foreach($_SESSION['carts'] as $key => $value){
+            if($i>=$_REQUEST['idx'] && $i<sizeof($_SESSION['carts'])-1){
+               $_SESSION['carts'][$i]=$_SESSION['carts'][$i+1];
+            
+            }
+            else if($i==sizeof($_SESSION['carts'])-1){
+                unset($_SESSION['carts'][$i]);
+            }
+            $i++;
+        }
+    }
+}
+
 
 ?>
 
@@ -54,30 +70,48 @@ require_once("connection.php");
                         <th>Bahan Bakar</th>
                         <th>Kategori</th>
                         <th>Tarif per hari</th>
+                        <th>Delete</th>
                         </tr>
                         <?php
-                            $id=1;
+                            $idx=0;
                             if(isset($_SESSION['carts'])){
                             foreach( $_SESSION['carts'] as $key => $value)
                             {
                         ?>
                         <tr>
-                            <td><?= $id; ?></td>
+                            <td><?= $idx;?></td>
                             <td><?= $value['nama_mobil']; ?></td>
                             <td><?= $value['bahan_bakar']; ?></td>
                             <td><?= $value['jenis']; ?></td> 
                             <td>Rp. <?= $value['tarif_hari']; ?></td> 
-                                                
+                            <td>
+                                <a href="carts.php?action=delete&idx=<?= $idx?>"><button>Delete</button></a>
+                                <!-- <form method="post" action="carts.php">
+                                    <input type="hidden" name="action" value="delete">
+                                    <button name='idx' value="<?= $idx?>">Delete</button>
+                                </form> -->
+                            </td>                   
                         </tr>
                         <?php
-                        $id++;
+                        $idx++;
                              }
+                        }
+
+                        if($idx==0){
+                            ?>
+                            <tr>
+                            <td colspan='6'>Tidak ada produk dalam cart</td>
+                            </tr>
+                            <?php
                         }
                         ?>
                         </table>
                         
                         
             </div>
+            <?php 
+                if($idx>0){
+                    ?>
             <div id="form">
                 <br>
                 <form action="order-form.php" method="POST">
@@ -103,6 +137,9 @@ require_once("connection.php");
                     </table>
                 </form>
             </div>
+            <?php
+                }
+                ?>
         </div>    
 </body>
 <script>

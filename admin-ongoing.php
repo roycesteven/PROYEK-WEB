@@ -34,6 +34,7 @@
                 <a href="index.php" class="logo">LOGO</a>
                 <a href="admin.php">Admin User</a>
                 <a href="user-header-pesanan.php">Riwayat Transaksi</a>
+                <a href="admin-ongoing.php">Transaksi On-going</a>
             </div>
             <div class="kanan">
                 <a id= "login" href="user.php?action=logout">Log-Out</a>
@@ -163,7 +164,7 @@
                             <td><?= $value['jenis']?></td>
                             
                             <td>
-                                <a href="./controller/return-car.php?id=<?=$value['id']?>" id="return">
+                                <a href="./controller/return-car.php?id=<?=$value['id']?>" class="return">
                                     <button class="editMobil-button"><span>Return </span></button>
                                 </a>
                             </td>
@@ -182,16 +183,18 @@
     </div>
 </body>
 <script>
-
-
-    document.querySelector('#return').addEventListener("click", function (event) {
+var deleteLink = document.querySelectorAll(".return");
+for (var i = 0; i < deleteLink.length; i++) {
+    deleteLink[i].addEventListener('click', function(event) {
         if (confirm('Apakah anda yakin mobil sudah dikembalikan?')) {
   // Save it!
   alert('Berhasil merubah status mobil menjadi available!');
 } else {
   event.preventDefault();
 }
-  });
+    });
+}
+    
    
 </script>
 </html>

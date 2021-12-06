@@ -9,10 +9,17 @@ if(isset($_POST['id'])){
 
 
 if(isset($_REQUEST['action'])){
+    $ada=false;
         if($_REQUEST['action']=='add' && isset($_SESSION['userLogin'])){
             if($products!=null){
                 foreach($products as $key => $value){
-                    if($value['id']==$_REQUEST['id']){
+                    foreach($_SESSION['carts'] as $key => $val){
+                        if($val['id']==$_REQUEST['id']){
+                                $ada=true;
+                                $_SESSION['message']='Produk sudah ada dalam cart!';
+                        }
+                    }
+                    if($value['id']==$_REQUEST['id'] && !$ada){
                         $_SESSION['carts'][]=$value;
                         break;
                     }
@@ -28,6 +35,8 @@ if(isset($_REQUEST['action'])){
             header('location:../login.php');
         }
     }
+
+  
 
 ?>
 

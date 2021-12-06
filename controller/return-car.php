@@ -10,7 +10,7 @@
 
             $result = $stmt->execute();
           
-    
+    header('location:../admin-ongoing.php');
      
 
 ?>
