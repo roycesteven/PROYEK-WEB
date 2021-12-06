@@ -5,15 +5,38 @@ $stmt = $pdo->query("SELECT * FROM mobil");
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+if(isset($_SESSION["message"])){
+    echo "<script>alert('$_SESSION[message]')</script>";
+    unset($_SESSION["message"]);
+}
+
+if(isset($_REQUEST['action'])){
+    if($_REQUEST['action']=='delete'){
+        $i=0;
+        $idx;
+        foreach($_SESSION['carts'] as $key => $value){
+            if($value['id']==$_REQUEST['id']){
+                $idx=$i;
+                break;
+            }
+            $i++;
+        }
+        $i=0;
+        foreach($_SESSION['carts'] as $key => $value){
+            if($i>=$idx && $i<sizeof($_SESSION['carts'])-1){
+               $_SESSION['carts'][$i]=$_SESSION['carts'][$i+1];
+            
+            }
+            else if($i==sizeof($_SESSION['carts'])-1){
+                unset($_SESSION['carts'][$i]);
+            }
+            $i++;
+        }
+    }
+}
 
 ?>
-<script>
-    document.querySelector('.link').addEventListener('click', function (event) {
-  
-    event.preventDefault();
-  
-});
-</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,26 +96,64 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 if($value['status']!='Available')
                                 {
                                     ?>
-                                     <a href="#" class="product link">
+                                    <div class="produk">
+                                    <a href="#" class="product link">
                                         <img src="Asset/images.png" alt="">
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
                                             <p>Status : <?= $value['status']?></p>
                                         </div>
+                                        
                                     </a>
+                                    </div>
+                                     
             <?php
                                 }
                                 else{
                                     ?>
+                                    <div class="produk">
                                     <a href="produk-details.php?id=<?=$value['id']?>" class="product">
                                         <img src="Asset/images.png" alt="">
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?></p>
+                                            <p>Status : <?= $value['status']?></p>    
                                         </div>
                                     </a>
+                                    <?php
+                                    $ada=false;
+                                    if(isset($_SESSION['carts'])){
+                                        foreach($_SESSION['carts'] as $key => $val){
+                                            if($val['id']==$value['id']){
+                                                $ada=true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                        if(!$ada){
+                                            ?>
+                                            <form action="./controller/control-details.php" method="POST">
+                                                <input type="hidden" name="action" value="add">
+                                                <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                                <button type="submit" name="submit_proceed" value="Add to Cart">Add to Cart</button>
+                                            </form>
+                                            <?php
+                                        }
+                                        else{
+                                            ?>
+                                            <form action="produk-list.php" method="POST">
+                                                <input type="hidden" name="action" value="delete">
+                                                <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                                <button type="submit" name="submit_proceed" value="Add to Cart">Remove from Cart</button>
+                                            </form>
+                                            <?php
+                                        }
+                                    ?>
+                                    </div>
+                                    
+                                    
                                     <?php
                                 }
                             }

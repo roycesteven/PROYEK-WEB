@@ -7,7 +7,7 @@
     if(isset($_SESSION['active'])){
         unset($_SESSION['active']);
     }
-
+    
 
 ?>
 <!DOCTYPE html>
@@ -75,15 +75,20 @@
                         </tr>
                     </table>
                 </div>
+
+                <!-- ditutup sementara -->
                 
-                <div class="bawah">
+                <!-- <div class="bawah">
                     <form action="./controller/control-details.php" method="POST">
                         <input type="hidden" name="action" value="add">
                         <input type="hidden" name="id" value="<?=  $value['id']?>">
                         <button type="submit" name="submit_proceed" value="Add to Cart">Add to Cart</button>
                     </form>
                     <a href="produk-list.php"><button>Back</button></a>                    
-                </div>
+                </div> -->
+
+                <!-- ditutup sementara -->
+
                 <?php
                         }
                     }

@@ -34,6 +34,7 @@
                 <a href="index.php" class="logo">LOGO</a>
                 <a href="admin.php">Admin User</a>
                 <a href="user-header-pesanan.php">Riwayat Transaksi</a>
+                <a href="admin-ongoing.php">Transaksi On-going</a>
             </div>
             <div class="kanan">
                 <a id= "login" href="user.php?action=logout">Log-Out</a>
