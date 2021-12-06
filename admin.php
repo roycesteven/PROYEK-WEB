@@ -31,6 +31,16 @@
             font-weight: 500;
         }
     </style>
+    <script language="JavaScript" type="text/javascript">
+    function deleteUserFunction(){
+        var proceed = confirm('Are you sure?');
+        if(proceed){
+            form1.submit();
+        }else{
+            event.preventDefault();
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -171,9 +181,9 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <form method="post" action="kumpulan.php">
+                                                <form name="form1" method="post" action="kumpulan.php">
                                                     <input type="hidden" name="action" value="deleteUser">
-                                                    <button name='id' value="<?= $value['id']?>" class="delUser-button"><span>Delete </span></button>
+                                                    <button name='id' value="<?= $value['id']?>" class="delUser-button" onclick="deleteUserFunction()"><span>Delete </span></button>
                                                 </form>
                                             </td>
                                         </tr> 
@@ -209,9 +219,9 @@
                                 </a>
                             </td>
                             <td>
-                                <form method="post" action="kumpulan.php">
+                                <form name="form1" method="post" action="kumpulan.php">
                                     <input type="hidden" name="action" value="deleteUser">
-                                    <button name='id' value="<?= $value['id']?>" class="delUser-button"><span>Delete </span></button>
+                                    <button name='id' value="<?= $value['id']?>" class="delUser-button" onclick="deleteUserFunction()"><span>Delete </span></button>
                                 </form>
                             </td>
                         </tr>

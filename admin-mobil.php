@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin-mobil.css">
+    <link rel="stylesheet" href="admin-mobil2.css">
     <title>Document</title>
     <style>
         th, td {
@@ -26,6 +26,25 @@
         }
         tr:nth-child(even) {background-color: #f2f2f2;}
     </style>
+    <script language="JavaScript" type="text/javascript">
+    function editStatusFunction(){
+        var proceed = confirm('Are you sure?');
+        if(proceed){
+            form1.submit();
+        }else{
+            event.preventDefault();
+        }
+    }
+
+    function deleteMobilFunction(){
+        var proceed = confirm('Are you sure?');
+        if(proceed){
+            form2.submit();
+        }else{
+            event.preventDefault();
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -73,7 +92,7 @@
                     <th>Nama Mobil</th>
                     <th>Bahan Bakar</th>
                     <th>Jenis</th>
-                    <th>Status</th>
+                    <th colspan="2">Status</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </thead>
@@ -136,16 +155,30 @@
                                             <td><?= $t['nama_mobil']?></td>
                                             <td><?= $t['bahan_bakar']?></td>
                                             <td><?= $t['jenis']?></td>
-                                            <td><?= $t['status']?></td>
+                                            <?php
+                                                if($t['status']=="Available"){
+                                                    ?>
+                                                    <td colspan="2"><?= $t['status']?></td>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                    <td><?= $t['status']?></td>
+                                                    <form name="form1" method="post" action="kumpulan.php">
+                                                        <input type="hidden" name="action" value="editStatusMobil">
+                                                        <button type="submit" name="id_mobil" value="<?= $value['id']?>" class="editStatus-button" onclick="editStatusFunction()"><span>Ubah Status </span></button>
+                                                    </form>
+                                                    <?php
+                                                }
+                                            ?>
                                             <td>
                                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                                     <button class="editMobil-button"><span>Edit </span></button>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form method="post" action="kumpulan.php">
+                                                <form name="form2" method="post" action="kumpulan.php">
                                                     <input type="hidden" name="action" value="deleteMobil">
-                                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button"><span>Delete </span></button>
+                                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button" onclick="deleteMobilFunction()"><span>Delete </span></button>
                                                 </form>
                                             </td>
                                         </tr> 
@@ -172,16 +205,32 @@
                             <td><?= $value['nama_mobil']?></td>
                             <td><?= $value['bahan_bakar']?></td>
                             <td><?= $value['jenis']?></td>
-                            <td><?= $value['status']?></td>
+                            <?php
+                                if($value['status']=="Available"){
+                                ?>
+                                <td colspan="2"><?= $value['status']?></td>
+                                <?php
+                                }else{
+                                ?>
+                                <td><?= $value['status']?></td>
+                                <td>
+                                <form name="form1" method="post" action="kumpulan.php">
+                                    <input type="hidden" name="action" value="editStatusMobil">
+                                    <button type="submit" name="id_mobil" value="<?= $value['id']?>" class="editStatus-button" onclick="editStatusFunction()"><span>Ubah Status </span></button>
+                                </form>
+                                </td>
+                                <?php
+                                }
+                                ?>
                             <td>
                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                     <button class="editMobil-button"><span>Edit </span></button>
                                 </a>
                             </td>
                             <td>
-                                <form method="post" action="kumpulan.php">
+                                <form name="form2" method="post" action="kumpulan.php">
                                     <input type="hidden" name="action" value="deleteMobil">
-                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button"><span>Delete </span></button>
+                                    <button name='id' value="<?= $value['id']?>" class="delMobil-button" onclick="deleteMobilFunction()"><span>Delete </span></button>
                                 </form>
                             </td>
                         </tr>

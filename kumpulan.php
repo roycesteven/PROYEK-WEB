@@ -137,6 +137,54 @@ if($action == "Register"){
     }else{
         echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
+}else if($action=="editStatusMobil"){
+
+    $result = false;
+    $id_mobil = $_POST['id_mobil'];
+    $ubah = "Available";
+    $stmt = $pdo->prepare("UPDATE MOBIL SET status=:status WHERE id = :id");
+    $stmt->bindParam(":status",$ubah);
+    $stmt->bindParam(":id",$id_mobil);
+    $result = $stmt->execute();
+
+    if($result == true){
+        $_SESSION["message"] = "Berhasil edit nih";
+    }
+    else{
+        $_SESSION["message"] = "Gagal edit nih";
+    }
+
+    header("Location:admin-mobil.php");
+}else if($action=="deleteMobil"){
+    $id = $_POST['id'];
+    $result = false;
+    $stmt = $pdo->prepare("DELETE FROM MOBIL WHERE id = :id");
+    $stmt->bindParam(":id",$id);
+    $result = $stmt->execute();
+
+    if($result == true){
+        $_SESSION["message"] = "Berhasil delete nih";
+    }
+    else{
+        $_SESSION["message"] = "Gagal delete nih";
+    }
+
+    header("Location:admin-mobil.php");
+}else if($action=="deleteUser"){
+    $id = $_POST['id'];
+    $result = false;
+    $stmt = $pdo->prepare("DELETE FROM PENYEWA WHERE id = :id");
+    $stmt->bindParam(":id",$id);
+    $result = $stmt->execute();
+
+    if($result == true){
+        $_SESSION["message"] = "Berhasil delete nih";
+    }
+    else{
+        $_SESSION["message"] = "Gagal delete nih";
+    }
+
+    header("Location:admin.php");
 }
 
 ?>
