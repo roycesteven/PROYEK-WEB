@@ -95,6 +95,7 @@
                     <th>Tahun Pembuatan</th>
                     <th>Jenis</th>
                     <th colspan="2">Status</th>
+                    <th>Images</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </thead>
@@ -175,6 +176,7 @@
                                                     <?php
                                                 }
                                             ?>
+                                            <td><img src="Asset/mobil/<?= $value['id']?>.jpg" alt="Doesnt have images yet"></td>
                                             <td>
                                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                                     <button class="editMobil-button"><span>Edit </span></button>
@@ -228,6 +230,7 @@
                                 <?php
                                 }
                                 ?>
+                            <td><img src="Asset/mobil/<?= $value['id']?>.jpg" style="width: 200px; height:100px" alt="Doesnt have images yet"></td>
                             <td>
                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                     <button class="editMobil-button"><span>Edit </span></button>
