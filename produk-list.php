@@ -10,29 +10,9 @@ if(isset($_SESSION["message"])){
     unset($_SESSION["message"]);
 }
 
-if(isset($_REQUEST['action'])){
-    if($_REQUEST['action']=='delete'){
-        $i=0;
-        $idx;
-        foreach($_SESSION['carts'] as $key => $value){
-            if($value['id']==$_REQUEST['id']){
-                $idx=$i;
-                break;
-            }
-            $i++;
-        }
-        $i=0;
-        foreach($_SESSION['carts'] as $key => $value){
-            if($i>=$idx && $i<sizeof($_SESSION['carts'])-1){
-               $_SESSION['carts'][$i]=$_SESSION['carts'][$i+1];
-            
-            }
-            else if($i==sizeof($_SESSION['carts'])-1){
-                unset($_SESSION['carts'][$i]);
-            }
-            $i++;
-        }
-    }
+
+if(isset($_SESSION['active'])){
+    unset($_SESSION['active']);
 }
 
 ?>
@@ -44,7 +24,7 @@ if(isset($_REQUEST['action'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="produk-list.css">
+    <link rel="stylesheet" href="./produk-list.css">
     <style>
         .logo{
             margin-top:8px;
@@ -102,7 +82,7 @@ if(isset($_REQUEST['action'])){
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?></p>
+                                            <p>Status : <?= $value['status']?>  <img src="./Asset/red.png" alt="" style="width: 10px;"></p>
                                         </div>
                                         
                                     </a>
@@ -113,12 +93,12 @@ if(isset($_REQUEST['action'])){
                                 else{
                                     ?>
                                     <div class="produk">
-                                    <a href="produk-details.php?id=<?=$value['id']?>" class="product">
+                                    <a href="./controller/control-details.php?action=details&id=<?=$value['id']?>" class="product">
                                         <img src="Asset/images.png" alt="">
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?></p>    
+                                            <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" style="width: 10px;"> </p>   
                                         </div>
                                     </a>
                                     <?php
@@ -131,7 +111,6 @@ if(isset($_REQUEST['action'])){
                                             }
                                         }
                                     }
-                                    
                                         if(!$ada){
                                             ?>
                                             <form action="./controller/control-details.php" method="POST">
@@ -143,7 +122,7 @@ if(isset($_REQUEST['action'])){
                                         }
                                         else{
                                             ?>
-                                            <form action="produk-list.php" method="POST">
+                                            <form action="./controller/control-details.php" method="POST">
                                                 <input type="hidden" name="action" value="delete">
                                                 <input type="hidden" name="id" value="<?=  $value['id']?>">
                                                 <button type="submit" name="submit_proceed" value="Add to Cart">Remove from Cart</button>

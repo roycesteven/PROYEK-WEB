@@ -97,6 +97,12 @@
                         </tr>
                         </table>
             </div>
+            <div class="summary">
+                <p>Tanggal Mulai : <?= $_SESSION['tanggal_mulai'] ?></p>
+                <p>Tanggal Akhir : <?= $_SESSION['tanggal_akhir'] ?></p>
+                <p>Jam Ambil : <?= $_SESSION['jam_ambil'] ?></p>
+            </div>
+            
             <form action="./controller/control-order.php">
                 <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Checkout">

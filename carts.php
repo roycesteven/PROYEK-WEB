@@ -79,7 +79,7 @@ if(isset($_REQUEST['action'])){
                             {
                         ?>
                         <tr>
-                            <td><?= $idx;?></td>
+                            <td><?= $idx+1;?></td>
                             <td><?= $value['nama_mobil']; ?></td>
                             <td><?= $value['bahan_bakar']; ?></td>
                             <td><?= $value['jenis']; ?></td> 
