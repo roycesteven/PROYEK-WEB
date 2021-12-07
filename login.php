@@ -34,12 +34,13 @@
                     if(isset($_SESSION['active'])){
                         header($_SESSION['active']);
                     }else{
+                        echo "<script> alert ('Anda Berhasil masuk');</script>";
                         header("Location: index.php");
                     }
                     
                     return;
                 }else{
-                    echo "Anda tidak dapat login";
+                    echo "<script> alert ('Username atau Password anda salah');</script>";
                 }
 
             }catch (PDOException $e){

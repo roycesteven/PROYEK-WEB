@@ -9,7 +9,7 @@
         if($_REQUEST["action"] == "balik"){
             unset($_SESSION['idfinal']);
 
-            header("location:user-header-pesanan.php");
+            header("location:admin-header-pesanan.php");
         }      
     }
 
@@ -75,7 +75,7 @@
             </tbody>
     </table> <br><br>
     <button class ="button" >
-        <a href="user-detail-pesanan.php?action=balik" style="text-decoration : none; color : white;">
+        <a href="admin-detail-pesanan.php?action=balik" style="text-decoration : none; color : white;">
             Go Back
         </a>
     </button>

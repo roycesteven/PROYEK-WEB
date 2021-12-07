@@ -1,41 +1,22 @@
-<?php 
-        require_once("connection.php");
-        // echo '<pre>';
-        // var_dump($_SESSION);
-        // echo '</pre>';
-        $stmt = $pdo-> prepare("SELECT * FROM HEADER_PESANAN");
-        $stmt -> execute();
-        $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-        if(isset($_REQUEST["action"])){
-            if($_REQUEST["action"] == "detail"){
-                $id = $_REQUEST["id"];
-                
-                if($headers !== null){
-                    $listHeader = $headers;
-                }
-                $cart= [];
-                for($i = 0; $i < sizeof($listHeader); $i++){
-                    if($id == $listHeader[$i]["order_id"]){
-                        
-                        $idTemp = $listHeader[$i]["order_id"];
-                        
+<?php
+    require_once("connection.php");
+    $userid_trans = $_SESSION['id'];
     
-                        // $cart["id"] = $idTemp;
-                        
-                        $_SESSION['idfinal']= $idTemp;
+    $stmt = $pdo -> prepare("SELECT * FROM HEADER_PESANAN where penyewa_id like :id");
+    $stmt->BindParam(":id",$userid_trans);
+    $stmt->execute();
+    // $headers = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                        header("location:user-detail-pesanan.php");
-    
-                    }
-                }
-            }      
+    if(isset($_REQUEST["action"])){
+        if($_REQUEST["action"] == "detail"){
+            $id = $_REQUEST["id"];
+            $_SESSION['idfinal']= $id;
+
+            header("location:user-detail-pesanan.php");
         }
+    }
 
-        $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
-        $stmt -> execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
 ?>
 
 <!DOCTYPE html>
@@ -48,73 +29,58 @@
     <link rel="stylesheet" href="user-header-pesanan.css">
 </head>
 <body>
-    <div id="why">
-            <center>
-            <h1 style="font-size: 50px;">Riwayat Transaksi</h1>
-            </center>
-    </div>
-    <hr> <br><br>
-    
-    <table class = "styleTable" method = "POST">
+    <table class="styleTable">
+        <thead>
+            <th>Order Id</th>           
+            <th>Nama Penyewa</th>
+            <th>Total Tagihan</th>
+            <th>Status</th>
+            <th>Tanggal Mulai</th>
+            <th>Tanggal Akhir</th>
+            <th>Jam Ambil</th>
+            <th>Action</th>
+        </thead>
 
-                <thead>
-                    <th>Order Id</th>           
-                    <th>Nama Penyewa</th>
-                    <th>Total Tagihan</th>
-                    <th>Status</th>
-                    <th>Tanggal Mulai</th>
-                    <th>Tanggal Akhir</th>
-                    <th>Jam Ambil</th>
-                    <th>Action</th>
-
-                </thead>
-
-                <tbody>
-                        <?php
-                        if ($headers !== null) {
-                            foreach ($headers as $key => $value) {
-                            ?>
-                            <tr>
+        <tbody>
+            <?php 
+                
+                if($stmt->rowCount()<1){
+                    echo "<script> alert('Tidak pernah melakukan Transaksi') </script>";
+                    // header("location: user.php");
+                }else{
+                    while($t=$stmt->fetch()){
+                        ?>
+                        <tr>
                             <form action="user-header-pesanan.php" method="POST">
                                 <td>
-                                    <?= $value['order_id']?>
-                                    <input type='hidden' name='id' value='<?= $value['order_id']?>'/>
+                                    <?= $t['order_id']?>
+                                    <input type='hidden' name='id' value='<?= $t['order_id']?>'/>
                                 </td>
-                            </form>                             
-                            
-                            <?php
-                                foreach($users as $keys => $nilai){
-                                    if($nilai['id'] == $value['penyewa_id']){
-                                        ?><td><?= $nilai['nama']?></td><?php
-                                    }
-                                }
-                            ?>
-                            <td><?= $value['total_tagihan']?></td>
-                            <td><?= $value['status']?></td>
-                            <td><?= $value['tanggal_mulai']?></td>
-                            <td><?= $value['tanggal_akhir']?></td>
-                            <td><?= $value['jam_ambil']?></td>
+                            </form>
+                            <td><?=$_SESSION['userLogin']?></td> 
+                            <td><?= $t['total_tagihan']?></td>
+                            <td><?= $t['status']?></td>
+                            <td><?= $t['tanggal_mulai']?></td>
+                            <td><?= $t['tanggal_akhir']?></td>
+                            <td><?= $t['jam_ambil']?></td>
                             <td>
                                     
-                                <a href="user-header-pesanan.php?action=detail&id=<?= $value['order_id'] ?>">
+                                <a href="user-header-pesanan.php?action=detail&id=<?= $t['order_id'] ?>">
                                          <button class="detail-button"><span> Detail </span></button>
                                 </a>
                                     
                             </td>
                         </tr>
-                    <?php
-                            }
-                        }
-                    
-                
-                
-                ?>
-            </tbody>
-    </table> <br><br> 
+                    <?php    
+                    }
+                }
+            ?>
+        </tbody>
+    </table> <br><br>
     <button class ="button" >
-        <a href="admin.php" style="text-decoration : none; color : white;">
+        <a href="index.php" style="text-decoration : none; color : white;">
             Go Back
         </a>
-    </button>        
+    </button>
 </body>
 </html>

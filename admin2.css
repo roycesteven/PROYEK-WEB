@@ -40,6 +40,17 @@ body{
     flex-wrap: wrap;
 }
 
+.logo{
+    outline: 3px solid #8614f8;
+    outline-offset: 2px;
+    height: 3.6rem;
+    font-size: 1.5rem;
+    line-height: 3.7rem;
+    text-decoration: none;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+}
+
 
   
 .navigation a{
@@ -56,7 +67,7 @@ body{
 
 .navigation .kiri{
     display: flex;
-    width: 30%;
+    width: 45%;
     justify-content: space-around;
     box-sizing: border-box;
   }

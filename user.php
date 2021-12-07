@@ -51,14 +51,18 @@
         <div class="content">
             <div class="kiri-cont">
                 <img src="Asset/userprofile2.jpg" alt="" style="width:100%; height:100vh">
-                <button class="btn">Your Profile</button>        
+                <button class="btn">
+                    <a href="user-profile.php" style="text-decoration:none; color:white;">
+                        Your Profile
+                    </a>    
+                </button>        
             </div>
             <div class="kanan-cont">
                 <img src="Asset/usertrans.jpg" alt="" style="width:100%; height:100vh">
                 <button class="btn">
-                 <a href="user-transaction.php" style="text-decoration:none; color:white;">
-                    Your Transaction Record
-                 </a>   
+                    <a href="user-header-pesanan.php" style="text-decoration:none; color:white;">
+                        Your Transaction Record
+                    </a>   
                 </button>   
             </div>
         </div>

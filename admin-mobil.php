@@ -50,10 +50,10 @@
     <div class="container">
         <div class="navigation">
             <div class="kiri">
-                <a href="index.php" class="logo">LOGO</a>
-                <a href="admin.php">Admin User</a>
-                <a href="user-header-pesanan.php">Riwayat Transaksi</a>
-                <a href="admin-ongoing.php">Transaksi On-going</a>
+                <a href="index.php" class="logo">IndoSuroboyo</a>
+                <a href="admin.php" style="padding-top:20px">Admin User</a>
+                <a href="admin-header-pesanan.php" style="padding-top:20px" >Riwayat Transaksi</a>
+                <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
             </div>
             <div class="kanan">
                 <a id= "login" href="user.php?action=logout">Log-Out</a>

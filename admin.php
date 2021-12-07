@@ -19,18 +19,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin2.css">
     <title>Document</title>
-    <style>
-        .logo{
-            outline: 3px solid #8614f8;
-            outline-offset: 2px;
-            height: 3.6rem;
-            font-size: 1.5rem;
-            line-height: 3.7rem;
-            text-decoration: none;
-            text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-            font-weight: 500;
-        }
-    </style>
     <script language="JavaScript" type="text/javascript">
     function deleteUserFunction(){
         var proceed = confirm('Are you sure?');
@@ -51,8 +39,8 @@
 
                 <a href="index.php" class="logo">IndoSuroboyo</a>
                 <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
-                <a href="user-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
-                <a href="admin-ongoing.php">Transaksi On-going</a>
+                <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
+                <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
 
             </div>
             <div class="kanan">
