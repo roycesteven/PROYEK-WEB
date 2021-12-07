@@ -2,6 +2,12 @@
 
 require_once("connection.php");
 
+if(isset($_SESSION['userLogin'])){
+    if($_SESSION['userLogin']=='admin'){
+        header("location:admin.php");    
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
