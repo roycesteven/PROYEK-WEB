@@ -3,7 +3,7 @@
     
     $id_mobil = $_GET['id'];
     
-    $stmt = $pdo-> prepare("SELECT * FROM MOBIL WHERE ID = :id");
+    $stmt = $pdo-> prepare("SELECT * FROM mobil WHERE ID = :id");
     $stmt->BindParam(":id",$id_mobil);
     $stmt->execute();
     $mobils = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,6 +1,6 @@
 <?php 
     require_once("connection.php");
-    $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
+    $stmt = $pdo-> prepare("SELECT * FROM penyewa");
     $stmt -> execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

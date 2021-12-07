@@ -1,7 +1,7 @@
 <?php 
     require_once("connection.php");
 
-    $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
+    $stmt = $pdo-> prepare("SELECT * FROM penyewa");
     $stmt -> execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -20,7 +20,7 @@
         if($usnm != "" && $pass != ""){
             
             try{
-                $stmt = $pdo-> prepare("SELECT * FROM PENYEWA WHERE username = :username AND password = :pass");
+                $stmt = $pdo-> prepare("SELECT * FROM penyewa WHERE username = :username AND password = :pass");
                 $stmt->bindParam(':username', $usnm);
                 $stmt->bindParam(':pass', $pass);
                 $stmt->execute();
@@ -35,8 +35,15 @@
                         header($_SESSION['active']);
                         // header('location:./produk-list.php');
                     }else{
+                        /* error
+
                         echo "<script> alert ('Anda Berhasil masuk');</script>";
-                        header("Location: index.php");
+
+                        error*/
+
+                        header("Location: ./index.php");
+                        
+                        
                     }
                     
                     return;

@@ -13,7 +13,7 @@
         }      
     }
 
-    $stmt = $pdo-> prepare("SELECT * FROM MOBIL");
+    $stmt = $pdo-> prepare("SELECT * FROM mobil");
     $stmt -> execute();
     $mobils = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

@@ -1,6 +1,6 @@
 <?php
     require_once("connection.php");
-    $stmt = $pdo-> prepare("SELECT * FROM MOBIL");
+    $stmt = $pdo-> prepare("SELECT * FROM mobil");
         $stmt -> execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

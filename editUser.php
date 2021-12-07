@@ -3,7 +3,7 @@
 
     $id_user = $_GET['id'];
     
-    $stmt = $pdo-> prepare("SELECT * FROM PENYEWA WHERE ID = :id");
+    $stmt = $pdo-> prepare("SELECT * FROM penyewa WHERE ID = :id");
     $stmt->BindParam(":id",$id_user);
     $stmt->execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,6 +1,6 @@
 <?php
     require_once("connection.php");
-    $stmt = $pdo-> prepare("SELECT id,nama_mobil, bahan_bakar,jenis,tarif_hari FROM MOBIL where status='Rented'");
+    $stmt = $pdo-> prepare("SELECT id,nama_mobil, bahan_bakar,jenis,tarif_hari FROM mobil where status='Rented'");
         $stmt -> execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

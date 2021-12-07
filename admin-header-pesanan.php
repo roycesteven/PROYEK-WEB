@@ -3,7 +3,7 @@
         // echo '<pre>';
         // var_dump($_SESSION);
         // echo '</pre>';
-        $stmt = $pdo-> prepare("SELECT * FROM HEADER_PESANAN");
+        $stmt = $pdo-> prepare("SELECT * FROM header_pesanan");
         $stmt -> execute();
         $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -33,7 +33,7 @@
             }      
         }
 
-        $stmt = $pdo-> prepare("SELECT * FROM PENYEWA");
+        $stmt = $pdo-> prepare("SELECT * FROM penyewa");
         $stmt -> execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

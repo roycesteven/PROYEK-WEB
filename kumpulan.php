@@ -19,7 +19,7 @@ if($action == "Register"){
     if($username != "" && $password != "" && $confirmpass != "" && $phone != "" && $alamat != "" && $nik != "" &&$kota != "" && $email != ""){
       $result = false;
       if($password == $confirmpass){
-              $stmt = $pdo -> prepare("INSERT INTO PENYEWA (nik	, username, password, nama, no_telp,alamat,kota,email) VALUES (?,?,?,?,?,?,?,?)");
+              $stmt = $pdo -> prepare("INSERT INTO penyewa (nik	, username, password, nama, no_telp,alamat,kota,email) VALUES (?,?,?,?,?,?,?,?)");
               $result = $stmt-> execute([
               $nik,$username,$password,$namalengkap,$phone,$alamat,$kota,$email
           ]);
@@ -49,7 +49,7 @@ if($action == "Register"){
 
     if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif!=""){
         $result = false;
-        $stmt = $pdo -> prepare("INSERT INTO MOBIL (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status) VALUES (?,?,?,?,?,?)");
+        $stmt = $pdo -> prepare("INSERT INTO mobil (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status) VALUES (?,?,?,?,?,?)");
         $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif_hari,$status]);
         if($result == true){
             $_SESSION["message"] = "Berhasil add nih";
@@ -77,7 +77,7 @@ if($action == "Register"){
     if($username != "" && $password != "" && $confirmpass != "" && $phone != "" && $alamat != "" && $nik != "" &&$kota != "" && $email != "" && $namalengkap!=""){
       $result = false;
       if($password == $confirmpass){
-        $stmt = $pdo->prepare("UPDATE PENYEWA SET nik=:nik, username=:username,password=:password, nama=:nama , no_telp=:no_telp, alamat=:alamat, kota=:kota, email=:email WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE penyewa SET nik=:nik, username=:username,password=:password, nama=:nama , no_telp=:no_telp, alamat=:alamat, kota=:kota, email=:email WHERE id = :id");
         $stmt->bindParam(":nik", $nik);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
@@ -115,7 +115,7 @@ if($action == "Register"){
     
     if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif !=""){
         $result = false;
-        $stmt = $pdo->prepare("UPDATE MOBIL SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif_hari=:tarif_hari, status=:status WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE mobil SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif_hari=:tarif_hari, status=:status WHERE id = :id");
         $stmt->bindParam(":nama_mobil", $nama);
         $stmt->bindParam(":tahun", $tahun);
         $stmt->bindParam(":bahan_bakar", $bahan_bakar);
@@ -142,7 +142,7 @@ if($action == "Register"){
     $result = false;
     $id_mobil = $_POST['id_mobil'];
     $ubah = "Available";
-    $stmt = $pdo->prepare("UPDATE MOBIL SET status=:status WHERE id = :id");
+    $stmt = $pdo->prepare("UPDATE mobil SET status=:status WHERE id = :id");
     $stmt->bindParam(":status",$ubah);
     $stmt->bindParam(":id",$id_mobil);
     $result = $stmt->execute();
@@ -158,7 +158,7 @@ if($action == "Register"){
 }else if($action=="deleteMobil"){
     $id = $_POST['id'];
     $result = false;
-    $stmt = $pdo->prepare("DELETE FROM MOBIL WHERE id = :id");
+    $stmt = $pdo->prepare("DELETE FROM mobil WHERE id = :id");
     $stmt->bindParam(":id",$id);
     $result = $stmt->execute();
 
@@ -173,7 +173,7 @@ if($action == "Register"){
 }else if($action=="deleteUser"){
     $id = $_POST['id'];
     $result = false;
-    $stmt = $pdo->prepare("DELETE FROM PENYEWA WHERE id = :id");
+    $stmt = $pdo->prepare("DELETE FROM penyewa WHERE id = :id");
     $stmt->bindParam(":id",$id);
     $result = $stmt->execute();
 
