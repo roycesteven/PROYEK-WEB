@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <td style="padding-top: 20px; ">
-                                    <input style="margin-left: 15px;" type="number" id="tarif" name="tarif" placeholder="Masukan Tarif per Hari" required><br>
+                                    <input style="margin-left: 15px;" type="number" id="tarif" name="tarif_hari" placeholder="Masukan Tarif per Hari" required><br>
                                 </td>
                             </tr>
                         </table>

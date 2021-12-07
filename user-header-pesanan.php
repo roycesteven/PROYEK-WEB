@@ -32,7 +32,6 @@
     <table class="styleTable">
         <thead>
             <th>Order Id</th>           
-            <th>Nama Penyewa</th>
             <th>Total Tagihan</th>
             <th>Status</th>
             <th>Tanggal Mulai</th>
@@ -57,7 +56,6 @@
                                     <input type='hidden' name='id' value='<?= $t['order_id']?>'/>
                                 </td>
                             </form>
-                            <td><?=$_SESSION['userLogin']?></td> 
                             <td><?= $t['total_tagihan']?></td>
                             <td><?= $t['status']?></td>
                             <td><?= $t['tanggal_mulai']?></td>

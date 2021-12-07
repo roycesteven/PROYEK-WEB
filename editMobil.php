@@ -13,7 +13,7 @@
         $tahun = $value['tahun'];
         $bahan_bakar = $value['bahan_bakar'];
         $jenis = $value['jenis'];
-        $tarif = $value['tarif'];
+        $tarif = $value['tarif_hari'];
         $status = $value['status'];
     }
 
@@ -155,7 +155,7 @@
                             </tr>
                             <tr>
                                 <td style="padding-top: 20px; ">
-                                    <input style="margin-left: 15px;" type="number" id="tarif" name="tarif" placeholder="Masukan Tarif per Hari" required value="<?= $tarif ?>"><br>
+                                    <input style="margin-left: 15px;" type="number" id="tarif" name="tarif_hari" placeholder="Masukan Tarif per Hari" required value="<?= $tarif ?>"><br>
                                 </td>
                             </tr>
                             <tr>

@@ -44,13 +44,13 @@ if($action == "Register"){
     $tahun = $_POST['tahun'];
     $bahan_bakar = $_POST['bahan_bakar'];
     $jenis = $_POST['jenis'];
-    $tarif = $_POST['tarif'];
+    $tarif_hari = $_POST['tarif_hari'];
     $status = "Available";
 
     if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif!=""){
         $result = false;
-        $stmt = $pdo -> prepare("INSERT INTO MOBIL (nama_mobil, tahun, bahan_bakar,jenis, tarif, status) VALUES (?,?,?,?,?,?)");
-        $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif,$status]);
+        $stmt = $pdo -> prepare("INSERT INTO MOBIL (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status) VALUES (?,?,?,?,?,?)");
+        $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif_hari,$status]);
         if($result == true){
             $_SESSION["message"] = "Berhasil add nih";
         }
@@ -110,17 +110,17 @@ if($action == "Register"){
     $tahun = $_POST['tahun'];
     $bahan_bakar = $_POST['bahan_bakar'];
     $jenis = $_POST['jenis'];
-    $tarif = $_POST['tarif'];
+    $tarif_hari = $_POST['tarif_hari'];
     $status = $_POST["status"];
     
     if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif !=""){
         $result = false;
-        $stmt = $pdo->prepare("UPDATE MOBIL SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif=:tarif, status=:status WHERE id = :id");
+        $stmt = $pdo->prepare("UPDATE MOBIL SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif_hari=:tarif_hari, status=:status WHERE id = :id");
         $stmt->bindParam(":nama_mobil", $nama);
         $stmt->bindParam(":tahun", $tahun);
         $stmt->bindParam(":bahan_bakar", $bahan_bakar);
         $stmt->bindParam(":jenis", $jenis);
-        $stmt->bindParam(":tarif", $tarif);
+        $stmt->bindParam(":tarif_hari", $tarif_hari);
         $stmt->bindParam(":status", $status);
         $stmt->bindParam(":id", $id_mobil);
         $result = $stmt->execute();

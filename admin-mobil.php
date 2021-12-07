@@ -92,6 +92,7 @@
                     <th>Id</th>           
                     <th>Nama Mobil</th>
                     <th>Bahan Bakar</th>
+                    <th>Tahun Pembuatan</th>
                     <th>Jenis</th>
                     <th colspan="2">Status</th>
                     <th>Edit</th>
@@ -155,6 +156,7 @@
                                             <td><?= $t['id']?></td>
                                             <td><?= $t['nama_mobil']?></td>
                                             <td><?= $t['bahan_bakar']?></td>
+                                            <td><?= $t['tahun']?></td>
                                             <td><?= $t['jenis']?></td>
                                             <?php
                                                 if($t['status']=="Available"){
@@ -207,6 +209,7 @@
                             <td><?= $value['id']?></td>
                             <td><?= $value['nama_mobil']?></td>
                             <td><?= $value['bahan_bakar']?></td>
+                            <td><?= $value['tahun']?></td>
                             <td><?= $value['jenis']?></td>
                             <?php
                                 if($value['status']=="Available"){
