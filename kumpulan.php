@@ -47,7 +47,7 @@ if($action == "Register"){
     $tarif_hari = $_POST['tarif_hari'];
     $status = "Available";
 
-    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif!=""){
+    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif_hari!=""){
         $result = false;
         $stmt = $pdo -> prepare("INSERT INTO mobil (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status) VALUES (?,?,?,?,?,?)");
         $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif_hari,$status]);
@@ -113,7 +113,7 @@ if($action == "Register"){
     $tarif_hari = $_POST['tarif_hari'];
     $status = $_POST["status"];
     
-    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif !=""){
+    if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif_hari !=""){
         $result = false;
         $stmt = $pdo->prepare("UPDATE mobil SET nama_mobil=:nama_mobil, tahun=:tahun, bahan_bakar=:bahan_bakar, jenis=:jenis, tarif_hari=:tarif_hari, status=:status WHERE id = :id");
         $stmt->bindParam(":nama_mobil", $nama);
