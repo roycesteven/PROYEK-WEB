@@ -25,19 +25,8 @@ if(isset($_SESSION['active'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="./produk-list.css">
-    <style>
-        .logo{
-            margin-top:8px;
-            outline: 3px solid #8614f8;
-            outline-offset: 2px;
-            height: 3.6rem;
-            font-size: 1.5rem;
-            line-height: 1.7rem;
-            text-decoration: none;
-            text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-            font-weight: 500;
-        }
-    </style>
+    <link rel="stylesheet" href="./Asset/animate.min.css">
+</head>
 </head>
 <body>
     <div class="container">
@@ -76,13 +65,13 @@ if(isset($_SESSION['active'])){
                                 if($value['status']!='Available')
                                 {
                                     ?>
-                                    <div class="produk">
-                                    <a href="#" class="product link">
+                                    <div class="produk  animate__animated  animate__bounceIn">
+                                    <a href="#" class="product link ">
                                         <img src="Asset/images.png" alt="">
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?>  <img src="./Asset/red.png" alt="" style="width: 10px;"></p>
+                                            <p>Status : <?= $value['status']?>  <img src="./Asset/red.png" alt=""></p>
                                         </div>
                                         
                                     </a>
@@ -92,13 +81,13 @@ if(isset($_SESSION['active'])){
                                 }
                                 else{
                                     ?>
-                                    <div class="produk">
+                                    <div class="produk animate__animated  animate__bounceIn">
                                     <a href="./controller/control-details.php?action=details&id=<?=$value['id']?>" class="product">
                                         <img src="Asset/images.png" alt="">
                                         <div class="text">
                                             <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                             <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" style="width: 10px;"> </p>   
+                                            <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" > </p>   
                                         </div>
                                     </a>
                                     <?php
