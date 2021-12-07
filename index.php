@@ -12,7 +12,9 @@ require_once("connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Asset/animate.min.css">
+    
+    <link rel="stylesheet" href="./Asset/aos.css">
 </head>
 <body>
     
@@ -43,8 +45,8 @@ require_once("connection.php");
                             ?>
                 </div>
             </div>
-            <div class="banner" >
-                <h2>IndoSuroboyo Untuk penuhi kebutuhan mobilitas anda</h2><br>
+            <div  class="banner animate__animated animate__slideInUp">
+                <h2 >IndoSuroboyo Untuk penuhi kebutuhan mobilitas anda</h2><br>
                 <p>Butuh sewa mobil pribadi ataupun kantor? IndoSuroboyo Solusinya</p> <br>
                 <div class="btn">
                     <button>
@@ -82,11 +84,10 @@ require_once("connection.php");
                 <!-- ini belum tak isi kawan -->
             </div>
         
-        </div>
-        
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>       
+        </div>    
 </body>
+<script src="./Asset/aos.js"></script>
+<script>
+    AOS.init();
+</script>   
 </html>

@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-body{
+/* body{
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -20,7 +20,7 @@ body{
   100% {
       opacity: 1;
   }
-}
+} */
 
 .container{
   height: auto;
@@ -111,7 +111,41 @@ body{
     width: 200px;
 }
 
+.text p img{
+  width: 10px;
+}
+
+
+.link .text p img{
+  
+  animation: blinking alternate 1s;
+  animation-iteration-count: infinite;
+  
+}
+
+
+@keyframes blinking {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+} 
+
 .link{
   cursor: not-allowed;
   
+}
+
+.logo{
+  margin-top:8px;
+  outline: 3px solid #8614f8;
+  outline-offset: 2px;
+  height: 3.6rem;
+  font-size: 1.5rem;
+  line-height: 1.7rem;
+  text-decoration: none;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
 }

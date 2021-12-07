@@ -3,8 +3,8 @@
 
    $stmt = $pdo->query("SELECT * FROM mobil");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-if(isset($_POST['id'])){
-    $_SESSION['active_id']= $_POST['id'];
+if(isset( $_REQUEST['id'])){
+    $_SESSION['active_id']= $_REQUEST['id'];
 }
 
 
@@ -30,13 +30,47 @@ if(isset($_REQUEST['action'])){
         }
         else if($_REQUEST['action']=='add' && !isset($_SESSION['userLogin'])){
             $id = $_SESSION['active_id'];
-            $_SESSION['active']='location:produk-details.php?id='. $id ;
-            unset($_SESSION['active_id']);
+            $_SESSION['active']='location:./produk-list.php' ;
             header('location:../login.php');
         }
+
+       
+
+        if($_REQUEST['action']=='details' && isset($_SESSION['userLogin'])){
+            header('location:../produk-details.php?id='. $_SESSION['active_id']);
+        }
+        else if($_REQUEST['action']=='details' && !isset($_SESSION['userLogin'])){
+            $id = $_SESSION['active_id'];
+            $_SESSION['active']='location:./produk-details.php?id='. $id ;
+            header('location:../login.php');
+        }
+
+
+
+        if($_REQUEST['action']=='delete'){
+            $i=0;
+            $idx;
+            foreach($_SESSION['carts'] as $key => $value){
+                if($value['id']==$_REQUEST['id']){
+                    $idx=$i;
+                    break;
+                }
+                $i++;
+            }
+            $i=0;
+            foreach($_SESSION['carts'] as $key => $value){
+                if($i>=$idx && $i<sizeof($_SESSION['carts'])-1){
+                   $_SESSION['carts'][$i]=$_SESSION['carts'][$i+1];
+                
+                }
+                else if($i==sizeof($_SESSION['carts'])-1){
+                    unset($_SESSION['carts'][$i]);
+                }
+                $i++;
+            }
+            header('location:../produk-list.php');
+        }
     }
-
-  
-
+    unset($_SESSION['active_id']);
 ?>
 

@@ -33,6 +33,7 @@
                     $_SESSION['id'] = $id2['id'];
                     if(isset($_SESSION['active'])){
                         header($_SESSION['active']);
+                        // header('location:./produk-list.php');
                     }else{
                         echo "<script> alert ('Anda Berhasil masuk');</script>";
                         header("Location: index.php");

@@ -78,21 +78,46 @@
 
                 <!-- ditutup sementara -->
                 
-                <!-- <div class="bawah">
+                <div class="bawah">
+                    <?php
+                    $ada=false;
+                    if(isset($_SESSION['carts'])){
+                        foreach($_SESSION['carts'] as $key => $val){
+                            if($val['id']==$value['id']){
+                                $ada=true;
+                                break;
+                            }
+                        }
+                    }
+                        if(!$ada){
+                            ?>
                     <form action="./controller/control-details.php" method="POST">
                         <input type="hidden" name="action" value="add">
                         <input type="hidden" name="id" value="<?=  $value['id']?>">
                         <button type="submit" name="submit_proceed" value="Add to Cart">Add to Cart</button>
                     </form>
+                    <?php
+                        }
+                        else if($ada){
+                            ?>
+                            <form action="./controller/control-details.php" method="POST">
+                                                <input type="hidden" name="action" value="delete">
+                                                <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                                <button type="submit" name="submit_proceed" value="Add to Cart">Remove from Cart</button>
+                                            </form>
+                            <?php
+                        }
+                        ?>
                     <a href="produk-list.php"><button>Back</button></a>                    
-                </div> -->
+                </div>
+                            
 
                 <!-- ditutup sementara -->
 
                 <?php
                         }
                     }
-                ?>
+                    ?>
             </div>
         </div>
 </html>
