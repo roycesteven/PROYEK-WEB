@@ -9,13 +9,33 @@
     $stmt = $pdo->query("SELECT * FROM penyewa");
     $penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-   
+    $tanggal_mulai = $_POST['date_mulai'];
+    $tanggal_akhir = $_POST['date_akhir'];
+    $jamambil = $_POST['jam_ambil'];
+    // $_SESSION['gagal'];
+    if($tanggal_mulai != "" && $tanggal_akhir != "" && $jamambil != ""){
         $_SESSION['date_mulai']= new DateTime($_POST['date_mulai']);
         $_SESSION['tanggal_mulai'] = $_POST['date_mulai'];
         $_SESSION['tanggal_akhir'] = $_POST['date_akhir'];
         $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
         $_SESSION['jam_ambil'] = $_POST['jam_ambil'];
         $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+        unset($_SESSION['gagal']);
+    }else{    
+        header("location: carts.php");
+        $_SESSION['gagal'] = "Ada field yang belum diisi";
+    }
+
+    if(isset($_REQUEST['action'])){
+        if($_REQUEST['action']=='Go back'){
+            unset($_SESSION['gagal']);
+            header("location: carts.php");
+        }else if($_REQUEST['action']=='go back to list produk'){
+            unset($_SESSION['gagal']);
+            header("location: produk-list.php");
+        }
+    }
+        
     
     
 
@@ -106,6 +126,9 @@
             <form action="./controller/control-order.php">
                 <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Checkout">
+            </form>
+            <form action="order-form.php">
+                <input type="submit" value="Go back" name="action">
             </form>
         </div>
     

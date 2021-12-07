@@ -22,7 +22,7 @@
 <body>
     <div class="container">
         <div class="left">
-            <img src="Asset/gantengdewe.jpg" 
+            <img src="Asset/userProf.png" 
             alt="user" width="250" >
             <h4><?= $users['nama'] ?></h4>
             <p>Id Pelanggan : <?= $users['id']?></p>

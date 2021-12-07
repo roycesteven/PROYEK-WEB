@@ -76,7 +76,7 @@
         </tbody>
     </table> <br><br>
     <button class ="button" >
-        <a href="index.php" style="text-decoration : none; color : white;">
+        <a href="user.php" style="text-decoration : none; color : white;">
             Go Back
         </a>
     </button>
