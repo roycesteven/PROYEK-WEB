@@ -48,6 +48,22 @@
     <link rel="stylesheet" href="admin-header-pesanan.css">
 </head>
 <body>
+<div class="container">
+<div class="navigation">
+            <div class="kiri">
+               
+               
+
+                <a href="index.php" class="logo">IndoSuroboyo</a>
+                <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
+                <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
+                <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
+
+            </div>
+            <div class="kanan">
+                <a id= "login" href="user.php?action=logout">Log-Out</a>
+            </div>
+        </div>
     <div id="why">
             <center>
             <h1 style="font-size: 50px;">Riwayat Transaksi</h1>

@@ -1,9 +1,16 @@
 <?php
     require_once("connection.php");
-    $stmt = $pdo-> prepare("SELECT id,nama_mobil, bahan_bakar,jenis,tarif_hari FROM mobil where status='Rented'");
+    $stmt = $pdo-> prepare("SELECT * FROM header_pesanan where status!='Selesai'");
+        $stmt -> execute();
+        $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt = $pdo-> prepare("SELECT * FROM detail_pesanan");
+        $stmt -> execute();
+        $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt = $pdo-> prepare("SELECT * FROM penyewa ");
         $stmt -> execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         
     if(isset($_SESSION["message"])){
         echo "<script>alert('$_SESSION[message]')</script>";
@@ -17,7 +24,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin-mobil.css">
+    <link rel="stylesheet" href="admin-header-pesanan.css">
     <title>Document</title>
     <style>
         th, td {
@@ -70,11 +77,14 @@
             <br>
             <table id="tabel" class="styleTable" method = "POST">
                 <thead>
-                    <th>Id</th>           
-                    <th>Nama Mobil</th>
-                    <th>Bahan Bakar</th>
-                    <th>Jenis</th>
-                    <th>Return</th>
+                    <th>Order ID</th>           
+                    <th>Nama Penyewa</th>
+                    <th>Tanggal Mulai</th>
+                    <th>Tanggal Akhir</th>
+                    <th>Jam Ambil</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                 <?php
@@ -155,18 +165,44 @@
                         }
                     }else{
                         if ($users !== null) {
-                            foreach ($users as $key => $value) {
+                            foreach ($headers as $key => $value) {
                             ?>
                             <tr>
-                            <td><?= $value['id']?></td>
-                            <td><?= $value['nama_mobil']?></td>
-                            <td><?= $value['bahan_bakar']?></td>
-                            <td><?= $value['jenis']?></td>
-                            
+                            <td><?= $value['order_id']?></td>
+                            <?php
+                            foreach($users as $key => $val){
+                                if($value['penyewa_id']==$val['id'])
+                                {
+                                    ?>
+                                    <td><?= $val['nama']?></td>
+                                    <?php
+                                }
+                            }
+                            ?>
+                            <td><?= $value['tanggal_mulai']?></td>
+                            <td><?= $value['tanggal_akhir']?></td>
+                            <td><?= $value['jam_ambil']?></td>
+                            <td><?= $value['status']?></td>
                             <td>
-                                <a href="./controller/return-car.php?id=<?=$value['id']?>" class="return">
-                                    <button class="editMobil-button"><span>Return </span></button>
+                                    
+                                <a href="admin-header-pesanan.php?action=detail&id=<?= $value['order_id'] ?>">
+                                         <button class="detail-button"><span> Details </span></button>
                                 </a>
+                                    
+                            </td>
+                            <td>
+                                <?php
+                                if($value['status']=='Belum diambil'){
+                                    ?>
+                                    <a href="./controller/return-car.php?action=pick-up&id=<?=$value['order_id']?>"> <button class="detail-button pick-up"><span>Pick-up </span></button> </a>
+                                <?php
+                                }
+                                else if($value['status']=='Berlangsung'){
+                                    ?>
+                                    <a href="./controller/return-car.php?action=return&id=<?=$value['order_id']?>"> <button class="detail-button kembali"><span>Return </span></button> </a>
+                                <?php
+                                }
+                                ?>
                             </td>
                             
                         </tr>
@@ -183,12 +219,25 @@
     </div>
 </body>
 <script>
-var deleteLink = document.querySelectorAll(".return");
-for (var i = 0; i < deleteLink.length; i++) {
-    deleteLink[i].addEventListener('click', function(event) {
-        if (confirm('Apakah anda yakin mobil sudah dikembalikan?')) {
+
+var pick = document.querySelectorAll(".pick-up");
+for (var i = 0; i < pick.length; i++) {
+    pick[i].addEventListener('click', function(event) {
+        if (confirm('Apakah anda yakin SEMUA mobil diambil?')) {
   // Save it!
-  alert('Berhasil merubah status mobil menjadi available!');
+  alert('Berhasil merubah status transaksi menjadi "Berlangsung"!');
+} else {
+  event.preventDefault();
+}
+    });
+}
+
+var kembali = document.querySelectorAll(".kembali");
+for (var i = 0; i < kembali.length; i++) {
+    kembali[i].addEventListener('click', function(event) {
+        if (confirm('Apakah anda yakin SEMUA mobil sudah dikembalikan?')) {
+  // Save it!
+  alert('Berhasil merubah status transaksi menjadi "Selesai" dan status SEMUA mobil menjadi "Available!');
 } else {
   event.preventDefault();
 }

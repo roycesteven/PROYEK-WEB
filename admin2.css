@@ -4,7 +4,10 @@
     box-sizing: border-box;
 }
 
-body{
+
+/* ditutup sementara */
+
+/* body{
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -17,7 +20,9 @@ body{
     100% {
         opacity: 1;
      }
-  }
+  } */
+
+  /* ditutup sementara */
 
 .container{
     height: auto;

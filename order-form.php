@@ -9,16 +9,16 @@
     $stmt = $pdo->query("SELECT * FROM penyewa");
     $penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $tanggal_mulai = $_POST['date_mulai'];
+    $tanggal_mulai = date('Y-m-d', time());
     $tanggal_akhir = $_POST['date_akhir'];
     $jamambil = $_POST['jam_ambil'];
     // $_SESSION['gagal'];
     if($tanggal_mulai != "" && $tanggal_akhir != "" && $jamambil != ""){
-        $_SESSION['date_mulai']= new DateTime($_POST['date_mulai']);
-        $_SESSION['tanggal_mulai'] = $_POST['date_mulai'];
-        $_SESSION['tanggal_akhir'] = $_POST['date_akhir'];
+        $_SESSION['date_mulai']= new DateTime($tanggal_mulai);
+        $_SESSION['tanggal_mulai'] = $tanggal_mulai;
+        $_SESSION['tanggal_akhir'] = $tanggal_akhir;
         $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
-        $_SESSION['jam_ambil'] = $_POST['jam_ambil'];
+        $_SESSION['jam_ambil'] = $jamambil;
         $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
         unset($_SESSION['gagal']);
     }else{    

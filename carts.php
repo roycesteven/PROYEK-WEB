@@ -127,10 +127,10 @@ if(isset($_REQUEST['action'])){
                         <tr>
                             <td colspan="2" style="text-align: center;"><h2>Order Form</h2></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td><label for="">Tanggal Mulai</label></td>
                             <td>: <input type="date" name="date_mulai"></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td><label for="">Tanggal Akhir</label></td>
                             <td>: <input type="date" name="date_akhir" id=""></td>

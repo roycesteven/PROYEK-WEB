@@ -18,7 +18,7 @@ if(isset($_REQUEST['action'])){
       }
 
       $total_tagihan = $_SESSION['total'];
-      $status='Sudah dibayar';
+      $status='Belum diambil';
       $status_mobil = 'Rented';
       $tanggal_mulai = date("Y-m-d", strtotime($_SESSION['tanggal_mulai']));
       $tangal_akhir = date("Y-m-d", strtotime($_SESSION['tanggal_akhir']));

@@ -214,21 +214,33 @@
                             <td><?= $value['tahun']?></td>
                             <td><?= $value['jenis']?></td>
                             <?php
-                                if($value['status']=="Available"){
+                                //  ditutup sementara
+
+                                // if($value['status']=="Available"){
                                 ?>
                                 <td colspan="2"><?= $value['status']?></td>
                                 <?php
-                                }else{
+                                // }
+                                // else{
                                 ?>
-                                <td><?= $value['status']?></td>
+                               
+                                <!-- <td><?php 
+                                // echo $value['status']
+                                ?></td>
                                 <td>
                                 <form name="form1" method="post" action="kumpulan.php">
                                     <input type="hidden" name="action" value="editStatusMobil">
-                                    <button type="submit" name="id_mobil" value="<?= $value['id']?>" class="editStatus-button" onclick="editStatusFunction()"><span>Ubah Status </span></button>
+                                    <button type="submit" name="id_mobil" value="
+                                    <?php 
+                                    // echo $value['id'];
+                                    ?>
+                                    " class="editStatus-button" onclick="editStatusFunction()"><span>Ubah Status </span></button>
                                 </form>
-                                </td>
+                                </td> -->
+
+                                <!-- ditutup sementara -->
                                 <?php
-                                }
+                                // }
                                 ?>
                             <td><img src="Asset/mobil/<?= $value['id']?>.jpg" style="width: 200px; height:100px" alt="Doesnt have images yet"></td>
                             <td>

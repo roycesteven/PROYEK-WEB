@@ -47,7 +47,7 @@
 
                 <tbody>
                         <?php
-                        $stmt = $pdo-> prepare("SELECT * FROM DETAIL_PESANAN where order_id = ?");
+                        $stmt = $pdo-> prepare("SELECT * FROM detail_pesanan where order_id = ?");
                         // $stmt->BindParam(":id",$id);
                         $stmt->execute([$id]);
                         if($stmt->rowCount()<1){
