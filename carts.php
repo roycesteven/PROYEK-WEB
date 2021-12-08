@@ -1,6 +1,13 @@
 <?php
 require_once("connection.php");
 
+if(isset($_SESSION['gagal'])){
+    $gagal = $_SESSION['gagal'];
+    echo"<script> alert('Ada Field yang masih Belum diisi') </script>";
+}else{
+    unset($_SESSION['gagal']);
+}
+
 if(isset($_REQUEST['action'])){
     if($_REQUEST['action']=='delete'){
         $i=0;
@@ -16,6 +23,7 @@ if(isset($_REQUEST['action'])){
         }
     }
 }
+
 
 
 ?>
@@ -132,7 +140,10 @@ if(isset($_REQUEST['action'])){
                             <td>: <input type="time" name="jam_ambil"></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="text-align: center;"><input type="submit" name="" id="submit_order" value="Order"></td>
+                            <td colspan="2" style="text-align: center;"><input type="submit" name="action" id="submit_order" value="Order"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"><input type="submit" name="action" id="go back to list produk" value="go back to list produk"></td>
                         </tr>
                     </table>
                 </form>
