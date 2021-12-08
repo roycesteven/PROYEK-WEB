@@ -7,7 +7,7 @@ if(isset($_SESSION['userLogin'])){
         header("location:admin.php");    
     }
 }
-
+echo 'Current PHP version: ' . phpversion();
 ?>
 
 <!DOCTYPE html>
