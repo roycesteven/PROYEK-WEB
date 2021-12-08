@@ -36,7 +36,7 @@ if(isset($_SESSION['active'])){
                 <div class="kiri">
                     <a href="index.php" class="logo">IndoSuroboyo</a>
                     <a href="produk-list.php" style="margin-top:20px">Products</a>
-                    <a href="#container2" style="margin-top:20px">About Us</a>
+                    <a href="index.php#container2" style="margin-top:20px">About Us</a>
                 </div>
                 <div class="kanan">
                     <?php

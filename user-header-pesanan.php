@@ -2,7 +2,7 @@
     require_once("connection.php");
     $userid_trans = $_SESSION['id'];
     
-    $stmt = $pdo -> prepare("SELECT * FROM HEADER_PESANAN where penyewa_id like :id");
+    $stmt = $pdo -> prepare("SELECT * FROM header_pesanan where penyewa_id like :id");
     $stmt->BindParam(":id",$userid_trans);
     $stmt->execute();
     // $headers = $stmt->fetch(PDO::FETCH_ASSOC);

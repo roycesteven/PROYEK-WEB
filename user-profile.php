@@ -3,7 +3,7 @@
 
     $userid = $_SESSION['id'];
     
-    $stmt = $pdo -> prepare("SELECT * FROM PENYEWA where id like :id");
+    $stmt = $pdo -> prepare("SELECT * FROM penyewa where id like :id");
     $stmt->BindParam(":id",$userid);
     $stmt->execute();
     $users = $stmt->fetch(PDO::FETCH_ASSOC);
