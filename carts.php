@@ -67,62 +67,69 @@ if(isset($_REQUEST['action'])){
                         }
                             ?>
                 </div>
-            </div>
+            </div> <br>
+            <h1 style="text-align: center;">Your Cart</h1>
+            <br><br>
         <div class="container1">
             <div class="carts">
            
-                        <table border='1'>
-                        <tr>
-                        <th>Nomor</th>
-                        <th>Nama Mobil</th>
-                        <th>Bahan Bakar</th>
-                        <th>Kategori</th>
-                        <th>Tarif per hari</th>
-                        <th>Delete</th>
-                        </tr>
-                        <?php
-                            $idx=0;
-                            if(isset($_SESSION['carts'])){
-                            foreach( $_SESSION['carts'] as $key => $value)
-                            {
-                        ?>
-                        <tr>
-                            <td><?= $idx+1;?></td>
-                            <td><?= $value['nama_mobil']; ?></td>
-                            <td><?= $value['bahan_bakar']; ?></td>
-                            <td><?= $value['jenis']; ?></td> 
-                            <td>Rp. <?= $value['tarif_hari']; ?></td> 
-                            <td>
-                                <a href="carts.php?action=delete&idx=<?= $idx?>"><button>Delete</button></a>
-                                <!-- <form method="post" action="carts.php">
-                                    <input type="hidden" name="action" value="delete">
-                                    <button name='idx' value="<?= $idx?>">Delete</button>
-                                </form> -->
-                            </td>                   
-                        </tr>
-                        <?php
-                        $idx++;
-                             }
-                        }
-
-                        if($idx==0){
+                    <table class="styleTable">
+                        <thead>
+                            <tr>
+                                <th>Nomor</th>
+                                <th>Nama Mobil</th>
+                                <th>Bahan Bakar</th>
+                                <th>Kategori</th>
+                                <th>Tarif per hari</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $idx=0;
+                                if(isset($_SESSION['carts'])){
+                                foreach( $_SESSION['carts'] as $key => $value)
+                                {
                             ?>
                             <tr>
-                            <td colspan='6'>Tidak ada produk dalam cart</td>
+                                <td><?= $idx+1;?></td>
+                                <td><?= $value['nama_mobil']; ?></td>
+                                <td><?= $value['bahan_bakar']; ?></td>
+                                <td><?= $value['jenis']; ?></td> 
+                                <td>Rp. <?= $value['tarif_hari']; ?></td> 
+                                <td>
+                                    <a href="carts.php?action=delete&idx=<?= $idx?>"><button class="delMobil-button" > <span> Delete</span></button></a>
+                                    <!-- <form method="post" action="carts.php">
+                                        <input type="hidden" name="action" value="delete">
+                                        <button name='idx' value="<?= $idx?>">Delete</button>
+                                    </form> -->
+                                </td>                   
                             </tr>
                             <?php
-                        }
-                        ?>
-                        </table>
+                            $idx++;
+                                }
+                            }
+
+                            if($idx==0){
+                                ?>
+                                <tr>
+                                <td colspan='6'>Tidak ada produk dalam cart</td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                         
                         
             </div>
             <?php 
                 if($idx>0){
                     ?>
+                    <br><br>
             <div id="form">
                 <br>
-                <form action="order-form.php" method="POST">
+                <form action="order-form.php" method="POST" class="form-isi">
                     <table>
                         <tr>
                             <td colspan="2" style="text-align: center;"><h2>Order Form</h2></td>
@@ -132,18 +139,18 @@ if(isset($_REQUEST['action'])){
                             <td>: <input type="date" name="date_mulai"></td>
                         </tr> -->
                         <tr>
-                            <td><label for="">Tanggal Akhir</label></td>
+                            <td style="padding-top:20px"><label for="" >Tanggal Akhir</label></td>
                             <td>: <input type="date" name="date_akhir" id=""></td>
                         </tr>
                         <tr>
-                            <td><label for="">Jam Pick-up</label></td>
+                            <td style="padding-top:20px"><label for="">Jam Pick-up</label></td>
                             <td>: <input type="time" name="jam_ambil"></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="text-align: center;"><input type="submit" name="action" id="submit_order" value="Order"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="text-align: center;"><input type="submit" name="action" id="go back to list produk" value="go back to list produk"></td>
+                            <td colspan="2" style="text-align: center; padding-top:20px">
+                                 <a href="order-form.php?action=Order"><button class="order-button" > <span> Order</span></button></a>
+                                <!-- <input type="submit" name="action" id="submit_order" value="Order" > -->
+                            </td>
                         </tr>
                     </table>
                 </form>
@@ -151,6 +158,10 @@ if(isset($_REQUEST['action'])){
             <?php
                 }
                 ?>
+            <a href="order-form.php?action=go back to list produk">
+                 <button class="back-button" > <span> Go back</span></button>
+            </a>
+             <!-- <input type="submit" name="action" id="go back to list produk" value="go back to list produk"></td>    -->
         </div>    
 </body>
 <script>

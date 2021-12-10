@@ -79,57 +79,64 @@
                 </div>
             </div>
         <div class="container1">
-            <h1>Order Summary</h1>
+            <br>
+            <h1 style="text-align: center;">Order Summary</h1>
+            <br><br>
             <div class="carts">
-            <table border='1'>
-                        <tr>
-                        <th>Nomor</th>
-                        <th>Nama Mobil</th>
-                        <th>Bahan Bakar</th>
-                        <th>Kategori</th>
-                        <th>Tarif per hari</th>
-                        <th>Subtotal</th>
-                        </tr>
-                        <?php
-                            $id=1;
-                            $_SESSION['total']=0;
-                            if(isset($_SESSION['carts'])){
-                            foreach( $_SESSION['carts'] as $key => $value)
-                            {
-                        ?>
-                        <tr>
-                            <td><?= $id; ?></td>
-                            <td><?= $value['nama_mobil']; ?></td>
-                            <td><?= $value['bahan_bakar']; ?></td>
-                            <td><?= $value['jenis']; ?></td> 
-                            <td>Rp. <?= $value['tarif_hari']; ?>,-</td> 
-                            <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>,-  </td>                    
-                        </tr>
-                        <?php
-                        $id++;
-                        $_SESSION['total']+=(int)( $diff->d )*$value['tarif_hari'];
-                             }
-                        }
-                        ?>
-                        <tr>
-                            <td colspan='5'>Total : </td>
-                            <td>Rp. <?= $_SESSION['total']; ?>,-</td>
-                        </tr>
-                        </table>
-            </div>
+                <table class="styleTable">
+                        <thead>
+                            <tr>
+                                <th>Nomor</th>
+                                <th>Nama Mobil</th>
+                                <th>Bahan Bakar</th>
+                                <th>Kategori</th>
+                                <th>Tarif per hari</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $id=1;
+                                $_SESSION['total']=0;
+                                if(isset($_SESSION['carts'])){
+                                foreach( $_SESSION['carts'] as $key => $value)
+                                {
+                            ?>
+                            <tr>
+                                <td><?= $id; ?></td>
+                                <td><?= $value['nama_mobil']; ?></td>
+                                <td><?= $value['bahan_bakar']; ?></td>
+                                <td><?= $value['jenis']; ?></td> 
+                                <td>Rp. <?= $value['tarif_hari']; ?>,-</td> 
+                                <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>,-  </td>                    
+                            </tr>
+                            <?php
+                            $id++;
+                            $_SESSION['total']+=(int)( $diff->d )*$value['tarif_hari'];
+                                }
+                            }
+                            ?>
+                            <tr>
+                                <td colspan='5'>Total : </td>
+                                <td>Rp. <?= $_SESSION['total']; ?>,-</td>
+                            </tr>
+                        </tbody>   
+                            
+                </table>
+            </div> <br><br>
             <div class="summary">
+                <h2>Details</h2>
                 <p>Tanggal Mulai : <?= $_SESSION['tanggal_mulai'] ?></p>
                 <p>Tanggal Akhir : <?= $_SESSION['tanggal_akhir'] ?></p>
-                <p>Jam Ambil : <?= $_SESSION['jam_ambil'] ?></p>
+                <p>Jam Ambil : <?= $_SESSION['jam_ambil'] ?></p> <br>
+                <a href="./controller/control-order.php?action=checkout"><button class="checkout-button" style="margin-left:180px; margin-bottom:30px" > <span> CheckOut</span></button></a>
+                <!-- <form action="./controller/control-order.php" style="text-align:center; padding-top:10px">
+                    <input type="hidden" name="action" value="checkout">
+                    <input type="submit" value="Checkout">
+                </form> -->
             </div>
             
-            <form action="./controller/control-order.php">
-                <input type="hidden" name="action" value="checkout">
-                <input type="submit" value="Checkout">
-            </form>
-            <form action="order-form.php">
-                <input type="submit" value="Go back" name="action">
-            </form>
+            <a href="order-form.php?action=Go back"><button class="back-button"> <span> Go Back</span></button></a>
         </div>
     
     
