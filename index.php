@@ -84,10 +84,40 @@ echo 'Current PHP version: ' . phpversion();
                         
                     </div>
                 </div>
-            </div>
-    
-            <div class="prod">
-                <!-- ini belum tak isi kawan -->
+            </div> <br><br><br><br><br><br> 
+            <!-- review Section -->
+            <section class="review" data-aos="zoom-in" data-aos-delay = "100" data-aos-duration="1000">
+                    <center>
+                        <h1 class="heading">
+                            <span>R</span>
+                            <span>e</span>
+                            <span>v</span>
+                            <span>i</span>
+                            <span>e</span>
+                            <span>w</span>
+                        </h1>
+                    </center>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="Asset/stts.png" alt="">
+                        <h3>IndoSuroboyo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae, reprehenderit exercitationem!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <!-- end review section -->
+
+            <div class="copyright">
+                <p><h6>Copyright&copy - IndoSuroboyo team</h6></p>
             </div>
         
         </div>    
