@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Profile | Indosuroboyo.com</title>
     <link rel="stylesheet" href="user-profile.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>

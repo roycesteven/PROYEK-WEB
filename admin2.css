@@ -5,9 +5,9 @@
 }
 
 
-/* ditutup sementara */
 
-/* body{
+
+ body{
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
@@ -20,9 +20,9 @@
     100% {
         opacity: 1;
      }
-  } */
+  } 
 
-  /* ditutup sementara */
+
 
 .container{
     height: auto;
@@ -72,7 +72,7 @@
 
 .navigation .kiri{
     display: flex;
-    width: 45%;
+    width: 50%;
     justify-content: space-around;
     box-sizing: border-box;
   }

@@ -25,11 +25,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Riwayat Transaksi User | Indosuroboyo.com</title>
     <link rel="stylesheet" href="user-header-pesanan.css">
 </head>
 <body>
+    <div class="navigation">
+                <div class="kiri">
+                    <a href="index.php" class="logo">IndoSuroboyo</a>
+                    <a href="produk-list.php" style="padding-top: 20px">Products</a>
+                    <a href="#container2" style="padding-top:20px">About Us</a>
+                </div>
+                <div class="kanan">
+                    <?php
+                        if(!isset( $_SESSION['userLogin'])){
+                            ?>                           
+                            <a href="login.php">Login</a>
+                            <a href="register.php">Register</a>
+                            <?php
+                        }
+                        else {
+                            ?>
+                            <a href="carts.php">My Cart</a>
+                            <a href="user.php">
+                                <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
+                            <?= $_SESSION['userLogin'] ?></a>
+                            <a href="user.php?action=logout">Logout</a>
+                            <?php
+                        }
+                            ?>
+                </div>
+    </div>
+    <div id="why">
+                <center>
+                <h1 style="font-size: 50px;">Riwayat Transaksi</h1>
+                </center>
+            </div>
+        <hr> <br><br>
     <table class="styleTable">
+        
         <thead>
             <th>Order Id</th>           
             <th>Total Tagihan</th>

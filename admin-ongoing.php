@@ -25,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin-header-pesanan.css">
-    <title>Document</title>
+    <title>Transaksi On-going | Indosuroboyo.com</title>
     <style>
         th, td {
             text-align: left;
@@ -35,16 +35,19 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="navigation">
+<div class="navigation">
             <div class="kiri">
-                <a href="index.php" class="logo">IndoSuroboyo</a>
+               
+               
+
+            <a href="#" class="logo">IndoSuroboyo</a>
                 <a href="admin.php" style="padding-top:20px">Admin User</a>
+                <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
                 <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
                 <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
             </div>
             <div class="kanan">
-                <a id= "login" href="user.php?action=logout">Log-Out</a>
+                <a id= "login" href="user.php?action=logout">Log out</a>
             </div>
         </div>
         <div id="why">
@@ -52,28 +55,9 @@
             <h1 style="font-size: 50px;">WELCOME ADMIN</h1>
             </center>
         </div>
-        <hr>
-            <div class="tabus">
-            <form action="#" method = "POST">
-                <h1>Master Mobil</h1>
-                <br>
-                <h2>Cari</h2> <br>
-                <select name="s_attr" id="s_attr">
-                    <option value="">Filter Attribut</option>
-                    <option value="id">Id</option>
-                    <option value="nama_mobil">Nama Mobil</option> 
-                    <option value="bahan_bakar">Bahan Bakar</option>
-                    <option value="jenis">Jenis</option>
-                    
-                </select>
-                <select name="s_sort" id="s_sort">
-                    <option value="">Sort By</option>
-                    <option value="ascending">Ascending</option>
-                    <option value="descending">Descending</option>
-                </select>  
-                <input type="text" name="s_key" id="s_key" class="inputKey" placeholder = "Masukan Key">
-                <button id="search" name="search" class="cari-button">Cari</button>
-            </form>
+            <hr>
+        <div class="tabus">
+            
             <br>
             <table id="tabel" class="styleTable" method = "POST">
                 <thead>
@@ -212,10 +196,8 @@
                     }
                 ?>
             </tbody>
-            </table> <br>
-                <a href="tambah-mobil.php"><input type="button" value="Add Mobil" class="addMobil-button"> </a>
-                <br><br>
-            </div>
+            </table> 
+        </div>
     </div>
 </body>
 <script>

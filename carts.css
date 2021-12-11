@@ -2,62 +2,88 @@
 
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
   }
-  
-  .container{
-    height: auto;
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    box-sizing: border-box;
+  100% {
+      opacity: 1;
   }
-  
-  .navigation {
-    width: 100%;
-    height: 75px;
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    align-items: center;
-    flex-direction: row;
-    box-sizing: border-box;
-    flex-wrap: wrap;
-  }
-  
-  
-  
-  .navigation a{
-    text-decoration: none;
-    color: white;
-    box-sizing: border-box;
-  }
-  
-  .navigation a:visited{
-    text-decoration: none;
-    color: #8614f8;
-  }
-  
-  
-  .navigation .kiri{
-    display: flex;
-    width: 30%;
-    justify-content: space-around;
-    box-sizing: border-box;
-  }
-  
-  .navigation .kanan{
-    display: flex;
-    width: 20%;
-    justify-content: space-around;
-    box-sizing: border-box;
-  }
-  
-  
-  /* end n  avigation */
+}
+
+.container{
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.navigation {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+  flex-direction: row;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.logo{
+  outline: 3px solid #8614f8;
+  outline-offset: 2px;
+  height: 3.6rem;
+  font-size: 1.5rem;
+  line-height: 3.7rem;
+  text-decoration: none;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+}
+
+
+
+.navigation a{
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+}
+
+.navigation a:visited{
+  text-decoration: none;
+  color: #8614f8;
+}
+
+
+.navigation .kiri{
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.navigation .kanan{
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+
+/* end n  avigation */
   
   /* table */
 
