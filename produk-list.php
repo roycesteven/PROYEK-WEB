@@ -88,7 +88,7 @@ if(isset($_SESSION['active'])){
                                             <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="">
                                             <div class="text">
                                                 <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
-                                                <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                                                <p> Rp. <?= $value['tarif_hari']?> per hari</p>
                                                 <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" > </p>   
                                             </div>
                                         </a>

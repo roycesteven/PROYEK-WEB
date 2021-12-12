@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No. Nota : <?= $id;?> | Indosuroboyo.com</title>
+    <title>No. Nota : IS <?= $id;?> | Indosuroboyo.com</title>
     <link rel="stylesheet" href="user-detail-pesanan.css">
 </head>
 <body>
@@ -59,7 +59,7 @@
            <br>
 
         <table class="styleTable" method = "POST">
-        <h1> No. Nota : <?=$id; ?></h1>
+        <h1> No. Nota : IS <?=$id; ?></h1>
         <br>
                     <thead>
                         <th>No. </th>           
@@ -91,7 +91,7 @@
                                         }
 
                                     ?>
-                                    <td><?= $t['tarif_hari']?></td>
+                                    <td>Rp. <?= $t['tarif_hari']?></td>
                                 </tr>
                             <?php
                              $nomor++;

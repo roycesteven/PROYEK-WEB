@@ -52,7 +52,7 @@ if(isset($_SESSION["message"])){
             <div class="confirmation">
                 <h1>PEMESANAN BERHASIL DILAKUKAN</h1>
                 <br>
-                <h2>ORDER NUMBER : <?= $_SESSION['order_id']?></h2>
+                <h2>No. Nota : IS <?= $_SESSION['order_id']?></h2>
                 <br>
                 <p>MOHON SEGERA MELAKUKAN PEMBAYARAN KE REKENING BANK ABC NO. 12345678 A/N PT. INDOSUROBOYO</p>
                 <br>

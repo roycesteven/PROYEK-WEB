@@ -60,8 +60,10 @@
             
             <br>
             <table id="tabel" class="styleTable" method = "POST">
+                <h1>Transaksi On-going</h1>
+                <br>
                 <thead>
-                    <th>Order ID</th>           
+                    <th>No. Nota</th>           
                     <th>Nama Penyewa</th>
                     <th>Tanggal Mulai</th>
                     <th>Tanggal Akhir</th>
@@ -152,7 +154,7 @@
                             foreach ($headers as $key => $value) {
                             ?>
                             <tr>
-                            <td><?= $value['order_id']?></td>
+                            <td>IS <?= $value['order_id']?></td>
                             <?php
                             foreach($users as $key => $val){
                                 if($value['penyewa_id']==$val['id'])

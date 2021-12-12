@@ -64,7 +64,7 @@
     <table class="styleTable">
         
         <thead>
-            <th>Order Id</th>           
+            <th>No. Nota</th>           
             <th>Total Tagihan</th>
             <th>Status</th>
             <th>Tanggal Mulai</th>
@@ -85,11 +85,11 @@
                         <tr>
                             <form action="user-header-pesanan.php" method="POST">
                                 <td>
-                                    <?= $t['order_id']?>
+                                    IS <?= $t['order_id']?>
                                     <input type='hidden' name='id' value='<?= $t['order_id']?>'/>
                                 </td>
                             </form>
-                            <td><?= $t['total_tagihan']?></td>
+                            <td>Rp. <?= $t['total_tagihan']?></td>
                             <td><?= $t['status']?></td>
                             <td><?= $t['tanggal_mulai']?></td>
                             <td><?= $t['tanggal_akhir']?></td>

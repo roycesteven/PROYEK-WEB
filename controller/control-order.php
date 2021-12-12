@@ -12,7 +12,7 @@ if(isset($_REQUEST['action'])){
     $username = $_SESSION['userLogin'];
     $penyewa_id;
       foreach($penyewa as $key => $value){
-          if($value['username'] = $username){
+          if($value['username'] == $username){
                 $penyewa_id=$value['id'];
           }
       }

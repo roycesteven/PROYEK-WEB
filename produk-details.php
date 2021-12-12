@@ -55,7 +55,7 @@
                            
                 ?>
                 <div class="atas">
-                    <img src="Asset/images.png" alt="">
+                <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="" style="width:100%">
                     <table>
                         <tr>
                             <td>Nama Mobil</td>
@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <td>Tarif Sewa</td>
-                            <td>: Rp. <?=$value['tarif_hari']?>,- per hari</td>
+                            <td>: Rp. <?=$value['tarif_hari']?> per hari</td>
                         </tr>
                     </table>
                 </div>

@@ -77,7 +77,7 @@
         <h1>Riwayat Transaksi</h1>
         <br>
                 <thead>
-                    <th>Order Id</th>           
+                    <th>No. Nota</th>           
                     <th>Nama Penyewa</th>
                     <th>Total Tagihan</th>
                     <th>Status</th>
@@ -96,7 +96,7 @@
                             <tr>
                             <form action="admin-header-pesanan.php" method="POST">
                                 <td>
-                                    <?= $value['order_id']?>
+                                    IS <?= $value['order_id']?>
                                     <input type='hidden' name='id' value='<?= $value['order_id']?>'/>
                                 </td>
                             </form>                             

@@ -107,8 +107,8 @@
                                 <td><?= $value['nama_mobil']; ?></td>
                                 <td><?= $value['bahan_bakar']; ?></td>
                                 <td><?= $value['jenis']; ?></td> 
-                                <td>Rp. <?= $value['tarif_hari']; ?>,-</td> 
-                                <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>,-  </td>                    
+                                <td>Rp. <?= $value['tarif_hari']; ?></td> 
+                                <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>  </td>                    
                             </tr>
                             <?php
                             $id++;
@@ -118,7 +118,7 @@
                             ?>
                             <tr>
                                 <td colspan='5'>Total : </td>
-                                <td>Rp. <?= $_SESSION['total']; ?>,-</td>
+                                <td>Rp. <?= $_SESSION['total']; ?></td>
                             </tr>
                         </tbody>   
                             

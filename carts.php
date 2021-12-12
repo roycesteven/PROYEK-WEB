@@ -4,7 +4,6 @@ require_once("connection.php");
 if(isset($_SESSION['gagal'])){
     $gagal = $_SESSION['gagal'];
     echo"<script> alert('Ada Field yang masih Belum diisi') </script>";
-}else{
     unset($_SESSION['gagal']);
 }
 
