@@ -48,20 +48,15 @@
 </head>
 <body>
     <div class="container">
-    <div class="navigation">
+        <div class="navigation">
             <div class="kiri">
-               
-               
-
-            <a href="#" class="logo">IndoSuroboyo</a>
+                <a href="#" class="logo">IndoSuroboyo</a>
                 <a href="admin.php" style="padding-top:20px">Admin User</a>
-                <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
-                <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
+                <a href="admin-header-pesanan.php" style="padding-top:20px" >Riwayat Transaksi</a>
                 <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
-
             </div>
             <div class="kanan">
-                <a id= "login" href="user.php?action=logout">Log out</a>
+                <a id= "login" href="user.php?action=logout">Log-Out</a>
             </div>
         </div>
         <div id="why">
@@ -100,7 +95,7 @@
                     <th>Tahun Pembuatan</th>
                     <th>Jenis</th>
                     <th colspan="2">Status</th>
-                    <th>Images</th>
+                    <th colspan="2" style="text-align: center;">Images</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </thead>
@@ -181,7 +176,22 @@
                                                     <?php
                                                 }
                                             ?>
-                                            <td><img src="Asset/mobil/<?= $value['id']?>.jpg" alt="Doesnt have images yet"></td>
+                                            <?php  
+                                            if($t['gambar']=="0"){
+                                                ?>
+                                                <td><img src="Asset/mobil/<?=$t['gambar']?>.jpg"style="width: 200px; height:100px"  alt="Doesnt have images yet"></td>
+                                                <td>
+                                                <a href="upload.php?id=<?=$value['id']?>">
+                                                    <button class="editMobil-button"><span>Upload Images </span></button>
+                                                </a></td>
+                                                <?php
+                                            }else{
+                                                ?>
+                                                <center>
+                                                <td colspan="2"><img src="Asset/mobil/<?=$t['gambar']?>.jpg"style="width: 200px; height:100px"  alt="Doesnt have images yet"></td></center>
+                                                <?php
+                                            }
+                                            ?>
                                             <td>
                                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                                     <button class="editMobil-button"><span>Edit </span></button>
@@ -247,7 +257,21 @@
                                 <?php
                                 // }
                                 ?>
-                            <td><img src="Asset/mobil/<?= $value['id']?>.jpg" style="width: 200px; height:100px" alt="Doesnt have images yet"></td>
+                            <?php  
+                                            if($value['gambar']=="0"){
+                                                ?>
+                                                <td><img src="Asset/mobil/<?=$value['gambar']?>.jpg" style="width: 200px; height:100px"  alt="Doesnt have images yet"></td>
+                                                <td>
+                                                <a href="upload.php?id=<?=$value['id']?>">
+                                                    <button class="editMobil-button"><span>Upload Images </span></button>
+                                                </a></td>
+                                                <?php
+                                            }else{
+                                                ?>
+                                                <td colspan="2"><center><img src="Asset/mobil/<?=$value['gambar']?>.jpg" style="width: 200px; height:100px" alt="Doesnt have images yet"></td> </center>
+                                                <?php
+                                            }
+                                            ?>
                             <td>
                                 <a href="editMobil.php?id=<?=$value['id']?>">
                                     <button class="editMobil-button"><span>Edit </span></button>
