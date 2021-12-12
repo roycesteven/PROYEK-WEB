@@ -62,7 +62,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Halaman Login</title>
+        <title>Login | Indosuroboyo.com</title>
         <link rel="stylesheet" href="login.css">
     </head>
    

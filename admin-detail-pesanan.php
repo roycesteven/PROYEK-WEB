@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> No. Nota : <?= $id ?> | Indosuroboyo.com</title>
     <link rel="stylesheet" href="admin-detail-pesanan.css">
 </head>
 <body>
@@ -34,27 +34,26 @@
                
                
 
-                <a href="index.php" class="logo">IndoSuroboyo</a>
+             <a href="#" class="logo">IndoSuroboyo</a>
+                <a href="admin.php" style="padding-top:20px">Admin User</a>
                 <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
                 <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
                 <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
 
             </div>
             <div class="kanan">
-                <a id= "login" href="user.php?action=logout">Log-Out</a>
+                <a id= "login" href="user.php?action=logout">Log out</a>
             </div>
         </div>
-    <div id="why">
-            <center>
-            <h1 style="font-size: 50px;">Detail Transaksi</h1>
-            </center>
-    </div>
-    <hr> <br><br>
-
+        
+        
+    
+     <br>
     <table class="styleTable" method = "POST">
-
+    <h1>No. Nota : <?= $id ?></h1>
+    <br>
                 <thead>
-                    <th>Order Id</th>           
+                    <th>No. </th>           
                     <th>Nama Mobil</th>
                     <th>Tarif / Hari</th>
 
@@ -62,6 +61,8 @@
 
                 <tbody>
                         <?php
+                        $nomor=1;
+
                         $stmt = $pdo-> prepare("SELECT * FROM DETAIL_PESANAN where order_id = ?");
                         // $stmt->BindParam(":id",$id);
                         $stmt->execute([$id]);
@@ -72,7 +73,7 @@
                             while($t=$stmt->fetch()){
                         ?>  
                             <tr>
-                                <td><?= $t['order_id']?></td>
+                                <td><?= $nomor;?></td>
                                 <?php
                                     foreach($mobils as $key => $nilai){
                                         if($nilai['id'] == $t['mobil_id']){
@@ -84,6 +85,7 @@
                                 <td><?= $t['tarif_hari']?></td>
                             </tr>
                         <?php
+                            $nomor++;
                             }
                         }
                         ?>              

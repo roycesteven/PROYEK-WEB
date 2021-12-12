@@ -17,13 +17,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Page | Indosuroboyo.com</title>
     <link rel="stylesheet" href="user.css">
 </head>
 <body>
     <div class="container">
-        <div class="navigation">
-            <div class="kiri">
+    <div class="navigation">
+                <div class="kiri">
                     <a href="index.php" class="logo">IndoSuroboyo</a>
                     <a href="produk-list.php" style="padding-top: 20px">Products</a>
                     <a href="#container2" style="padding-top:20px">About Us</a>
@@ -38,6 +38,7 @@
                         }
                         else {
                             ?>
+                            <a href="carts.php">My Cart</a>
                             <a href="user.php">
                                 <!-- <img src="Asset/istockphoto-1300845620-170667a.jpg" alt="" style="width: 50px;"> -->
                             <?= $_SESSION['userLogin'] ?></a>
@@ -47,7 +48,6 @@
                             ?>
                 </div>
             </div>
-        </div>
         <div class="content">
             <div class="kiri-cont">
                 <img src="Asset/userprofile2.jpg" alt="" style="width:100%; height:100vh">

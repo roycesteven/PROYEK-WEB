@@ -44,7 +44,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Riwayat Transaksi Admin | Indosuroboyo.com</title>
     <link rel="stylesheet" href="admin-header-pesanan.css">
 </head>
 <body>
@@ -54,25 +54,28 @@
                
                
 
-                <a href="index.php" class="logo">IndoSuroboyo</a>
+                <a href="#" class="logo">IndoSuroboyo</a>
+                <a href="admin.php" style="padding-top:20px">Admin User</a>
                 <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
                 <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
                 <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
 
             </div>
             <div class="kanan">
-                <a id= "login" href="user.php?action=logout">Log-Out</a>
+                <a id= "login" href="user.php?action=logout">Log out</a>
             </div>
         </div>
-    <div id="why">
+        <div id="why">
             <center>
-            <h1 style="font-size: 50px;">Riwayat Transaksi</h1>
+            <h1 style="font-size: 50px;">WELCOME ADMIN</h1>
             </center>
-    </div>
+        </div>
+        
     <hr> <br><br>
     
     <table class = "styleTable" method = "POST">
-
+        <h1>Riwayat Transaksi</h1>
+        <br>
                 <thead>
                     <th>Order Id</th>           
                     <th>Nama Penyewa</th>

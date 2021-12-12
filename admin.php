@@ -18,7 +18,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin2.css">
-    <title>Document</title>
+    <title>Master User | Indosuroboyo.com</title>
     <script language="JavaScript" type="text/javascript">
     function deleteUserFunction(){
         var proceed = confirm('Are you sure?');
@@ -37,14 +37,15 @@
                
                
 
-                <a href="index.php" class="logo">IndoSuroboyo</a>
+                <a href="#" class="logo">IndoSuroboyo</a>
+                <a href="admin.php" style="padding-top:20px">Admin User</a>
                 <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
                 <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
                 <a href="admin-ongoing.php" style="padding-top:20px">Transaksi On-going</a>
 
             </div>
             <div class="kanan">
-                <a id= "login" href="user.php?action=logout">Log-Out</a>
+                <a id= "login" href="user.php?action=logout">Log out</a>
             </div>
         </div>
         <div id="why">
