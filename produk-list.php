@@ -68,15 +68,15 @@ if(isset($_SESSION['active'])){
                                 {
                                     ?>
                                     <div class="produk  animate__animated  animate__bounceIn">
-                                    <a href="#" class="product link ">
-                                        <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="">
-                                        <div class="text">
-                                            <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
-                                            <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?>  <img src="./Asset/red.png" alt=""></p>
-                                        </div>
-                                        
-                                    </a>
+                                        <a href="#" class="product link ">
+                                            <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="" style="width:100%">
+                                            <div class="text">
+                                                <h1><?= $value['nama_mobil']?></h1>
+                                                <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                                                <p>Status : <?= $value['status']?>  <img src="./Asset/red.png" alt=""></p>
+                                            </div>
+                                            
+                                        </a>
                                     </div>
                                      
             <?php
@@ -84,43 +84,43 @@ if(isset($_SESSION['active'])){
                                 else{
                                     ?>
                                     <div class="produk animate__animated  animate__bounceIn">
-                                    <a href="./controller/control-details.php?action=details&id=<?=$value['id']?>" class="product">
-                                        <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="">
-                                        <div class="text">
-                                            <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
-                                            <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
-                                            <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" > </p>   
-                                        </div>
-                                    </a>
-                                    <?php
-                                    $ada=false;
-                                    if(isset($_SESSION['carts'])){
-                                        foreach($_SESSION['carts'] as $key => $val){
-                                            if($val['id']==$value['id']){
-                                                $ada=true;
-                                                break;
+                                        <a href="./controller/control-details.php?action=details&id=<?=$value['id']?>" class="product">
+                                            <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="">
+                                            <div class="text">
+                                                <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
+                                                <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>
+                                                <p>Status : <?= $value['status']?>  <img src="./Asset/green.png" alt="" > </p>   
+                                            </div>
+                                        </a>
+                                        <?php
+                                        $ada=false;
+                                        if(isset($_SESSION['carts'])){
+                                            foreach($_SESSION['carts'] as $key => $val){
+                                                if($val['id']==$value['id']){
+                                                    $ada=true;
+                                                    break;
+                                                }
                                             }
                                         }
-                                    }
-                                        if(!$ada){
-                                            ?>
-                                            <form action="./controller/control-details.php" method="POST">
-                                                <input type="hidden" name="action" value="add">
-                                                <input type="hidden" name="id" value="<?=  $value['id']?>">
-                                                <button type="submit" name="submit_proceed" value="Add to Cart">Add to Cart</button>
-                                            </form>
-                                            <?php
-                                        }
-                                        else{
-                                            ?>
-                                            <form action="./controller/control-details.php" method="POST">
-                                                <input type="hidden" name="action" value="delete">
-                                                <input type="hidden" name="id" value="<?=  $value['id']?>">
-                                                <button type="submit" name="submit_proceed" value="Add to Cart">Remove from Cart</button>
-                                            </form>
-                                            <?php
-                                        }
-                                    ?>
+                                            if(!$ada){
+                                                ?>
+                                                <form action="./controller/control-details.php" method="POST">
+                                                    <input type="hidden" name="action" value="add">
+                                                    <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                                    <button type="submit" name="submit_proceed" value="Add to Cart" class="Button">Add to Cart</button>
+                                                </form>
+                                                <?php
+                                            }
+                                            else{
+                                                ?>
+                                                <form action="./controller/control-details.php" method="POST">
+                                                    <input type="hidden" name="action" value="delete">
+                                                    <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                                    <button type="submit" name="submit_proceed" value="Add to Cart" class="Button">Remove from Cart</button>
+                                                </form>
+                                                <?php
+                                            }
+                                        ?>
                                     </div>
                                     
                                     
