@@ -151,12 +151,6 @@ INSERT INTO `penyewa` (`id`, `nik`, `username`, `password`, `nama`, `no_telp`, `
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `detail_pesanan`
---
-ALTER TABLE `detail_pesanan`
-  ADD KEY `detail_pesanan_ibfk_1` (`mobil_id`),
-  ADD KEY `detail_pesanan_ibfk_2` (`order_id`);
 
 --
 -- Indexes for table `header_pesanan`
@@ -202,12 +196,7 @@ ALTER TABLE `penyewa`
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `detail_pesanan`
---
-ALTER TABLE `detail_pesanan`
-  ADD CONSTRAINT `detail_pesanan_ibfk_1` FOREIGN KEY (`mobil_id`) REFERENCES `mobil` (`id`),
-  ADD CONSTRAINT `detail_pesanan_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `header_pesanan` (`order_id`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
