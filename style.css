@@ -1,5 +1,5 @@
 /* start navigation */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
 *{
   margin: 0;
@@ -36,7 +36,7 @@ body{
   height: 75px;
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: #1C1C1C;
   align-items: center;
   flex-direction: row;
   box-sizing: border-box;
@@ -57,6 +57,7 @@ body{
 
 
 .navigation a{
+  /* font-family: "Montserrat",sans-serif; */
   text-decoration: none;
   color: white;
   box-sizing: border-box;
@@ -64,7 +65,12 @@ body{
 
 .navigation a:visited{
   text-decoration: none;
+  color: #fff;
+}
+
+.navigation a:hover{
   color: #8614f8;
+  transition: 0.5s;
 }
 
 

@@ -78,7 +78,7 @@ echo 'Current PHP version: ' . phpversion();
                 <div class="row">
                     <div class="column" style="background-color:white;" data-aos="fade-right" data-aos-delay = "100" data-aos-duration="1000">
                         <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px;">Bisa diakses dimana saja</h1>
-                        <p style="font-size: 25px; padding: 25px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At odit consectetur ea quisquam quidem ad fuga quasi aspernatur voluptates eligendi atque, pariatur quod, soluta deleniti, quis sunt explicabo officiis modi!</p>
+                        <p style="font-size: 25px; padding: 25px;">IndoSuroboyo sudah menggunkan sistem yang canggih dan terkini untuk pelayanan kepada Customer, Sehingga customer bisa menyewa atau memesan kendaraan yang diperlukan dimana saja dan kapan saja.</p>
                     </div>
                     <div class="column" id="col2-gambar" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000" >
                         

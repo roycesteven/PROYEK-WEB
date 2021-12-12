@@ -35,7 +35,7 @@
   height: 75px;
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: #1C1C1C;
   align-items: center;
   flex-direction: row;
   box-sizing: border-box;
@@ -53,9 +53,8 @@
   font-weight: 500;
 }
 
-
-
 .navigation a{
+  /* font-family: "Montserrat",sans-serif; */
   text-decoration: none;
   color: white;
   box-sizing: border-box;
@@ -63,9 +62,13 @@
 
 .navigation a:visited{
   text-decoration: none;
-  color: #8614f8;
+  color: #fff;
 }
 
+.navigation a:hover{
+  color: #8614f8;
+  transition: 0.5s;
+}
 
 .navigation .kiri{
   display: flex;
