@@ -84,15 +84,52 @@ if(isset($_POST['submit']))
 <head>
 <meta charset="utf-8">
 <title>Upload Image</title>
+<link rel="stylesheet" href="upload.css">
 </head>
 
 <body>
-	
-	<form method="post" enctype="multipart/form-data">
-	  Select image to upload:
-	  <input type="file" name="fileToUpload" id="fileToUpload">
-	  <input type="submit" value="Upload Image" name="submit">
-	</form>
-	
+<div class="container">
+    <div class="addcar">
+        <div class="card">
+            <div class="kiri">
+			</div>
+            <div class="kanan" style="text-align: center;">
+				<h1>Upload Image Mobil</h1>
+				<form method="post" enctype="multipart/form-data">
+					<table>
+								<tr>
+									<td style="padding-top: 20px; "> Select image to upload:
+										<input style="margin-left: 15px;" type="file"  name="fileToUpload" id="fileToUpload" onchange="previewImage();">
+									</td>
+								</tr>
+					</table>
+					<input type="submit" value="Upload Image" name="submit">
+					<br>
+					<br>
+					<center>
+					<table>
+						<tr>
+							<td>
+								<img id="image-preview" alt="image preview"/>
+							</td>
+						</tr>
+					</table>
+					</center>
+				</form>
+			</div>
+        </div>
+    </div>       
+</div>
 </body>
+<script>
+	function previewImage() {
+		document.getElementById("image-preview").style.display = "block";
+		var oFReader = new FileReader();
+		oFReader.readAsDataURL(document.getElementById("fileToUpload").files[0]);
+	
+		oFReader.onload = function(oFREvent) {
+		document.getElementById("image-preview").src = oFREvent.target.result;
+		};
+	};
+</script>
 </html>
