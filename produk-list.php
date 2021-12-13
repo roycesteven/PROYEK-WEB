@@ -85,7 +85,7 @@ if(isset($_SESSION['active'])){
                                     ?>
                                     <div class="produk animate__animated  animate__bounceIn">
                                         <a href="./controller/control-details.php?action=details&id=<?=$value['id']?>" class="product">
-                                            <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="">
+                                            <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="" style="height: 137px;">
                                             <div class="text">
                                                 <p style="font-weight: bold;"><?= $value['nama_mobil']?></p>
                                                 <p> Rp. <?= $value['tarif_hari']?> per hari</p>
