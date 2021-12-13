@@ -94,6 +94,7 @@
                     <th>Bahan Bakar</th>
                     <th>Tahun Pembuatan</th>
                     <th>Jenis</th>
+                    <th>Biaya sewa per hari</th>
                     <th colspan="2">Status</th>
                     <th colspan="2" style="text-align: center;">Images</th>
                     <th>Edit</th>
@@ -228,6 +229,7 @@
                             <td><?= $value['bahan_bakar']?></td>
                             <td><?= $value['tahun']?></td>
                             <td><?= $value['jenis']?></td>
+                            <td>Rp. <?= $value['tarif_hari']?></td>
                             <?php
                                 //  ditutup sementara
 
