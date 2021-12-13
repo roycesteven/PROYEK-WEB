@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 		if(isset($_POST["submit"])) {
 		  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 		  if($check !== false) {
-			echo "File is an image - " . $check["mime"] . ".";
+			// echo "File is an image - " . $check["mime"] . ".";
 			$uploadOk = 1;
 		  } else {
 			echo "File is not an image.";
@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
 
 		// // Check if file already exists
 		// if (file_exists($target_file)) {
-		//   echo "Sorry, file already exists.";
+		  echo "Sorry, file already exists.";
 		//   $uploadOk = 0;
 		// }
 
@@ -55,7 +55,7 @@ if(isset($_POST['submit']))
 		// if everything is ok, try to upload file
 		} else {
 		 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-			echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+			// echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
             $result = false;
             $stmt = $pdo->prepare("UPDATE mobil SET gambar=:gambar WHERE id = :id");
             $stmt->bindParam(":gambar",$id_mobil);
@@ -69,7 +69,7 @@ if(isset($_POST['submit']))
                 $_SESSION["message"] = "Gagal upload nih";
             }
 
-            header("Location:admin-mobil.php");
+            header("Location:./admin-mobil.php");
 		  } else {
 			echo "Sorry, there was an error uploading your file.";
 		  }
