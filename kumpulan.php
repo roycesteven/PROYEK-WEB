@@ -46,11 +46,12 @@ if($action == "Register"){
     $jenis = $_POST['jenis'];
     $tarif_hari = $_POST['tarif_hari'];
     $status = "Available";
+    $gambar = "0";
 
     if($nama != "" && $tahun!="" && $bahan_bakar != "" && $jenis != "" && $tarif_hari!=""){
         $result = false;
-        $stmt = $pdo -> prepare("INSERT INTO mobil (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status) VALUES (?,?,?,?,?,?)");
-        $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif_hari,$status]);
+        $stmt = $pdo -> prepare("INSERT INTO mobil (nama_mobil, tahun, bahan_bakar,jenis, tarif_hari, status, gambar) VALUES (?,?,?,?,?,?,?)");
+        $result = $stmt -> execute([$nama,$tahun,$bahan_bakar,$jenis,$tarif_hari,$status,$gambar]);
         if($result == true){
             $_SESSION["message"] = "Berhasil add nih";
         }
