@@ -76,14 +76,14 @@ body{
 
 .navigation .kiri{
   display: flex;
-  width: 30%;
+  width: 60%;
   justify-content: space-around;
   box-sizing: border-box;
 }
 
 .navigation .kanan{
   display: flex;
-  width: 20%;
+  width: 10%;
   justify-content: space-around;
   box-sizing: border-box;
 }
