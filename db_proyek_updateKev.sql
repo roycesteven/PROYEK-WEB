@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2021 at 09:06 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: Dec 13, 2021 at 07:58 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_proyek_updatekev`
 --
+CREATE DATABASE IF NOT EXISTS `db_proyek_updatekev` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_proyek_updatekev`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `detail_pesanan`
 --
 
+DROP TABLE IF EXISTS `detail_pesanan`;
 CREATE TABLE `detail_pesanan` (
   `order_id` int(20) NOT NULL,
   `mobil_id` int(20) NOT NULL,
@@ -60,6 +63,7 @@ INSERT INTO `detail_pesanan` (`order_id`, `mobil_id`, `tarif_hari`) VALUES
 -- Table structure for table `header_pesanan`
 --
 
+DROP TABLE IF EXISTS `header_pesanan`;
 CREATE TABLE `header_pesanan` (
   `order_id` int(20) NOT NULL,
   `penyewa_id` int(20) NOT NULL,
@@ -95,6 +99,7 @@ INSERT INTO `header_pesanan` (`order_id`, `penyewa_id`, `total_tagihan`, `status
 -- Table structure for table `mobil`
 --
 
+DROP TABLE IF EXISTS `mobil`;
 CREATE TABLE `mobil` (
   `id` int(20) NOT NULL,
   `nama_mobil` varchar(100) NOT NULL,
@@ -111,12 +116,34 @@ CREATE TABLE `mobil` (
 --
 
 INSERT INTO `mobil` (`id`, `nama_mobil`, `tahun`, `bahan_bakar`, `jenis`, `tarif_hari`, `status`, `gambar`) VALUES
-(1, 'Yaris', 2014, 'Solar', 'Hatchback', 100000, 'Available', 1),
-(2, 'Kijang Innova', 2018, 'Bensin', 'SUV', 56000, 'Available', 2),
-(3, 'Suzuki Baleno', 2021, 'Bensin', 'Hatchback', 75000, 'Available', 3),
-(4, 'Honda Odyssey', 2021, 'Bensin', 'MPV', 95000, 'Available', 4),
-(5, 'Mini Cooper', 2020, 'Listrik', 'Sedan', 90000, 'Available', 5),
-(6, 'Avanza', 2021, 'Bensin', 'MPV', 78000, 'Available', 6);
+(1, 'Toyota All New Yaris', 2014, 'Solar', 'Hatchback', 400000, 'Available', 1),
+(2, 'Toyota Kijang Innova', 2018, 'Bensin', 'MPV', 500000, 'Available', 2),
+(3, 'Suzuki Baleno', 2021, 'Bensin', 'Hatchback', 250000, 'Available', 3),
+(4, 'Honda Odyssey', 2021, 'Bensin', 'MPV', 300000, 'Available', 4),
+(5, 'Mini Cooper', 2020, 'Listrik', 'Hatchback', 900000, 'Available', 5),
+(6, 'Toyota Avanza', 2021, 'Bensin', 'MPV', 200000, 'Available', 6),
+(8, 'Toyota New Innova Reborn', 2021, 'Solar', 'MPV', 450000, 'Available', 8),
+(9, 'Mitsubishi Xpander', 2021, 'Bensin', 'SUV', 900000, 'Available', 9),
+(10, 'Toyota All New Alphard Transformer', 2021, 'Bensin', 'MPV', 4500000, 'Available', 10),
+(11, 'Toyota Hiace Commuter', 2021, 'Solar', 'Station Wagon', 1750000, 'Available', 11),
+(12, 'Toyota Vellfire', 2021, 'Bensin', 'MPV', 1900000, 'Available', 12),
+(13, 'Toyota Alphard', 2021, 'Bensin', 'MPV', 1900000, 'Available', 13),
+(14, 'Toyota Fortuner VRZ', 2021, 'Solar', 'SUV', 1100000, 'Available', 14),
+(15, 'Mitsubishi Pajero', 2021, 'Solar', 'SUV', 1100000, 'Available', 15),
+(16, 'Daihatsu Xenia', 2021, 'Bensin', 'SUV', 220000, 'Available', 16),
+(17, 'Toyota Calya', 2021, 'Bensin', 'MPV', 245000, 'Available', 17),
+(18, 'Suzuki Ertiga', 2021, 'Bensin', 'MPV', 259700, 'Available', 18),
+(19, 'Honda Mobilio', 2021, 'Bensin', 'SUV', 250000, 'Available', 19),
+(20, 'Nissan Grand Livina', 2021, 'Bensin', 'MPV', 185000, 'Available', 20),
+(21, 'Toyota Agya', 2021, 'Bensin', 'Hatchback', 150000, 'Available', 21),
+(22, 'Honda Brio', 2021, 'Bensin', 'Hatchback', 300000, 'Available', 22),
+(23, 'Honda Jazz', 2017, 'Bensin', 'SUV', 400000, 'Available', 23),
+(24, 'Toyota Raize', 2021, 'Bensin', 'Hatchback', 500000, 'Available', 24),
+(25, 'GR Yaris ', 2021, 'Bensin', 'Hatchback', 2000000, 'Available', 25),
+(26, 'Mercedes-Benz G-Class', 2021, 'Bensin', 'SUV', 10000000, 'Available', 26),
+(27, 'BMW M5', 2021, 'Bensin', 'Sedan', 9900000, 'Available', 27),
+(28, 'Hyundai Kona Electric', 2021, 'Listrik', 'SUV', 1500000, 'Available', 28),
+(29, 'Tesla Model X', 2021, 'Listrik', 'Sedan', 3000000, 'Available', 29);
 
 -- --------------------------------------------------------
 
@@ -124,6 +151,7 @@ INSERT INTO `mobil` (`id`, `nama_mobil`, `tahun`, `bahan_bakar`, `jenis`, `tarif
 -- Table structure for table `penyewa`
 --
 
+DROP TABLE IF EXISTS `penyewa`;
 CREATE TABLE `penyewa` (
   `id` int(20) NOT NULL,
   `nik` int(20) NOT NULL,
@@ -150,7 +178,6 @@ INSERT INTO `penyewa` (`id`, `nik`, `username`, `password`, `nama`, `no_telp`, `
 --
 -- Indexes for dumped tables
 --
-
 
 --
 -- Indexes for table `header_pesanan`
@@ -184,19 +211,13 @@ ALTER TABLE `header_pesanan`
 -- AUTO_INCREMENT for table `mobil`
 --
 ALTER TABLE `mobil`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `penyewa`
 --
 ALTER TABLE `penyewa`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Constraints for dumped tables
---
-
-
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
