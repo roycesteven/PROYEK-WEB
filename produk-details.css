@@ -1,5 +1,5 @@
 /* start navigation */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
 *{
   margin: 0;
@@ -7,8 +7,23 @@
   box-sizing: border-box;
 }
 
+body{
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
 .container{
-  height: 100vh;
+  height: auto;
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
@@ -39,8 +54,10 @@
   font-weight: 500;
 }
 
+
+
 .navigation a{
-  /* font-family: "Montserrat",sans-serif; */
+  font-family: "Montserrat",sans-serif;
   text-decoration: none;
   color: white;
   box-sizing: border-box;
@@ -55,6 +72,8 @@
   color: #8614f8;
   transition: 0.5s;
 }
+
+
 .navigation .kiri{
   display: flex;
   width: 30%;
@@ -70,7 +89,7 @@
 }
 
 
-/* end navigation */
+/* end n  avigation */
 
 .products{
     margin-top: 20px;

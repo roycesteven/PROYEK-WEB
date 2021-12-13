@@ -1,5 +1,5 @@
 /* start navigation */
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
 *{
   margin: 0;
@@ -53,6 +53,8 @@ body{
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
   font-weight: 500;
 }
+
+
 
 .navigation a{
   font-family: "Montserrat",sans-serif;

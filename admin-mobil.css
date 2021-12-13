@@ -1,11 +1,11 @@
+/* start navigation */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
 *{
-  margin : 0;
-  padding : 0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-
-
-
 
 body{
   animation: fadeInAnimation ease 1s;
@@ -19,9 +19,8 @@ body{
   }
   100% {
       opacity: 1;
-   }
+  }
 }
-
 
 .container{
   height: auto;
@@ -55,8 +54,10 @@ body{
   font-weight: 500;
 }
 
+
+
 .navigation a{
-  /* font-family: "Montserrat",sans-serif; */
+  font-family: "Montserrat",sans-serif;
   text-decoration: none;
   color: white;
   box-sizing: border-box;
@@ -75,7 +76,7 @@ body{
 
 .navigation .kiri{
   display: flex;
-  width: 50%;
+  width: 30%;
   justify-content: space-around;
   box-sizing: border-box;
 }
@@ -86,6 +87,9 @@ body{
   justify-content: space-around;
   box-sizing: border-box;
 }
+
+
+/* end n  avigation */
 #why{
   margin-top: 15px;
   margin-bottom: 15px;
