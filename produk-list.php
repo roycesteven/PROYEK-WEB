@@ -69,7 +69,7 @@ if(isset($_SESSION['active'])){
                                     ?>
                                     <div class="produk  animate__animated  animate__bounceIn">
                                         <a href="#" class="product link ">
-                                            <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="" style="width:100%">
+                                            <img src="Asset/mobil/<?= $value['gambar'] ?>.jpg" alt="" style="width:100%">
                                             <div class="text">
                                                 <h1><?= $value['nama_mobil']?></h1>
                                                 <p> Rp. <?= $value['tarif_hari']?>,- per hari</p>

@@ -120,7 +120,7 @@
 }
 
 .navigation a{
-    /* font-family: "Montserrat",sans-serif; */
+    font-family: "Montserrat",sans-serif;
     text-decoration: none;
     color: white;
     box-sizing: border-box;

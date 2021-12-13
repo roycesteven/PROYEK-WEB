@@ -19,9 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `db_proyek_updatekev`
---
-CREATE DATABASE IF NOT EXISTS `db_proyek_updatekev` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `db_proyek_updatekev`;
+
 
 -- --------------------------------------------------------
 

@@ -55,7 +55,7 @@
                            
                 ?>
                 <div class="atas">
-                <img src="Asset/mobil/<?= $value['id'] ?>.jpg" alt="" style="width:100%">
+                <img src="Asset/mobil/<?= $value['gambar'] ?>.jpg" alt="" style="width:100%">
                     <table>
                         <tr>
                             <td>Nama Mobil</td>
