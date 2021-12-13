@@ -34,7 +34,7 @@ if($action == "Register"){
           $_SESSION["message"] = "Gagal add nih";
         }
     
-         header("Location:register.php");
+         header("Location:./login.php");
       
     }else{
         echo "<script> alert('Ada field yang belum diisi'); </script>";

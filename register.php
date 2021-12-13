@@ -1,5 +1,8 @@
 <?php
     require_once("connection.php");   
+    if(isset($_POST['action'])){
+        header("location:./login.php");
+    }
 ?>
 
 <!DOCTYPE html>
