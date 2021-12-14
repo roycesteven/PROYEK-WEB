@@ -71,14 +71,14 @@ if(isset($_SESSION['userLogin'])){
                         
                     </div>
                     <div class="column" style="background-color:white;" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000">
-                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px; box-sizing: border-box;">Kenapa Harus IndoSuroboyo?</h1>
-                        <p style="font-size: 25px; padding: 25px; box-sizing: border-box;">IndoSuroboyo adalah rental mobil paling canggih yang saat ini berada di Surabaya. Kita telah menggunakan sistem yang dapat diakses oleh semua orang. IndoSuroboyo juga menyediakan banyak sekali opsi mobil. Baik mobil untuk perusahaan, Pernikahan, atau harian. Kita juga memiliki pelayanan yang ekstra, seperti Customer Service 24/7.</p>
+                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 30px; box-sizing: border-box;">Kenapa Harus IndoSuroboyo?</h1>
+                        <p style="font-size: 20px; padding: 25px; box-sizing: border-box;">IndoSuroboyo adalah rental mobil paling canggih yang saat ini berada di Surabaya. Kita telah menggunakan sistem yang dapat diakses oleh semua orang. IndoSuroboyo juga menyediakan banyak sekali opsi mobil. Baik mobil untuk perusahaan, Pernikahan, atau harian. Kita juga memiliki pelayanan yang ekstra, seperti Customer Service 24/7.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="column" style="background-color:white;" data-aos="fade-right" data-aos-delay = "100" data-aos-duration="1000">
-                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px; box-sizing: border-box;">Bisa diakses dimana saja</h1>
-                        <p style="font-size: 25px; padding: 25px; box-sizing: border-box;">IndoSuroboyo sudah menggunkan sistem yang canggih dan terkini untuk pelayanan kepada Customer, Sehingga customer bisa menyewa atau memesan kendaraan yang diperlukan dimana saja dan kapan saja.</p>
+                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 90px; box-sizing: border-box;">Bisa diakses dimana saja</h1>
+                        <p style="font-size: 20px; padding: 25px; box-sizing: border-box;">IndoSuroboyo sudah menggunkan sistem yang canggih dan terkini untuk pelayanan kepada Customer, Sehingga customer bisa menyewa atau memesan kendaraan yang diperlukan dimana saja dan kapan saja.</p>
                     </div>
                     <div class="column" id="col2-gambar" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000" >
                         
