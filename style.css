@@ -5,12 +5,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Montserrat",sans-serif; */
 }
 
 body{
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  width: 100vw;
 }
 
 @keyframes fadeInAnimation {
@@ -29,6 +31,7 @@ body{
   flex-wrap: wrap;
   flex-direction: column;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .navigation {
@@ -36,7 +39,7 @@ body{
   height: 75px;
   display: flex;
   justify-content: space-between;
-  background-color: #1C1C1C;
+  background-color: rgba(28, 28, 28, 0.842);
   align-items: center;
   flex-direction: row;
   box-sizing: border-box;
@@ -44,7 +47,7 @@ body{
 }
 
 .logo{
-  outline: 3px solid #8614f8;
+  outline: 3px solid white;
   outline-offset: 2px;
   height: 3.6rem;
   font-size: 1.5rem;
@@ -52,6 +55,7 @@ body{
   text-decoration: none;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
   font-weight: 500;
+  box-sizing: border-box;
 }
 
 
@@ -60,16 +64,17 @@ body{
   font-family: "Montserrat",sans-serif;
   text-decoration: none;
   color: white;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
 }
 
 .navigation a:visited{
   text-decoration: none;
-  color: #fff;
+  /* color: blue; */
 }
 
 .navigation a:hover{
-  color: #8614f8;
+  /* color: #8614f8; */
   transition: 0.5s;
 }
 
@@ -111,7 +116,7 @@ body{
 /* CSS */
 button {
   background-color: initial;
-  background-image: linear-gradient(#8614f8 0, #760be0 100%);
+  background-image: linear-gradient( Green, Turquoise   100%);
   border-radius: 10px;
   border-style: none;
   box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
@@ -160,6 +165,7 @@ button:hover {
     content: "";
     display: table;
     clear: both;
+    box-sizing: border-box;
 }
 
 #col2-gambar{
@@ -187,22 +193,26 @@ button:hover {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+  box-sizing: border-box;
 }
 
 .review .box h3 {
   color: #333;
   font-size: 2.5rem;
+  box-sizing: border-box;
 }
 
 .review .box p {
   color: #666;
   font-size: 1.5rem;
   padding: 1rem 0;
+  box-sizing: border-box;
 }
 
 .review .box .stars i {
   color: var(--orange);
   font-size: 1.7rem;
+  box-sizing: border-box;
 }
 
 /* end review */
@@ -216,4 +226,11 @@ button:hover {
   font-weight: normal;
   color: darkgoldenrod;
   border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

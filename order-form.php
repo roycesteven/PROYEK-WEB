@@ -58,7 +58,7 @@
         <div class="container">
         <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">LOGO</a>
+                <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                     <a href="produk-list.php">Products</a>
                     <a href="#container2">About Us</a>
                 </div>

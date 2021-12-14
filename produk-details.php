@@ -23,14 +23,14 @@
         <div class="container">
         <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">LOGO</a>
-                    <a href="produk-list.php">Products</a>
-                    <a href="index.php#container2">About Us</a>
+                    <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
+                    <a href="produk-list.php" style="padding-top: 20px; box-sizing: border-box;">Products</a>
+                    <a href="#container2" style="padding-top:20px; box-sizing: border-box;">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php
                         if(!isset( $_SESSION['userLogin'])){
-                            ?>
+                            ?>                           
                             <a href="login.php">Login</a>
                             <a href="register.php">Register</a>
                             <?php
@@ -46,7 +46,7 @@
                         }
                             ?>
                 </div>
-        </div>
+            </div>
             <div class="details">
                 <?php
                     foreach($products as $key => $value){

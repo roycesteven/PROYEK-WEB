@@ -31,7 +31,7 @@
 <body>
     <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">IndoSuroboyo</a>
+                <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                     <a href="produk-list.php" style="padding-top: 20px">Products</a>
                     <a href="#container2" style="padding-top:20px">About Us</a>
                 </div>

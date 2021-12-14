@@ -27,9 +27,9 @@ if(isset($_SESSION['userLogin'])){
         <div class="container">
             <div class="navigation">
                 <div class="kiri">
-                    <a href="index.php" class="logo">IndoSuroboyo</a>
-                    <a href="produk-list.php" style="padding-top: 20px">Products</a>
-                    <a href="#container2" style="padding-top:20px">About Us</a>
+                    <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
+                    <a href="produk-list.php" style="padding-top: 20px; box-sizing: border-box;">Products</a>
+                    <a href="#container2" style="padding-top:20px; box-sizing: border-box;">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php
@@ -59,7 +59,7 @@ if(isset($_SESSION['userLogin'])){
                         <a href ="register.php" style = "text-decoration: none;
                         color: white;"> Daftar Gratis untuk memulai</a>                        
                     </button>
-                    <p style = "font-size : 18px; padding-top : 20px">Sudah daftar?  <a href ="login.php"> masuk sini!</a> </p>
+                    <p style = "font-size : 18px; padding-top : 20px; box-sizing: border-box;">Sudah daftar?  <a href ="login.php"> masuk sini!</a> </p>
                 </div> 
                 <br><br>
                 <hr>
@@ -71,14 +71,14 @@ if(isset($_SESSION['userLogin'])){
                         
                     </div>
                     <div class="column" style="background-color:white;" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000">
-                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px;">Kenapa Harus IndoSuroboyo?</h1>
-                        <p style="font-size: 25px; padding: 25px;">IndoSuroboyo adalah rental mobil paling canggih yang saat ini berada di Surabaya. Kita telah menggunakan sistem yang dapat diakses oleh semua orang. IndoSuroboyo juga menyediakan banyak sekali opsi mobil. Baik mobil untuk perusahaan, Pernikahan, atau harian. Kita juga memiliki pelayanan yang ekstra, seperti Customer Service 24/7.</p>
+                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px; box-sizing: border-box;">Kenapa Harus IndoSuroboyo?</h1>
+                        <p style="font-size: 25px; padding: 25px; box-sizing: border-box;">IndoSuroboyo adalah rental mobil paling canggih yang saat ini berada di Surabaya. Kita telah menggunakan sistem yang dapat diakses oleh semua orang. IndoSuroboyo juga menyediakan banyak sekali opsi mobil. Baik mobil untuk perusahaan, Pernikahan, atau harian. Kita juga memiliki pelayanan yang ekstra, seperti Customer Service 24/7.</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="column" style="background-color:white;" data-aos="fade-right" data-aos-delay = "100" data-aos-duration="1000">
-                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px;">Bisa diakses dimana saja</h1>
-                        <p style="font-size: 25px; padding: 25px;">IndoSuroboyo sudah menggunkan sistem yang canggih dan terkini untuk pelayanan kepada Customer, Sehingga customer bisa menyewa atau memesan kendaraan yang diperlukan dimana saja dan kapan saja.</p>
+                        <h1 style="font-size: 40px; padding : 25px; padding-bottom : 1px; padding-top : 70px; box-sizing: border-box;">Bisa diakses dimana saja</h1>
+                        <p style="font-size: 25px; padding: 25px; box-sizing: border-box;">IndoSuroboyo sudah menggunkan sistem yang canggih dan terkini untuk pelayanan kepada Customer, Sehingga customer bisa menyewa atau memesan kendaraan yang diperlukan dimana saja dan kapan saja.</p>
                     </div>
                     <div class="column" id="col2-gambar" data-aos="fade-left" data-aos-delay = "100" data-aos-duration="1000" >
                         

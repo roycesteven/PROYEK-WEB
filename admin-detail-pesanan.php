@@ -34,7 +34,7 @@
                
                
 
-             <a href="#" class="logo">IndoSuroboyo</a>
+            <a href="#" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                 <a href="admin.php" style="padding-top:20px">Admin User</a>
                 <a href="admin-mobil.php" style="padding-top:20px">Admin Mobil</a>
                 <a href="admin-header-pesanan.php" style="padding-top:20px">Riwayat Transaksi</a>
