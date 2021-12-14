@@ -81,8 +81,8 @@ body{
 
 .navigation .kiri{
   display: flex;
-  width: 30%;
-  justify-content: space-around;
+  width: 35%;
+  justify-content: space-evenly;
   box-sizing: border-box;
 }
 
