@@ -87,21 +87,17 @@ if(isset($_SESSION['userLogin'])){
             </div> <br><br><br><br><br><br> 
             <!-- review Section -->
             <section class="review" data-aos="zoom-in" data-aos-delay = "100" data-aos-duration="1000">
-                    <center>
-                        <h1 class="heading">
-                            <span>R</span>
-                            <span>e</span>
-                            <span>v</span>
-                            <span>i</span>
-                            <span>e</span>
-                            <span>w</span>
-                        </h1>
-                    </center>
+                   
                 <div class="swiper-slide">
                     <div class="box">
-                        <img src="Asset/stts.png" alt="">
-                        <h3>IndoSuroboyo</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt fugiat odit minus illum asperiores dolorum enim sint quod ipsam distinctio molestias consectetur ducimus beatae, reprehenderit exercitationem!</p>
+                        <center>
+                            <h1 style="font-size: 50px;">Review</h1>
+                        </center>
+                        <br><br>
+                        <img src="Asset/fitra.jpg" alt="">
+                        <h3>Fitra Eri</h3>
+                        <!-- <h4>Reviewer dan Youtuber</h4> -->
+                        <p>Sangat puas sewa mobil di Indosuroboyo, praktis dan no ribet-ribet.</p>
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
