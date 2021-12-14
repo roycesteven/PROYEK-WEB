@@ -19,7 +19,11 @@
         $_SESSION['tanggal_akhir'] = $tanggal_akhir;
         $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
         $_SESSION['jam_ambil'] = $jamambil;
-        $diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+        //$diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
+        $now = time();
+        $end_date = strtotime($tanggal_akhir);
+        $datediff = $end_date - $now;
+        $diff = round($datediff/(60*60*24));
         unset($_SESSION['gagal']);
     }else{    
         header("location: carts.php");
@@ -108,11 +112,11 @@
                                 <td><?= $value['bahan_bakar']; ?></td>
                                 <td><?= $value['jenis']; ?></td> 
                                 <td>Rp. <?= $value['tarif_hari']; ?></td> 
-                                <td>Rp. <?= (int)( $diff->d )*$value['tarif_hari'];?>  </td>                    
+                                <td>Rp. <?= $diff*$value['tarif_hari'];?>  </td>                    
                             </tr>
                             <?php
                             $id++;
-                            $_SESSION['total']+=(int)( $diff->d )*$value['tarif_hari'];
+                            $_SESSION['total']+= $diff*$value['tarif_hari'];
                                 }
                             }
                             ?>
