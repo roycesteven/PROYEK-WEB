@@ -1,6 +1,13 @@
 <?php
 require_once("connection.php");
 
+if(isset($_SESSION["message"])){
+    echo "<script>alert('$_SESSION[message]')</script>";
+    unset($_SESSION["message"]);
+}
+// echo 'Current PHP version: ' . phpversion();
+
+
 if(isset($_SESSION['gagal'])){
     $gagal = $_SESSION['gagal'];
     echo"<script> alert('Ada Field yang masih Belum diisi') </script>";
@@ -139,15 +146,12 @@ if(isset($_REQUEST['action'])){
                         </tr> -->
                         <tr>
                             <td style="padding-top:20px"><label for="" >Tanggal Akhir</label></td>
-                            <td>: <input type="date" name="date_akhir" id=""></td>
+                            <td>: <input type="date" name="date_akhir" id="" required></td>
                         </tr>
-                        <tr>
-                            <td style="padding-top:20px"><label for="">Jam Pick-up</label></td>
-                            <td>: <input type="time" name="jam_ambil"></td>
-                        </tr>
+                       
                         <tr>
                             <td colspan="2" style="text-align: center; padding-top:20px">
-                                 <a href="order-form.php?action=Order"><button class="order-button" > <span> Order</span></button></a>
+                                 <a href="order-form.php"><button class="order-button" > <span> Order</span></button></a>
                                 <!-- <input type="submit" name="action" id="submit_order" value="Order" > -->
                             </td>
                         </tr>
@@ -163,13 +167,6 @@ if(isset($_REQUEST['action'])){
              <!-- <input type="submit" name="action" id="go back to list produk" value="go back to list produk"></td>    -->
         </div>    
 </body>
-<script>
-            let date_mulai = document.querySelector("#date_mulai");
-            date_mulai.addEventListener("click",function(event){	
-                
-                
-	})
-	
-</script>
+
 </html>
 

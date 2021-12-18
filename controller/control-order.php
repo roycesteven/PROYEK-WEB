@@ -4,18 +4,25 @@ require_once("../connection.php");
 
 $stmt = $pdo->query("SELECT * FROM penyewa");
 $penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$nik;
+$penyewa_id;
 if(isset($_REQUEST['action'])){
-    if ($_REQUEST['action']=='checkout'){
+  foreach($penyewa as $key => $value){
+    if($value['username'] == $_SESSION['userLogin']){
+          $penyewa_id=$value['id'];
+          $nik=$value['nik'];
+    }
+}
+if($nik==0){
+  header('location:../kelengkapan.php');
+  return;
+}
+  else if ($_REQUEST['action']=='checkout'){
         $carts = $_SESSION["carts"];
              
     $username = $_SESSION['userLogin'];
-    $penyewa_id;
-      foreach($penyewa as $key => $value){
-          if($value['username'] == $username){
-                $penyewa_id=$value['id'];
-          }
-      }
+    
+     
 
       $total_tagihan = $_SESSION['total'];
       $status='Belum diambil';
@@ -35,8 +42,8 @@ if(isset($_REQUEST['action'])){
       if($ada){
         try{
           $pdo->beginTransaction();
-          $stmt = $pdo->prepare("INSERT INTO header_pesanan(penyewa_id,total_tagihan, status,tanggal_mulai,tanggal_akhir,jam_ambil) values(?,?,?,?,?,?)");
-          $result1 = $stmt->execute([$penyewa_id,$total_tagihan,$status,$tanggal_mulai,$tangal_akhir,$jam_ambil]);
+          $stmt = $pdo->prepare("INSERT INTO header_pesanan(penyewa_id,total_tagihan, status,tanggal_mulai,tanggal_akhir) values(?,?,?,?,?)");
+          $result1 = $stmt->execute([$penyewa_id,$total_tagihan,$status,$tanggal_mulai,$tangal_akhir]);
           $order_id = $pdo->lastInsertId();
           $_SESSION['order_id']=$order_id;
           foreach ($carts as $key => $value) {

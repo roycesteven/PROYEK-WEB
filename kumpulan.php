@@ -2,42 +2,40 @@
 
 require_once("connection.php");
 
+$stmt = $pdo->query("SELECT * FROM penyewa");
+$penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 $action = $_REQUEST["action"];
 
 if($action == "Register"){
-    $nik = $_POST["nik"];
+    
     $username = $_POST["username"];
     $password = $_POST["pwd"];
     $confirmpass = $_POST["repwd"];
     $namalengkap = $_POST["nama"];
-    $phone = $_POST["phone"];
-    $alamat = $_POST["alamat"];
-    $kota = $_POST['kota'];
     $email = $_POST['email'];
   
     
-    if($username != "" && $password != "" && $confirmpass != "" && $phone != "" && $alamat != "" && $nik != "" &&$kota != "" && $email != ""){
+    if($username != "" && $password != "" && $confirmpass != ""   && $email != ""  && $namalengkap != ""){
       $result = false;
       if($password == $confirmpass){
-              $stmt = $pdo -> prepare("INSERT INTO penyewa (nik	, username, password, nama, no_telp,alamat,kota,email) VALUES (?,?,?,?,?,?,?,?)");
+              $stmt = $pdo -> prepare("INSERT INTO penyewa ( username, password, nama, email) VALUES (?,?,?,?)");
               $result = $stmt-> execute([
-              $nik,$username,$password,$namalengkap,$phone,$alamat,$kota,$email
+              $username,$password,$namalengkap,$email
           ]);
       }else{
           echo "<script> alert('Password dan Confirm password Tidak sama'); </script>";
       }
       
       if($result == true){
-          $_SESSION["message"] = "Berhasil add nih";
+          $_SESSION["message"] = "Berhasil register!";
         }
         else{
           $_SESSION["message"] = "Gagal add nih";
         }
     
-         header("Location:./login.php");
+         header("Location:./index.php");
       
-    }else{
-        echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
 }else if($action=="addMobil"){
     $nama = $_POST['nama_mobil'];
@@ -59,8 +57,6 @@ if($action == "Register"){
             $_SESSION["message"] = "Gagal add nih";
         }
         header("Location:admin-mobil.php");
-    }else{
-        echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
 }else if($action=="editUser"){
     $id_user = $_POST['id_user'];
@@ -102,8 +98,6 @@ if($action == "Register"){
     
          header("Location:admin.php");
       
-    }else{
-        echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
 }else if($action=="editMobilku"){
     $id_mobil = $_POST['id_mobil'];
@@ -135,8 +129,6 @@ if($action == "Register"){
     
         header("Location:admin-mobil.php");
       
-    }else{
-        echo "<script> alert('Ada field yang belum diisi'); </script>";
     }
 }else if($action=="editStatusMobil"){
 
@@ -187,5 +179,6 @@ if($action == "Register"){
 
     header("Location:admin.php");
 }
+
 
 ?>

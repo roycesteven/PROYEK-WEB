@@ -14,6 +14,26 @@ if(isset($_SESSION["message"])){
 if(isset($_SESSION['active'])){
     unset($_SESSION['active']);
 }
+if(isset($_REQUEST['action'])){
+   
+         if ($_REQUEST["action"] == "filter"){
+            $brand=$_POST['brand'];
+            $nama_mobil=$_POST['nama_mobil'];
+            if($brand=='All'){
+                $stmt = $pdo-> prepare("SELECT * FROM mobil WHERE nama_mobil LIKE '%$nama_mobil%'");
+                $stmt -> execute();
+                $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
+            else{
+                $stmt = $pdo-> prepare("SELECT * FROM mobil WHERE nama_mobil LIKE '%$brand%' AND nama_mobil LIKE '%$nama_mobil%' ");
+                $stmt -> execute();
+                $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
+           
+        
+    }
+    
+}
 
 ?>
 
@@ -58,6 +78,22 @@ if(isset($_SESSION['active'])){
                             ?>
                 </div>
             </div>
+            
+            <form action="produk-list.php?action=filter" method="POST" class="filter">
+        <select name="brand" id="brand">
+            <option value="All">All</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mini">Mini</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Tesla">Tesla</option>
+            <option value="Daihatsu">Daihatsu</option>
+        </select>
+        <input type="text" name="nama_mobil" placeholder="Nama Mobil">
+        <input type="submit" value="Filter">
+    </form>
         <div class="products">
         <?php
                         if($products!=NULL)

@@ -31,15 +31,16 @@
                     $id = $pdo-> query("SELECT id FROM `penyewa` WHERE USERNAME = '$usnm'");
                     $id2 = $id->fetch();
                     $_SESSION['id'] = $id2['id'];
+
+                    $_SESSION['message']="Anda berhasil login!";
                     if(isset($_SESSION['active'])){
                         header($_SESSION['active']);
                         // header('location:./produk-list.php');
                     }else{
-                        /* error
-
-                        echo "<script> alert ('Anda Berhasil masuk');</script>";
-
-                        error*/
+                      
+                        
+                        
+                      
 
                         header("Location: ./index.php");
                         

@@ -31,6 +31,20 @@
                     }
                 }
             }      
+            else if ($_REQUEST["action"] == "filter"){
+                $status=$_POST['status'];
+                if($status=='All'){
+                    $stmt = $pdo-> prepare("SELECT * FROM header_pesanan");
+                    $stmt -> execute();
+                    $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+                else{
+                    $stmt = $pdo-> prepare("SELECT * FROM header_pesanan WHERE status= '$status'");
+                    $stmt -> execute();
+                    $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+               
+            }
         }
 
         $stmt = $pdo-> prepare("SELECT * FROM penyewa");
@@ -72,9 +86,20 @@
         </div>
         
     <hr> <br><br>
-    
+    <h1>Riwayat Transaksi</h1>
+    <br>
+    <form action="admin-header-pesanan.php?action=filter" method="POST">
+
+        <select name="status" id="status">
+            <option value="All">All</option>
+            <option value="Belum diambil">Belum diambil</option>
+            <option value="Berlangsung">Berlangsung</option>
+            <option value="Selesai">Selesai</option>
+        </select>
+        <input type="submit" value="Filter" class="cari-button">
+    </form>
     <table class = "styleTable" method = "POST">
-        <h1>Riwayat Transaksi</h1>
+        
         <br>
                 <thead>
                     <th>No. Nota</th>           
@@ -112,7 +137,19 @@
                             <td><?= $value['status']?></td>
                             <td><?= $value['tanggal_mulai']?></td>
                             <td><?= $value['tanggal_akhir']?></td>
-                            <td><?= $value['jam_ambil']?></td>
+                            <?php
+                                if($value['status']=='Belum diambil'){
+                                    ?>
+                                    <td>N/A</td>
+                                    <?php
+
+                                }
+                                else {
+                                    ?>
+                                    <td><?= $value['jam_ambil']?></td>
+                                    <?php
+                                }
+                                ?>
                             <td>
                                     
                                 <a href="admin-header-pesanan.php?action=detail&id=<?= $value['order_id'] ?>">

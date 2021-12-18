@@ -88,7 +88,62 @@
                             </tr>
                             <tr>
                                 <td style="padding-top: 20px;">
-                                    <input style="margin-left: 15px;" type="text" id="kota" name="kota" placeholder="Kota" required value="<?= $kota ?>">
+                                    <select name="kota" id="kota">
+                                        <?php
+                                            if($kota=="Sidoarjo"){
+                                                ?>
+                                                <option value="Sidoarjo" selected>Sidoarjo</option>
+                                                <?php
+                                            }
+                                            else if($kota!="Sidoarjo"){
+                                               ?>
+                                               <option value="Sidoarjo">Sidoarjo</option>
+                                               <?php
+                                            }
+                                            ?>
+                                            
+                                            <?php
+                                            if($kota=="Surabaya"){
+                                                ?>
+                                                <option value="Surabaya" selected>Surabaya</option>
+                                                <?php
+                                            }
+                                            else if($kota!="Surabaya"){
+                                               ?>
+                                               <option value="Surabaya">Surabaya</option>
+                                               <?php
+                                            }
+                                            ?>
+
+<?php
+                                            if($kota=="Jakarta"){
+                                                ?>
+                                                <option value="Jakarta" selected>Jakarta</option>
+                                                <?php
+                                            }
+                                            else if($kota!="Jakarta"){
+                                               ?>
+                                               <option value="Jakarta">Jakarta</option>
+                                               <?php
+                                            }
+                                            ?>
+
+<?php
+                                            if($kota=="Jayapura"){
+                                                ?>
+                                                <option value="Jayapura" selected>Jayapura</option>
+                                                <?php
+                                            }
+                                            else if($kota!="Jayapura"){
+                                               ?>
+                                               <option value="Jayapura">Jayapura</option>
+                                               <?php
+                                            }
+                                            ?>
+
+                                            
+                                        
+                                    </select>
                                 </td>
                             </tr>
                         </table>

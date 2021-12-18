@@ -167,7 +167,20 @@
                             ?>
                             <td><?= $value['tanggal_mulai']?></td>
                             <td><?= $value['tanggal_akhir']?></td>
-                            <td><?= $value['jam_ambil']?></td>
+                            <?php
+                                if($value['status']=='Belum diambil'){
+                                    ?>
+                                    <td>N/A</td>
+                                    <?php
+
+                                }
+                                else {
+                                    ?>
+                                    <td><?= $value['jam_ambil']?></td>
+                                    <?php
+                                }
+                                ?>
+                            
                             <td><?= $value['status']?></td>
                             <td>
                                     
@@ -204,29 +217,29 @@
 </body>
 <script>
 
-// var pick = document.querySelectorAll(".pick-up");
-// for (var i = 0; i < pick.length; i++) {
-//     pick[i].addEventListener('click', function(event) {
-//         if (confirm('Apakah anda yakin SEMUA mobil diambil?')) {
-//   // Save it!
-//   alert('Berhasil merubah status transaksi menjadi "Berlangsung"!');
-// } else {
-//   event.preventDefault();
-// }
-//     });
-// }
+var pick = document.querySelectorAll(".pick-up");
+for (var i = 0; i < pick.length; i++) {
+    pick[i].addEventListener('click', function(event) {
+        if (confirm('Apakah anda yakin SEMUA mobil diambil?')) {
+  // Save it!
+  alert('Berhasil merubah status transaksi menjadi "Berlangsung"!');
+} else {
+  event.preventDefault();
+}
+    });
+}
 
-// var kembali = document.querySelectorAll(".kembali");
-// for (var i = 0; i < kembali.length; i++) {
-//     kembali[i].addEventListener('click', function(event) {
-//         if (confirm('Apakah anda yakin SEMUA mobil sudah dikembalikan?')) {
-//   // Save it!
-//   alert('Berhasil merubah status transaksi menjadi "Selesai" dan status SEMUA mobil menjadi "Available!');
-// } else {
-//   event.preventDefault();
-// }
-//     });
-// }
+var kembali = document.querySelectorAll(".kembali");
+for (var i = 0; i < kembali.length; i++) {
+    kembali[i].addEventListener('click', function(event) {
+        if (confirm('Apakah anda yakin SEMUA mobil sudah dikembalikan?')) {
+  // Save it!
+  alert('Berhasil merubah status transaksi menjadi "Selesai" dan status SEMUA mobil menjadi "Available!');
+} else {
+  event.preventDefault();
+}
+    });
+}
     
    
 </script>

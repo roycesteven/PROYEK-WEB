@@ -3,6 +3,10 @@
     $stmt = $pdo->query("SELECT * FROM mobil");
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
+    if(isset($_SESSION["message"])){
+        echo "<script>alert('$_SESSION[message]')</script>";
+        unset($_SESSION["message"]);
+    }
     
     if(isset($_SESSION['active'])){
         unset($_SESSION['active']);

@@ -2,7 +2,10 @@
     require_once("connection.php");
 
     
-
+    if(isset($_SESSION["message"])){
+        echo "<script>alert('$_SESSION[message]')</script>";
+        unset($_SESSION["message"]);
+    }
 
     
 
@@ -10,25 +13,27 @@
     $penyewa = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $tanggal_mulai = date('Y-m-d', time());
-    $tanggal_akhir = $_POST['date_akhir'];
-    $jamambil = $_POST['jam_ambil'];
+   
+    // $jamambil = $_POST['jam_ambil'];
     // $_SESSION['gagal'];
-    if($tanggal_mulai != "" && $tanggal_akhir != "" && $jamambil != ""){
-        $_SESSION['date_mulai']= new DateTime($tanggal_mulai);
-        $_SESSION['tanggal_mulai'] = $tanggal_mulai;
-        $_SESSION['tanggal_akhir'] = $tanggal_akhir;
-        $_SESSION['date_akhir']=new DateTime($_POST['date_akhir']);
-        $_SESSION['jam_ambil'] = $jamambil;
+  
+        
+        if(!isset($_SESSION['tanggal_mulai'])){
+            $_SESSION['tanggal_mulai'] = $tanggal_mulai;
+        }
+        if(!isset($_SESSION['tanggal_akhir'])){
+            $_SESSION['tanggal_akhir'] = $_POST['date_akhir'];
+        }
+        $_SESSION['date_mulai']= new DateTime( $_SESSION['tanggal_mulai'] );
+        $_SESSION['date_akhir']=new DateTime( $_SESSION['tanggal_akhir']);
+        // $_SESSION['jam_ambil'] = $jamambil;
         //$diff= $_SESSION['date_akhir']->diff($_SESSION['date_mulai']);
         $now = time();
-        $end_date = strtotime($tanggal_akhir);
+        $end_date = strtotime($_SESSION['tanggal_akhir']);
         $datediff = $end_date - $now;
         $diff = round($datediff/(60*60*24));
         unset($_SESSION['gagal']);
-    }else{    
-        header("location: carts.php");
-        $_SESSION['gagal'] = "Ada field yang belum diisi";
-    }
+    
 
     if(isset($_REQUEST['action'])){
         if($_REQUEST['action']=='Go back'){
@@ -132,7 +137,8 @@
                 <h2>Details</h2>
                 <p>Tanggal Mulai : <?= $_SESSION['tanggal_mulai'] ?></p>
                 <p>Tanggal Akhir : <?= $_SESSION['tanggal_akhir'] ?></p>
-                <p>Jam Ambil : <?= $_SESSION['jam_ambil'] ?></p> <br>
+                <!-- <p>Jam Ambil : <?= $_SESSION['jam_ambil'] ?></p> <br> -->
+                <br>
                 <a href="./controller/control-order.php?action=checkout"><button class="checkout-button" style="margin-left:180px; margin-bottom:30px" > <span> CheckOut</span></button></a>
                 <!-- <form action="./controller/control-order.php" style="text-align:center; padding-top:10px">
                     <input type="hidden" name="action" value="checkout">
