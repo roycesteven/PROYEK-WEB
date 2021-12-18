@@ -91,18 +91,87 @@ if(isset($_SESSION["message"])){
                 </div>
             </div> <br><br><br><br><br><br> 
             <!-- review Section -->
+            
+
+            <!-- <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    
+                    <img src="Asset/fitra.jpg" > <br><br><br>
+                    <h3>Fitra Eri</h3> <br>
+                    <div class="text">Sangat puas sewa mobil di Indosuroboyo, praktis dan no ribet-ribet.</div>
+                </div>
+
+                <div class="mySlides fade">
+                
+                <img src="Asset/rossi.jpg" > <br><br><br>
+                <h3>Valentino Rossi</h3><br>
+                <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                
+                <img src="Asset/rock.jpg" > <br><br><br>
+                <h3>The Rock</h3><br>
+                <div class="text">Caption Three</div>
+                </div>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                </div>
+            </div>     -->
+            
             <section class="review" data-aos="zoom-in" data-aos-delay = "100" data-aos-duration="1000">
                    
                 <div class="swiper-slide">
-                    <div class="box">
+                    <div class="box fade">
                         <center>
                             <h1 style="font-size: 50px;">Review</h1>
                         </center>
                         <br><br>
                         <img src="Asset/fitra.jpg" alt="">
                         <h3>Fitra Eri</h3>
-                        <!-- <h4>Reviewer dan Youtuber</h4> -->
+                        <h4>Reviewer dan Youtuber</h4>
                         <p>Sangat puas sewa mobil di Indosuroboyo, praktis dan no ribet-ribet.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="box fade">
+                        <center>
+                            <h1 style="font-size: 50px;">Review</h1>
+                        </center>
+                        <br><br>
+                        <img src="Asset/rossi.jpg" alt="">
+                        <h3>Valentino Rossi</h3>
+                        <h4>Pembalap Profesional</h4>
+                        <p>Kondisi Mobil disini sangat terawat, Sehingga mumpuni dibuat nikung</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="box fade">
+                        <center>
+                            <h1 style="font-size: 50px;">Review</h1>
+                        </center>
+                        <br><br>
+                        <img src="Asset/rock.jpg" alt="">
+                        <h3>The Rock</h3>
+                        <h4>Pegulat/Aktris Papan Atas</h4>
+                        <p>Mobil disini sangat nyaman dikendarai orang berbadan besar</p>
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -126,5 +195,22 @@ if(isset($_SESSION["message"])){
 <script src="./Asset/aos.js"></script>
 <script>
     AOS.init();
-</script>   
+</script>  
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("box");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  slides[slideIndex-1].style.display = "block";  
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
 </html>

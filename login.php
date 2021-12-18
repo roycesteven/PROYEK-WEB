@@ -14,7 +14,7 @@
         if($usnm == 'admin' && $pass == 'admin'){
             // echo "<script> alert ('Masuk sebagai admin');</script>";
             $_SESSION['userLogin'] = $usnm;
-            header("location:admin.php");    
+            header("location:admin-header-pesanan.php");    
         }
 
         if($usnm != "" && $pass != ""){
@@ -78,6 +78,9 @@
                 <button>
                     <input type="hidden" name="login">
                     Log in
+                </button>
+                <button style = "margin-top : 20px">
+                    <a href="index.php" style="text-decoration: none; color: white;">Back To HomePage</a> 
                 </button>
 
                 
