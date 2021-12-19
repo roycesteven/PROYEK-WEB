@@ -7,6 +7,13 @@ if(isset($_SESSION["message"])){
 }
 // echo 'Current PHP version: ' . phpversion();
 
+if(isset($_SESSION['tanggal_mulai'])){
+    unset($_SESSION['tanggal_mulai']);
+}
+  
+if(isset($_SESSION['tanggal_akhir'])){
+    unset($_SESSION['tanggal_akhir']);
+}
 
 if(isset($_SESSION['gagal'])){
     $gagal = $_SESSION['gagal'];
@@ -52,7 +59,7 @@ if(isset($_REQUEST['action'])){
                 <div class="kiri">
                 <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                     <a href="produk-list.php" style="padding-top: 20px">Products</a>
-                    <a href="#container2" style="padding-top:20px">About Us</a>
+                    <a href="index.php#container2" style="padding-top:20px">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php

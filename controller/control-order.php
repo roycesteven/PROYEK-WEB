@@ -79,6 +79,8 @@ if($nik==0){
       unset($_SESSION["carts"]);
       unset($_SESSION['date_mulai']);
       unset($_SESSION['date_akhir']);
+      unset($_SESSION['tanggal_mulai']);
+      unset($_SESSION['tanggal_akhir']);
       header("Location: ../confirmation.php");
       }
 }

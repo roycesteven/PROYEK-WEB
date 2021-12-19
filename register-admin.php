@@ -24,8 +24,13 @@
                     <input type="hidden" name="action" value="addUser">
                         <table>
                             <tr>
-                                <td style="padding-top: 20px; "> 
-                                    <input style="margin-left: 15px;" type="number" name="nik" id="nik" placeholder="Masukan NIK" required>
+                                <td style="padding-top: 15px; ">
+                                    <input style="margin-left: 15px;" type="text" id="nama" name="nama" placeholder="Masukan Nama lengkap" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 20px; ">
+                                    <input style="margin-left: 15px;" type="email" id="email" name="email" placeholder="Masukan email" required><br>
                                 </td>
                             </tr>
                             <tr>
@@ -39,37 +44,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="padding-top: 20px;">
+                                <td style="padding-top: 20px; padding-bottom: 20px;">
                                 <input 
                                 style="margin-left: 15px;" type="password" id="repwd" name="repwd" placeholder="Masukan Ulang Password" required>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 20px; ">
-                                    <input style="margin-left: 15px;" type="email" id="email" name="email" placeholder="Masukan email" required><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 15px; padding-bottom: 20px;">
-                                    <input style="margin-left: 15px;" type="text" id="nama" name="nama" placeholder="Masukan Nama lengkap" required>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td> 
-                                    <input style="margin-left: 15px;"  type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 20px;">
-                                    <input style="margin-left: 15px;" type="text" id="alamat" name="alamat" placeholder="Alamat" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 20px;">
-                                    <input style="margin-left: 15px;" type="text" id="kota" name="kota" placeholder="Kota" required>
-                                </td>
-                            </tr>
+                            </tr>                                                       
                         </table>
                         <input type="submit" value="Register" id = "button" name="action">
                     </form>

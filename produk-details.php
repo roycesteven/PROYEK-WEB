@@ -29,7 +29,7 @@
                 <div class="kiri">
                     <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                     <a href="produk-list.php" style="padding-top: 20px; box-sizing: border-box;">Products</a>
-                    <a href="#container2" style="padding-top:20px; box-sizing: border-box;">About Us</a>
+                    <a href="index.php#container2" style="padding-top:20px; box-sizing: border-box;">About Us</a>
                 </div>
                 <div class="kanan">
                 <?php
@@ -107,7 +107,7 @@
                             <form action="./controller/control-details.php" method="POST">
                                                 <input type="hidden" name="action" value="delete">
                                                 <input type="hidden" name="id" value="<?=  $value['id']?>">
-                                                <button type="submit" name="submit_proceed" value="Add to Cart">Remove from Cart</button>
+                                                <button type="submit" name="submit_proceed" value="Add to Cart" style="font-size: 20px;">Remove from Cart</button>
                                             </form>
                             <?php
                         }

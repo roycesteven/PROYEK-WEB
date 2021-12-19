@@ -49,7 +49,7 @@
                 <div class="kiri">
                 <a href="index.php" class="logo" style="color: white;">Indo<span style="color: green;">Suroboyo</span></a>
                     <a href="produk-list.php" style="padding-top: 20px">Products</a>
-                    <a href="#container2" style="padding-top:20px">About Us</a>
+                    <a href="index.php#container2" style="padding-top:20px">About Us</a>
                 </div>
                 <div class="kanan">
                     <?php
@@ -134,7 +134,7 @@
                                 ?>
                             <td>
                                     
-                                <a href="admin-header-pesanan.php?action=detail&id=<?= $value['order_id'] ?>">
+                                <a href="user-header-pesanan.php?action=detail&id=<?= $value['order_id'] ?>">
                                          <button class="detail-button"><span> Detail </span></button>
                                 </a>
                                     
