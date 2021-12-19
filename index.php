@@ -1,6 +1,10 @@
 <?php
 
 require_once("connection.php");
+$stmt = $pdo->query("SELECT * FROM mobil");
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 if(isset($_SESSION['userLogin'])){
     if($_SESSION['userLogin']=='admin'){
@@ -90,41 +94,62 @@ if(isset($_SESSION["message"])){
                     </div>
                 </div>
             </div> <br><br><br><br><br><br> 
-            <!-- review Section -->
+
+            <!-- produk unggulan -->
+            <center>
+                <h1>Produk unggulan kami</h1>
+            </center><br><br><br><br><br><br>
+            <div class="produktop">
+
             
+            <?php 
 
-            <!-- <div class="slideshow-container">
-
-                <div class="mySlides fade">
+            
+                foreach($products as $key => $value){
+                    if($value['id'] <= 3)
+                    {         
+             ?>
+                        
+                        <div class="product-card">
+                            <div class="main-images">
+                                <img src="Asset/mobil/<?= $value['gambar'] ?>.jpg" alt="car" style="width:100%; height:200px" >
+                            </div>
+                            <div class="shoe-details">
+                                <span class="shoe_name"><?= $value['nama_mobil'] ?></span>
+                                <p>Kendaraan berjenis <?= $value['nama_mobil'] ?> meiliki ketangguhan untuk dipakai dalam aktifitas sehari hari maupun keluarga </p>
+                                <div class="stars">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bx-star' ></i>
+                                </div>
+                            </div>
+                            <div class="color-price">
+                                <div class="price">
+                                <span class="price_num">Rp.<?= $value['tarif_hari'] ?></span>
+                                </div>
+                            </div>
+                            <div class="button">
+                                <div class="button-layer"></div>
+                                <form action="./controller/control-details.php" method="POST">
+                                    <input type="hidden" name="action" value="add">
+                                    <input type="hidden" name="id" value="<?=  $value['id']?>">
+                                    <button>Add To Cart</button>
+                                </form>
+                            </div>
+                        </div>
                     
-                    <img src="Asset/fitra.jpg" > <br><br><br>
-                    <h3>Fitra Eri</h3> <br>
-                    <div class="text">Sangat puas sewa mobil di Indosuroboyo, praktis dan no ribet-ribet.</div>
-                </div>
+                <?php
+                    }
+                }        
+            
+            ?>
+            </div>
 
-                <div class="mySlides fade">
-                
-                <img src="Asset/rossi.jpg" > <br><br><br>
-                <h3>Valentino Rossi</h3><br>
-                <div class="text">Caption Two</div>
-                </div>
-
-                <div class="mySlides fade">
-                
-                <img src="Asset/rock.jpg" > <br><br><br>
-                <h3>The Rock</h3><br>
-                <div class="text">Caption Three</div>
-                </div>
-
-                </div>
-                <br>
-
-                <div style="text-align:center">
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-                <span class="dot"></span> 
-                </div>
-            </div>     -->
+            <!-- end produk unggulan -->
+            <br><br><br>
+            <!-- review Section -->
             
             <section class="review" data-aos="zoom-in" data-aos-delay = "100" data-aos-duration="1000">
                    
@@ -213,4 +238,5 @@ function showSlides() {
   setTimeout(showSlides, 4000); // Change image every 2 seconds
 }
 </script>
+
 </html>
