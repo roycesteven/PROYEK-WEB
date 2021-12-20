@@ -52,6 +52,7 @@ if(isset($_REQUEST['action'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="carts.css">
     <title>Order Form</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 </head>
 <body>  
         <div class="container">
@@ -153,7 +154,7 @@ if(isset($_REQUEST['action'])){
                         </tr> -->
                         <tr>
                             <td style="padding-top:20px"><label for="" >Tanggal Akhir</label></td>
-                            <td>: <input type="date" name="date_akhir" id="" required></td>
+                            <td>: <input type="date" name="date_akhir" id="date_picker" required></td>
                         </tr>
                        
                         <tr>
@@ -174,6 +175,15 @@ if(isset($_REQUEST['action'])){
              <!-- <input type="submit" name="action" id="go back to list produk" value="go back to list produk"></td>    -->
         </div>    
 </body>
+<script language="javascript">
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#date_picker').attr('min',today);
+</script>
 
 </html>
 

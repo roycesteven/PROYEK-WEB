@@ -13,6 +13,11 @@
         }      
     }
 
+    if(isset($_SESSION["message"])){
+        echo "<script>alert('$_SESSION[message]')</script>";
+        unset($_SESSION["message"]);
+    }
+
     $stmt = $pdo-> prepare("SELECT * FROM mobil");
     $stmt -> execute();
     $mobils = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -7,6 +7,11 @@
         $stmt -> execute();
         $headers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        if(isset($_SESSION["message"])){
+            echo "<script>alert('$_SESSION[message]')</script>";
+            unset($_SESSION["message"]);
+        }
+
 
         if(isset($_REQUEST["action"])){
             if($_REQUEST["action"] == "detail"){

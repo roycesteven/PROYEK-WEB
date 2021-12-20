@@ -2,6 +2,11 @@
 
 require_once("connection.php");
 
+if(isset($_SESSION["message"])){
+	echo "<script>alert('$_SESSION[message]')</script>";
+	unset($_SESSION["message"]);
+}
+
 $id_mobil = $_GET['id'];
 $stmt = $pdo-> prepare("SELECT * FROM mobil WHERE ID = :id");
 $stmt->BindParam(":id",$id_mobil);
@@ -115,6 +120,7 @@ if(isset($_POST['submit']))
 						</tr>
 					</table>
 					</center>
+					<p> Back to Admin Mobil <a href="admin-mobil.php">Here! </a></p>
 				</form>
 			</div>
         </div>

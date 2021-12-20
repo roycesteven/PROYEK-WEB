@@ -31,9 +31,10 @@
         $now = time();
         $end_date = strtotime($_SESSION['tanggal_akhir']);
         $datediff = $end_date - $now;
-        $diff = round($datediff/(60*60*24));
+        $diff = ceil($datediff/(60*60*24));
         unset($_SESSION['gagal']);
-    
+        
+
 
     if(isset($_REQUEST['action'])){
         if($_REQUEST['action']=='Go back'){
@@ -59,6 +60,7 @@
     <link rel="stylesheet" href="carts.css">
     <title>Order Summary | Indosuroboyo.com</title>
 </head>
+
 <body>  
         <div class="container">
         <div class="navigation">
@@ -150,5 +152,6 @@
         </div>
     
     
-   
+        
+    </body>
 </html>
